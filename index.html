@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextStep - Angel Round</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:title" content="NextStep - Angel Round">
+<meta property="og:description" content="The talent intelligence platform for professional services. Built by the team behind Consulting Comedy (4M+ followers). Using AI-powered matching to deliver the best exit opportunities for consultants.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NextStep - Angel Round">
+<meta name="twitter:description" content="The talent intelligence platform for professional services. Built by the team behind Consulting Comedy (4M+ followers).">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #030352;
+  --navy-mid: #1a1a5e;
+  --teal: #37c3b0;
+  --teal-light: #e8f8f5;
+  --orange: #ff5100;
+  --orange-hover: #e64900;
+  --orange-light: #ffa27a;
+  --blue-link: #0a66c2;
+  --bg: #f4f4f8;
+  --white: #ffffff;
+  --text: #030352;
+  --text-secondary: #4a4a70;
+  --text-muted: #9696bc;
+  --border: #e0e0ea;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top Nav ── */
+.topnav {
+  background: var(--navy);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.topnav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topnav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.topnav-logo img { height: 26px; }
+.btn-cta {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 9px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-cta:hover { background: var(--orange-hover); }
+.btn-cta--block { width: 100%; text-align: center; }
+.btn-cta--large { padding: 14px 32px; font-size: 16px; border-radius: 8px; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Masthead ── */
+.masthead {
+  background: var(--navy);
+  padding: 32px 0 48px;
+  position: relative;
+}
+.masthead::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--navy);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+  z-index: 1;
+}
+.masthead-title-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.masthead-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #000;
+  padding: 10px;
+  border: 2px solid #ffffff;
+}
+.masthead-icon img { width: 100%; height: 100%; object-fit: contain; }
+.masthead-title-row h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1px;
+}
+.masthead-desc {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  max-width: 700px;
+}
+.masthead-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  max-width: 660px;
+}
+.masthead-link {
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.masthead-link:hover { text-decoration: underline; }
+.masthead-socials {
+  display: flex;
+  gap: 14px;
+}
+.masthead-socials a {
+  color: #ababbb;
+  transition: color 0.2s;
+}
+.masthead-socials a:hover { color: #fff; }
+}
+.masthead-link:hover { text-decoration: underline; }
+.masthead-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── Main Grid ── */
+.page-body { padding: 56px 0 80px; position: relative; z-index: 2; }
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+}
+
+/* ── Content Column ── */
+.content-col > section { margin-bottom: 64px; }
+
+/* Carousel */
+.carousel {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+}
+.carousel-slides {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.carousel-slide {
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel-slide video,
+.carousel-slide iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: #888;
+  font-size: 15px;
+  background: #0a0a1a;
+}
+.video-placeholder svg { opacity: 0.35; }
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s;
+}
+.carousel-arrow:hover { background: #fff; }
+.carousel-arrow--prev { left: 12px; }
+.carousel-arrow--next { right: 12px; }
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active { background: #fff; }
+
+.thumbnails {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.thumb-btn {
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color 0.2s, opacity 0.2s;
+  opacity: 0.6;
+}
+.thumb-btn.active, .thumb-btn:hover { border-color: var(--orange); opacity: 1; }
+.thumb-btn img {
+  width: 72px;
+  height: 54px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Section styling */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--border);
+}
+.section-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* Key Info */
+.key-info-dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.key-info-pair {
+  background: var(--white);
+  padding: 14px 18px;
+}
+.key-info-pair dt {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.key-info-pair dd {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Highlights */
+.highlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.highlights-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+.check-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+}
+
+/* The Idea */
+.idea-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.idea-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.idea-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.idea-item h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.idea-item p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.team-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.team-info .role {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.team-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--blue-link);
+  text-decoration: none;
+  font-weight: 600;
+}
+.team-profile-link:hover { text-decoration: underline; }
+
+.advisors-section { margin-top: 24px; }
+.advisors-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.advisor-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.advisor-chip {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+.advisor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+/* Vision / Use of Funds */
+.vision-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.funds-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fund-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.fund-row-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--teal-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fund-row h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.fund-row p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+/* Express Interest (form) */
+.form-intro {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.form-embed {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.form-embed iframe {
+  width: 100%;
+  min-height: 600px;
+  border: none;
+}
+.form-placeholder {
+  padding: 64px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.form-placeholder svg { opacity: 0.25; }
+
+/* ── Sidebar ── */
+.sidebar-col { position: relative; }
+.sidebar-sticky { position: sticky; top: 68px; }
+
+.sidebar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 12px;
+}
+.sidebar-eyebrow {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.sidebar-amount {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.sidebar-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.sidebar-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+/* Sidebar stats */
+.sidebar-stats {
+  list-style: none;
+}
+.sidebar-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-stat:last-child { border-bottom: none; }
+.sidebar-stat dt {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.sidebar-stat dd {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar-nav a:last-child { border-bottom: none; }
+.sidebar-nav a:hover { background: var(--bg); }
+.sidebar-nav a.active { color: var(--navy); font-weight: 700; border-left: 3px solid var(--navy); padding-left: 15px; }
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.sidebar-nav a.active .nav-icon { color: var(--navy); }
+
+/* ── Footer ── */
+.footer {
+  background: var(--navy);
+  padding: 32px 0;
+}
+.footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-left { display: flex; align-items: center; gap: 12px; }
+.footer-left img { height: 22px; }
+.footer-left span { color: #9696bc; font-size: 13px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { color: #9696bc; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-legal {
+  width: 100%;
+  text-align: center;
+  color: #6b6b88;
+  font-size: 11px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .sidebar-col { order: -1; }
+  .sidebar-sticky { position: static; }
+  .sidebar-nav { display: none; }
+  .key-info-dl { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .masthead-inner { flex-direction: column; }
+  .masthead-text h1 { font-size: 22px; }
+  .key-info-dl { grid-template-columns: 1fr; }
+  .carousel-arrow { width: 32px; height: 32px; }
+  .thumb-btn img { width: 56px; height: 42px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Top Nav ─── -->
+<nav class="topnav">
+  <div class="container">
+    <a href="#" class="topnav-logo">
+      <img src="logo-light.png" alt="NextStep">
+    </a>
+    <a href="https://forms.gle/YfeF1VfKzeisubwW8" target="_blank" class="btn-cta">Express Interest</a>
+  </div>
+</nav>
+
+<!-- ─── Masthead ─── -->
+<section class="masthead">
+  <div class="container">
+    <div class="masthead-title-row">
+      <div class="masthead-icon">
+        <img src="icon.png" alt="">
+      </div>
+      <h1>NextStep</h1>
+    </div>
+    <p class="masthead-desc">Built by the team behind <a href="https://www.instagram.com/consultingcomedy" target="_blank" style="color:#fff;text-decoration:underline;">Consulting Comedy</a>, the world's #1 consulting brand with over 4 million followers, NextStep is the talent intelligence platform for professional services. Using AI-powered matching, NextStep curates the best exit opportunities for consultants and delivers personalised, relevant roles straight to their inbox every week.</p>
+    <div class="masthead-links-row">
+      <a href="https://getnextstep.com" target="_blank" class="masthead-link">getnextstep.com</a>
+      <div class="masthead-socials">
+        <a href="https://www.linkedin.com/company/getnextstep" target="_blank" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/getnextstep" target="_blank" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="masthead-tags">
+      <span class="tag">Equity</span>
+      <span class="tag">Angel Round</span>
+      <span class="tag">United Kingdom</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Page Body: Two Columns ─── -->
+<div class="page-body">
+  <div class="container">
+    <div class="main-grid">
+
+      <!-- ════ LEFT: Content ════ -->
+      <div class="content-col">
+
+        <!-- Image / Video Carousel -->
+        <section id="carousel-section">
+          <div class="carousel" id="carousel">
+            <div class="carousel-slides" id="carousel-slides">
+              <!-- Slide 0: Video placeholder -->
+              <div class="carousel-slide">
+                <!-- Replace with your video embed:
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                -->
+                <div class="video-placeholder">
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                  Fundraising video coming soon
+                </div>
+              </div>
+              <!-- Slide 1 -->
+              <div class="carousel-slide">
+                <img src="hero.png" alt="NextStep Product">
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-slide">
+                <img src="matching.png" alt="NextStep Matching">
+              </div>
+              <!-- Slide 3 -->
+              <div class="carousel-slide">
+                <img src="results.png" alt="NextStep Results">
+              </div>
+            </div>
+            <button class="carousel-arrow carousel-arrow--prev" onclick="moveSlide(-1)" aria-label="Previous">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#030352" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel-arrow carousel-arrow--next" onclick="moveSlide(1)" aria-label="Next">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#030352" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
+            </button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+          </div>
+          <div class="thumbnails" id="thumbnails"></div>
+        </section>
+
+        <!-- Key Information -->
+        <section id="key-information">
+          <div class="section-header"><h2>Key Information</h2></div>
+          <dl class="key-info-dl">
+            <div class="key-info-pair">
+              <dt>Investment type</dt>
+              <dd>Equity</dd>
+            </div>
+            <div class="key-info-pair">
+              <dt>Round</dt>
+              <dd>Angel Round</dd>
+            </div>
+            <div class="key-info-pair">
+              <dt>Location</dt>
+              <dd>United Kingdom</dd>
+            </div>
+            <div class="key-info-pair">
+              <dt>Active users</dt>
+              <dd>4,000+</dd>
+            </div>
+            <div class="key-info-pair">
+              <dt>MoM growth</dt>
+              <dd>50%+</dd>
+            </div>
+            <div class="key-info-pair">
+              <dt>Customer acquisition cost</dt>
+              <dd>$0</dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Highlights -->
+        <section id="highlights">
+          <div class="section-header"><h2>Highlights</h2></div>
+          <ul class="highlights-list">
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Built by the creator of Consulting Comedy, with 4M+ followers across platforms, the world's #1 consulting brand.
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              4,000+ users and growing at over 50% month-on-month, with zero customer acquisition cost.
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              AI-powered matching engine (Agent Zero) delivers personalised exit opportunities to consultants weekly.
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Backed by advisors from Blazar Capital and Jobi Brands.
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Built-in distribution via Consulting Comedy, White Collar Humour, and CSOP creator partners.
+            </li>
+          </ul>
+        </section>
+
+        <!-- The Idea -->
+        <section id="the-idea">
+          <div class="section-header"><h2>The Idea</h2></div>
+          <div class="idea-grid">
+            <div class="idea-item">
+              <div class="idea-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a4a90" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div>
+                <h3>Problem</h3>
+                <p>Consultants waste months searching for exit opportunities through generic job boards that aren't built for them. Most send 200+ applications, hear back from a handful, and rarely find relevant roles. The process is time-consuming, inefficient, and broken.</p>
+              </div>
+            </div>
+            <div class="idea-item">
+              <div class="idea-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffa27a" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <h3>Solution</h3>
+                <p>NextStep is a talent intelligence platform that curates exit opportunities for consultants and matches them using AI. Candidates set their preferences once and receive a personalised shortlist of relevant roles to their inbox every week. Privacy is protected throughout.</p>
+              </div>
+            </div>
+            <div class="idea-item">
+              <div class="idea-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <h3>Business model</h3>
+                <p>NextStep is free for candidates. The platform generates revenue by charging employers for access to the curated talent pool of consultants actively exploring their next move.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Team -->
+        <section id="team">
+          <div class="section-header"><h2>Team</h2></div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar"><img src="ahmed.jpg" alt="Ahmed"></div>
+              <div class="team-info">
+                <h3>Ahmed Eltom</h3>
+                <div class="role">Founder</div>
+                <a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="team-profile-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  View profile
+                </a>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar"><img src="ana.jpg" alt="Ana"></div>
+              <div class="team-info">
+                <h3>Ana Colak Fustin</h3>
+                <div class="role">COO</div>
+                <a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="team-profile-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  View profile
+                </a>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar"><img src="ryan.jpg" alt="Ryan"></div>
+              <div class="team-info">
+                <h3>Ryan Nelson</h3>
+                <div class="role">Advisor</div>
+                <a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="team-profile-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  View profile
+                </a>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar"><img src="christian.jpg" alt="Christian"></div>
+              <div class="team-info">
+                <h3>Christian Arnstedt</h3>
+                <div class="role">Advisor</div>
+                <a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="team-profile-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  View profile
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Vision & Use of Funds -->
+        <section id="vision">
+          <div class="section-header"><h2>Vision &amp; Use of Funds</h2></div>
+          <p class="vision-text">NextStep's vision is bigger than consulting. We're building the talent intelligence platform for professional services, starting with consulting exits and expanding into every high-value career transition. The funds raised will go directly into:</p>
+          <div class="funds-list">
+            <div class="fund-row">
+              <div class="fund-row-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <h4>Product Development</h4>
+                <p>Expand Agent Zero's matching capabilities and build the employer-side platform.</p>
+              </div>
+            </div>
+            <div class="fund-row">
+              <div class="fund-row-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <h4>Employer Acquisition</h4>
+                <p>Grow the employer network to deliver more high-quality opportunities to candidates.</p>
+              </div>
+            </div>
+            <div class="fund-row">
+              <div class="fund-row-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div>
+                <h4>Creator Network</h4>
+                <p>Scale the distribution engine with new creator partnerships and channels.</p>
+              </div>
+            </div>
+            <div class="fund-row">
+              <div class="fund-row-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <div>
+                <h4>Operations</h4>
+                <p>Build the foundation for scaling the team and infrastructure.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+      </div>
+
+      <!-- ════ RIGHT: Sidebar ════ -->
+      <div class="sidebar-col">
+        <div class="sidebar-sticky">
+
+          <!-- CTA Card -->
+          <div class="sidebar-card">
+            <div class="sidebar-eyebrow">Equity - Angel Round</div>
+            <div class="sidebar-amount">Raising Now</div>
+
+            <dl class="sidebar-stats">
+              <div class="sidebar-stat">
+                <dt>Investment type</dt>
+                <dd>Equity</dd>
+              </div>
+              <div class="sidebar-stat">
+                <dt>Round</dt>
+                <dd>Angel Round</dd>
+              </div>
+              <div class="sidebar-stat">
+                <dt>Location</dt>
+                <dd>United Kingdom</dd>
+              </div>
+            </dl>
+
+            <hr class="sidebar-divider">
+
+            <p class="sidebar-note">Interested in this opportunity? Express your interest and we'll be in touch with next steps.</p>
+            <a href="https://forms.gle/YfeF1VfKzeisubwW8" target="_blank" class="btn-cta btn-cta--block btn-cta--large">Express Interest</a>
+          </div>
+
+          <!-- Section Navigation -->
+          <nav class="sidebar-nav" id="sidebar-nav">
+            <a href="#key-information">
+              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+              Key Information
+            </a>
+            <a href="#highlights">
+              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Highlights
+            </a>
+            <a href="#the-idea">
+              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+              The Idea
+            </a>
+            <a href="#team">
+              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+              Team
+            </a>
+            <a href="#vision">
+              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+              Vision &amp; Funds
+            </a>
+            <a href="https://forms.gle/YfeF1VfKzeisubwW8" target="_blank">
+              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              Express Interest &#8599;
+            </a>
+          </nav>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ─── Footer ─── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-left">
+      <img src="logo-light.png" alt="NextStep">
+      <span>ahmed@getnextstep.com</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://getnextstep.com" target="_blank">Website</a>
+      <a href="https://www.linkedin.com/company/getnextstep" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/consultingcomedy" target="_blank">Instagram</a>
+    </div>
+    <div class="footer-legal">&copy; 2026 NextStep. All rights reserved. This page is for informational purposes only and does not constitute an offer of securities.</div>
+  </div>
+</footer>
+
+<script>
+// ── Carousel ──
+const slides = document.querySelectorAll('.carousel-slide');
+const slidesContainer = document.getElementById('carousel-slides');
+const dotsContainer = document.getElementById('carousel-dots');
+const thumbsContainer = document.getElementById('thumbnails');
+let currentSlide = 0;
+
+// Build dots & thumbnails
+const thumbSrcs = [null]; // first slide is video, no thumb
+slides.forEach((slide, i) => {
+  // Dot
+  const dot = document.createElement('button');
+  dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+  dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+
+  // Thumbnail
+  const img = slide.querySelector('img');
+  if (img) {
+    const btn = document.createElement('button');
+    btn.className = 'thumb-btn' + (i === 0 ? ' active' : '');
+    const thumbImg = document.createElement('img');
+    thumbImg.src = img.src;
+    thumbImg.alt = img.alt;
+    btn.appendChild(thumbImg);
+    btn.onclick = () => goToSlide(i);
+    thumbsContainer.appendChild(btn);
+  } else {
+    // Video slide thumb placeholder
+    const btn = document.createElement('button');
+    btn.className = 'thumb-btn active';
+    btn.innerHTML = '<div style="width:72px;height:54px;background:#0a0a1a;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#888"><polygon points="5,3 19,12 5,21"/></svg></div>';
+    btn.onclick = () => goToSlide(i);
+    thumbsContainer.appendChild(btn);
+  }
+});
+
+function goToSlide(n) {
+  currentSlide = n;
+  slidesContainer.style.transform = 'translateX(-' + (n * 100) + '%)';
+  document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === n));
+  document.querySelectorAll('.thumb-btn').forEach((t, i) => t.classList.toggle('active', i === n));
+}
+
+function moveSlide(dir) {
+  let next = currentSlide + dir;
+  if (next < 0) next = slides.length - 1;
+  if (next >= slides.length) next = 0;
+  goToSlide(next);
+}
+
+// ── Sidebar active nav on scroll ──
+const sections = document.querySelectorAll('.content-col section[id]');
+const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateNav);
+updateNav();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
