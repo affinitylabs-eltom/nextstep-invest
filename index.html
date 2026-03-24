@@ -4,1101 +4,690 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NextStep - Angel Round</title>
-
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-
-<!-- Open Graph / Social Preview -->
 <meta property="og:title" content="NextStep - Angel Round">
-<meta property="og:description" content="The talent intelligence platform for professional services. Built by the team behind Consulting Comedy (4M+ followers). Using AI-powered matching to deliver the best exit opportunities for consultants.">
+<meta property="og:description" content="AI-powered career matching built by the consulting community, for the consulting community.">
 <meta property="og:image" content="https://affinitylabs-eltom.github.io/nextstep-invest/og-image.png">
 <meta property="og:type" content="website">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NextStep - Angel Round">
-<meta name="twitter:description" content="The talent intelligence platform for professional services. Built by the team behind Consulting Comedy (4M+ followers).">
+<meta name="twitter:description" content="AI-powered career matching built by the consulting community, for the consulting community.">
 <meta name="twitter:image" content="https://affinitylabs-eltom.github.io/nextstep-invest/og-image.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#09090b;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--bh:rgba(255,255,255,0.12);--t1:#fafafa;--t2:rgba(255,255,255,0.5);--t3:rgba(255,255,255,0.45);--ac:#7c3aed;--at:rgba(124,58,237,0.12);--av:#a78bfa;--gr:#22c55e;--or:#f97316;--blue:#3b82f6;--amber:#f59e0b}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5;overflow-x:hidden}
+.s{height:100vh;height:100dvh;overflow:hidden;display:flex;align-items:center;padding:clamp(40px,8vh,120px) 24px;position:relative;scroll-snap-align:start}
+.s-tall{height:auto;min-height:100vh;overflow:visible}
+.si{max-width:960px;width:100%;margin:0 auto;position:relative;z-index:2}
+.ey{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--av);margin-bottom:20px}
+.h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.08;letter-spacing:-0.03em;margin-bottom:20px}
+.sh{font-size:clamp(15px,2vw,17px);font-weight:400;line-height:1.7;color:var(--t2);max-width:100%}
+.cd{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;transition:border-color .3s}
+.cd:hover{border-color:var(--bh)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;text-decoration:none;border:none;cursor:pointer;transition:all .25s;border-radius:8px}
+.bp{padding:12px 28px;background:var(--t1);color:var(--bg)}.bp:hover{opacity:.9;transform:translateY(-1px)}
+.bs{padding:12px 28px;background:transparent;color:var(--t1);border:1px solid var(--border)}.bs:hover{border-color:var(--bh);background:var(--card)}
+.bl{padding:16px 40px;font-size:15px;border-radius:10px}
+.nd{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:8px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);cursor:pointer;transition:all .3s}
+.dot.on{background:var(--av);box-shadow:0 0 8px rgba(124,58,237,.4)}
 
-:root {
-  --navy: #030352;
-  --navy-mid: #1a1a5e;
-  --teal: #37c3b0;
-  --teal-light: #e8f8f5;
-  --orange: #ff5100;
-  --orange-hover: #e64900;
-  --orange-light: #ffa27a;
-  --blue-link: #0a66c2;
-  --bg: #f4f4f8;
-  --white: #ffffff;
-  --text: #030352;
-  --text-secondary: #4a4a70;
-  --text-muted: #9696bc;
-  --border: #e0e0ea;
-  --radius: 12px;
-  --radius-sm: 8px;
-}
+/* HERO */
+#hero{text-align:center;justify-content:center}
+#hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.15),rgba(124,58,237,.04) 50%,transparent 70%);top:5%;left:50%;transform:translateX(-50%);filter:blur(80px);pointer-events:none}
+#hero::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);bottom:10%;right:10%;filter:blur(60px);pointer-events:none}
+.hp{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--at);border:1px solid rgba(124,58,237,.15);border-radius:100px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--av);margin-bottom:40px}
+.ld{width:5px;height:5px;border-radius:50%;background:var(--gr);animation:bl 2.5s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.ht{font-family:'Syne',sans-serif;font-size:clamp(48px,9vw,88px);font-weight:800;letter-spacing:-0.04em;line-height:1;margin-bottom:24px}
+.ht .a{background:linear-gradient(135deg,var(--av),#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hd{font-size:clamp(15px,2vw,17px);color:var(--t2);max-width:480px;margin:0 auto 48px;line-height:1.7}
+.hm{display:flex;justify-content:center;gap:48px;margin-bottom:56px;flex-wrap:wrap}
+.hmi{text-align:center}
+.hmv{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.02em;border-bottom:2px solid var(--av);padding-bottom:4px;display:inline-block}
+.hml{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+.ha{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.sc{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:var(--t3);font-size:11px;letter-spacing:1px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:dr 2.5s ease-in-out infinite}
+@keyframes dr{0%,100%{transform:translateX(-50%) translateY(0);opacity:1}50%{transform:translateX(-50%) translateY(6px);opacity:.5}}
+.sc .ar{width:1px;height:16px;background:linear-gradient(to bottom,var(--t3),transparent)}
 
-html { scroll-behavior: smooth; }
+/* VIDEO */
+.vid-s{min-height:auto;padding:80px 24px}
+#video::before{content:'';position:absolute;width:100%;height:100%;top:0;left:0;background:radial-gradient(ellipse at center,rgba(124,58,237,.04),transparent 60%);pointer-events:none}
+.vid-wrap{margin-top:40px;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#0a0a1a;border:1px solid var(--border);position:relative;box-shadow:0 0 80px rgba(124,58,237,.08),0 4px 60px rgba(0,0,0,.5)}
+.vid-poster{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;cursor:pointer;z-index:2;transition:opacity .4s}
+.vid-poster:hover .vid-play-btn{transform:scale(1.1);background:rgba(124,58,237,.9);box-shadow:0 0 30px rgba(124,58,237,.4)}
+.vid-poster-logo{max-width:min(60%,320px);height:auto;object-fit:contain;pointer-events:none}
+.vid-play-btn{width:64px;height:64px;border-radius:50%;background:rgba(124,58,237,.7);display:flex;align-items:center;justify-content:center;transition:all .3s;padding-left:3px}
+.vid-poster.hidden{opacity:0;pointer-events:none}
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+/* PROBLEM */
+#problem::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.05),transparent 70%);top:-10%;right:-5%;filter:blur(80px);pointer-events:none}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.pc{background:var(--bg);padding:36px 32px}
+.pct{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;margin-bottom:24px}
+.pi{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.6;color:var(--t2)}
+.pi:last-child{border-bottom:none}
+.pi::before{content:'';width:6px;height:6px;border-radius:50%;margin-top:8px;flex-shrink:0}
+.pc:first-child .pi::before{background:var(--av);opacity:.5}
+.pc:last-child .pi::before{background:var(--or);opacity:.5}
+.pf{text-align:center;margin-top:40px;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--t1);padding:24px 32px;border:1px solid rgba(124,58,237,.25);border-radius:12px;background:var(--at);letter-spacing:-0.01em}
+.pf-label{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--av);margin-bottom:8px}
 
-/* ── Top Nav ── */
-.topnav {
-  background: var(--navy);
-  padding: 12px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.topnav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.topnav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.topnav-logo img { height: 26px; }
-.btn-cta {
-  background: var(--orange);
-  color: #fff;
-  border: none;
-  padding: 9px 28px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s;
-  display: inline-block;
-}
-.btn-cta:hover { background: var(--orange-hover); }
-.btn-cta--block { width: 100%; text-align: center; }
-.btn-cta--large { padding: 14px 32px; font-size: 16px; border-radius: 8px; }
+/* SOLUTION */
+#solution::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,.04),transparent 70%);bottom:-15%;left:-10%;filter:blur(80px);pointer-events:none}
+.hg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.hs{background:var(--bg);padding:32px 24px}
+.hn{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--av);margin-bottom:16px;letter-spacing:-0.02em;opacity:.4}
+.hna{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.hna .step-icon{width:20px;height:20px;color:var(--av);flex-shrink:0}
+.hde{font-size:13px;color:var(--t2);line-height:1.6}
+.pr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.pri{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--t2);padding:14px 16px;border:1px solid var(--border);border-radius:8px}
+.prc{width:16px;height:16px;border-radius:50%;background:rgba(34,197,94,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.prc svg{width:10px;height:10px}
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+/* PRODUCT FLOW */
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.flow-card{background:var(--bg);padding:36px 28px;position:relative}
+.flow-time{font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;display:inline-block;margin-bottom:16px;background:var(--at);color:var(--av)}
+.flow-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--av);opacity:.2;position:absolute;top:20px;right:20px}
+.flow-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:10px}
+.flow-desc{font-size:13px;color:var(--t2);line-height:1.7}
 
-/* ── Masthead ── */
-.masthead {
-  background: var(--navy);
-  padding: 32px 0 48px;
-  position: relative;
-}
-.masthead::after {
-  content: '';
-  position: absolute;
-  bottom: -30px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: var(--navy);
-  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
-  z-index: 1;
-}
-.masthead-title-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 20px;
-}
-.masthead-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: #000;
-  padding: 10px;
-  border: 2px solid #ffffff;
-}
-.masthead-icon img { width: 100%; height: 100%; object-fit: contain; }
-.masthead-title-row h1 {
-  font-size: 48px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -1px;
-}
-.masthead-desc {
-  color: #ffffff;
-  font-size: 18px;
-  line-height: 1.75;
-  margin-bottom: 18px;
-  max-width: 700px;
-}
-.masthead-links-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-  max-width: 660px;
-}
-.masthead-link {
-  color: var(--teal);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.masthead-link:hover { text-decoration: underline; }
-.masthead-socials {
-  display: flex;
-  gap: 14px;
-}
-.masthead-socials a {
-  color: #ababbb;
-  transition: color 0.2s;
-}
-.masthead-socials a:hover { color: #fff; }
-}
-.masthead-link:hover { text-decoration: underline; }
-.masthead-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.tag {
-  padding: 4px 14px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.15);
-}
+/* TRACTION */
+#traction::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(124,58,237,.02) 50%,transparent 100%);pointer-events:none}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.mc{background:var(--bg);padding:36px 24px;text-align:center}
+.mv{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,36px);font-weight:800;letter-spacing:-0.02em;margin-bottom:4px}
+.ml{font-size:12px;color:var(--t3)}
+.ca{margin-top:32px;padding:32px;border:1px solid var(--border);border-radius:12px}
+.ct{font-size:12px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px}
+.bc{display:flex;align-items:flex-end;gap:6px;height:100px}
+.bco{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar{width:100%;border-radius:3px 3px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.ca.v .bar{transform:scaleY(1)}
+.bco:nth-child(1) .bar{transition-delay:.0s}.bco:nth-child(2) .bar{transition-delay:.06s}.bco:nth-child(3) .bar{transition-delay:.12s}.bco:nth-child(4) .bar{transition-delay:.18s}.bco:nth-child(5) .bar{transition-delay:.24s}.bco:nth-child(6) .bar{transition-delay:.3s}.bco:nth-child(7) .bar{transition-delay:.36s}.bco:nth-child(8) .bar{transition-delay:.42s}.bco:nth-child(9) .bar{transition-delay:.48s}.bco:nth-child(10) .bar{transition-delay:.54s}
+.bla{font-size:9px;color:var(--t3)}
 
-/* ── Main Grid ── */
-.page-body { padding: 56px 0 80px; position: relative; z-index: 2; }
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 32px;
-}
+/* DISTRIBUTION */
+#distribution::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.08),transparent 60%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(80px);pointer-events:none}
+.cc-hero{text-align:center;padding:48px 32px;border:1px solid var(--border);border-radius:16px;background:transparent;margin-top:48px}
+.cc-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--av);margin-bottom:24px;letter-spacing:.5px}
+.cc-avatar{width:128px;height:128px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:2px solid rgba(124,58,237,.3);box-shadow:0 0 50px rgba(124,58,237,.15),0 0 100px rgba(124,58,237,.05)}
+.cc-avatar img{width:100%;height:100%;object-fit:cover}
+.cc-name-link{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px;display:block;color:var(--t1);text-decoration:none;transition:color .2s}
+.cc-name-link:hover{color:var(--av)}
+.cc-desc{font-size:15px;color:var(--t2);line-height:1.7;max-width:520px;margin:0 auto 28px}
+.cc-big{font-family:'Syne',sans-serif;font-size:clamp(40px,7vw,64px);font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;background:linear-gradient(135deg,var(--t1),var(--av));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cc-sub{font-size:13px;color:var(--t3);margin-bottom:24px}
 
-/* ── Content Column ── */
-.content-col > section { margin-bottom: 64px; }
+/* CREATORS */
+.cn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cn-card{display:flex;align-items:center;gap:20px;padding:28px 24px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,0.02)}
+.cn-avatar{width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid var(--border)}
+.cn-avatar img{width:100%;height:100%;object-fit:cover}
+.cn-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px}
+.cn-stat{font-size:14px;color:var(--av)}
+.cn-pipeline{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px;padding:16px;border:1px dashed var(--border);border-radius:10px}
+.cn-pipeline-dots{display:flex;gap:4px}
+.cn-pipeline-dots span{width:6px;height:6px;border-radius:50%;background:var(--av);opacity:.5}
+.cn-pipeline-dots span:nth-child(2){opacity:.35}
+.cn-pipeline-dots span:nth-child(3){opacity:.2}
+.cn-pipeline-text{font-size:13px;color:var(--t3);font-weight:500}
+a.cn-card{text-decoration:none;color:inherit;transition:border-color .2s}
+a.cn-card:hover{border-color:var(--bh)}
 
-/* Carousel */
-.carousel {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: #000;
-}
-.carousel-slides {
-  display: flex;
-  transition: transform 0.4s ease;
-}
-.carousel-slide {
-  min-width: 100%;
-  aspect-ratio: 16 / 9;
-  position: relative;
-}
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.carousel-slide video,
-.carousel-slide iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.video-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  color: #888;
-  font-size: 15px;
-  background: #0a0a1a;
-}
-.video-placeholder svg { opacity: 0.35; }
+/* CSOP COMPARISON */
+.csop-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:32px}
+.csop-col{background:var(--bg);padding:28px 24px}
+.csop-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px}
+.csop-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--t2);line-height:1.6;padding:8px 0}
+.csop-x{color:var(--or);font-weight:700;flex-shrink:0}
+.csop-check{color:var(--gr);font-weight:700;flex-shrink:0}
 
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: background 0.2s;
-}
-.carousel-arrow:hover { background: #fff; }
-.carousel-arrow--prev { left: 12px; }
-.carousel-arrow--next { right: 12px; }
-.carousel-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 3;
-}
-.carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.carousel-dot.active { background: #fff; }
+/* TECHNOLOGY */
+#technology::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(124,58,237,.03),transparent 60%);pointer-events:none}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.tech-step{background:var(--bg);padding:24px 20px;text-align:center}
+.tech-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--av);margin-bottom:8px;letter-spacing:1px}
+.tech-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:6px}
+.tech-desc{font-size:11px;color:var(--t2);line-height:1.5}
+.tech-flywheel{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid rgba(124,58,237,.2);border-radius:10px;background:var(--at);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--av);letter-spacing:.5px}
 
-.thumbnails {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
-.thumb-btn {
-  border: 2px solid transparent;
-  border-radius: 6px;
-  overflow: hidden;
-  cursor: pointer;
-  background: none;
-  padding: 0;
-  flex-shrink: 0;
-  transition: border-color 0.2s, opacity 0.2s;
-  opacity: 0.6;
-}
-.thumb-btn.active, .thumb-btn:hover { border-color: var(--orange); opacity: 1; }
-.thumb-btn img {
-  width: 72px;
-  height: 54px;
-  object-fit: cover;
-  display: block;
-}
+/* WHY */
+#why::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.04),transparent 70%);top:-10%;left:-10%;filter:blur(80px);pointer-events:none}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:48px}
+.wi{padding:28px}
+.wi .card-icon{width:40px;height:40px;border-radius:10px;background:var(--at);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.wi .card-icon svg{width:20px;height:20px;color:var(--av)}
+.wi h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px}
+.wi p{font-size:13px;color:var(--t2);line-height:1.7}
 
-/* Section styling */
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding-bottom: 14px;
-  border-bottom: 2px solid var(--border);
-}
-.section-header h2 {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--text);
-}
+/* MARKET */
+#market::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(34,197,94,.02),transparent 40%,rgba(124,58,237,.02));pointer-events:none}
+.market-funnel{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:48px}
+.mf-tier{width:100%;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-bottom:none}
+.mf-tier:first-child{border-radius:12px 12px 0 0}
+.mf-tier:last-child{border-bottom:1px solid var(--border);border-radius:0 0 12px 12px}
+.mf-tier:nth-child(1){background:rgba(124,58,237,.03)}
+.mf-tier:nth-child(2){background:rgba(124,58,237,.02)}
+.mf-tier:nth-child(3){background:rgba(124,58,237,.05);border-color:rgba(124,58,237,.2)}
+.mf-left{display:flex;align-items:center;gap:16px}
+.mf-badge{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--av);width:36px}
+.mf-val{font-family:'Syne',sans-serif;font-size:clamp(24px,3vw,32px);font-weight:800}
+.mf-desc{font-size:13px;color:var(--t2);text-align:right}
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+.comp-card{padding:20px;border:1px solid var(--border);border-radius:10px}
+.comp-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:2px}
+.comp-raised{font-size:11px;color:var(--t3);margin-bottom:8px}
+.comp-weakness{font-size:12px;color:var(--or);line-height:1.5}
 
-/* Key Info */
-.key-info-dl {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.key-info-pair {
-  background: var(--white);
-  padding: 14px 18px;
-}
-.key-info-pair dt {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-.key-info-pair dd {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
+/* REVENUE */
+#revenue::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.02),transparent 50%,rgba(34,197,94,.02));pointer-events:none}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:32px}
+.rc{background:var(--bg);padding:32px 24px;text-align:center}
+.rv{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.rn{font-size:13px;font-weight:500;margin-bottom:4px}
+.rd{font-size:11px;color:var(--t3)}
+.rc-accent{width:32px;height:3px;border-radius:2px;margin:0 auto 16px}
 
-/* Highlights */
-.highlights-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.highlights-list li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--text-secondary);
-}
-.check-icon {
-  flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  margin-top: 1px;
-}
+/* ROADMAP */
+#roadmap::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,197,94,.02),rgba(124,58,237,.02),rgba(59,130,246,.02));pointer-events:none}
+.road-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:48px}
+.road-phase{background:var(--bg);padding:28px 20px}
+.road-status{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:14px;letter-spacing:.5px;text-transform:uppercase}
+.road-status.live{background:rgba(34,197,94,.1);color:var(--gr)}
+.road-status.soon{background:var(--at);color:var(--av)}
+.road-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px}
+.road-date{font-size:12px;color:var(--t3);margin-bottom:14px}
+.road-items{list-style:none;margin-bottom:14px}
+.road-items li{font-size:12px;color:var(--t2);padding:3px 0;line-height:1.5}
+.road-items li::before{content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--av);margin-right:8px;vertical-align:middle;opacity:.5}
+.road-ms{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding-top:12px;border-top:1px solid var(--border);color:var(--av)}
 
-/* The Idea */
-.idea-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.idea-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.idea-icon {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-}
-.idea-item h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.idea-item p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  line-height: 1.75;
-}
+/* TEAM */
+.tl{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+.tl-3{grid-template-columns:repeat(3,1fr)}
+.tc{padding:28px;text-align:center}
+.ti{width:80px;height:80px;border-radius:50%;background:var(--at);border:1px solid rgba(124,58,237,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--av);overflow:hidden}
+.ti img{width:100%;height:100%;object-fit:cover}
+.tc .nm{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:2px}
+.tc .rl{font-size:12px;color:var(--av);margin-bottom:8px}
+.tc .bi{font-size:12px;color:var(--t2);line-height:1.5}
+.tm-link{display:inline-flex;align-items:center;color:var(--t3);margin-top:8px;transition:color .2s}
+.tm-link:hover{color:var(--av)}
+.team-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-top:24px;margin-bottom:12px;text-align:center}
 
-/* Team */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.team-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.team-avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: var(--navy);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: 800;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-.team-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.team-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
-.team-info .role {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 6px;
-}
-.team-profile-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--blue-link);
-  text-decoration: none;
-  font-weight: 600;
-}
-.team-profile-link:hover { text-decoration: underline; }
+/* ROUND */
+#round{text-align:center}
+#round::before{content:'';position:absolute;width:600px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.06),transparent 60%);bottom:0;left:50%;transform:translateX(-50%);filter:blur(80px);pointer-events:none}
+.ra{font-family:'Syne',sans-serif;font-size:clamp(48px,8vw,72px);font-weight:800;letter-spacing:-0.04em;margin-bottom:4px}
+.rt{font-size:14px;color:var(--t3);margin-bottom:48px}
+.rts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-bottom:48px}
+.rtc{background:var(--bg);padding:28px}
+.rtv{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:2px}
+.rtl{font-size:12px;color:var(--t3)}
+.fb{max-width:520px;margin:0 auto 48px;text-align:left}
+.fb h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px;text-align:center}
+.fl{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.fn{width:140px;font-size:13px;font-weight:500;text-align:right;color:var(--t2);flex-shrink:0}
+.ft{flex:1;height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+.ff{height:100%;border-radius:3px}
+.fp{width:36px;font-size:12px;color:var(--t3);text-align:right}
 
-.advisors-section { margin-top: 24px; }
-.advisors-section h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-.advisor-chips { display: flex; gap: 10px; flex-wrap: wrap; }
-.advisor-chip {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 10px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text);
-}
-.advisor-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--teal);
-}
+/* APPLY */
+#apply::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(124,58,237,.04) 100%);pointer-events:none}
+.fw{max-width:560px;margin:0 auto;position:relative;z-index:2}
+.fd{margin-bottom:24px}
+.fdl{display:block;font-size:13px;font-weight:500;margin-bottom:6px}
+.fdh{display:block;font-size:11px;color:var(--t3);margin-bottom:6px}
+.inp{width:100%;padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--t1);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.inp:focus{border-color:var(--ac)}
+.inp::placeholder{color:var(--t3)}
+textarea.inp{min-height:72px;resize:vertical}
+.rgrp{display:flex;flex-direction:column;gap:6px}
+.ro{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s}
+.ro:hover{border-color:var(--bh)}
+.ro input[type="radio"]{-webkit-appearance:none;appearance:none;width:16px;height:16px;border:1.5px solid rgba(255,255,255,.2);border-radius:50%;margin-top:1px;cursor:pointer;flex-shrink:0;position:relative;transition:all .15s}
+.ro input[type="radio"]:checked{border-color:var(--ac);background:var(--ac)}
+.ro input[type="radio"]:checked::after{content:'';position:absolute;top:3px;left:3px;width:6px;height:6px;border-radius:50%;background:#fff}
+.ol{font-size:13px;font-weight:500}
+.od{font-size:12px;color:var(--t3)}
+.uz{display:block;border:1px dashed var(--border);border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:border-color .2s}
+.uz:hover{border-color:var(--bh)}
+.uz p{font-size:12px;color:var(--t3)}
+.uz input{display:none}
+.sa{margin-top:32px}
+.sa .btn{width:100%;justify-content:center;padding:14px}
+#apply .sa .btn.bp{background:var(--ac);color:#fff;box-shadow:0 0 30px rgba(124,58,237,.25);font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.5px}
+#apply .sa .btn.bp:hover{box-shadow:0 0 50px rgba(124,58,237,.4);transform:translateY(-1px)}
+.ffp{font-size:11px;color:var(--t3);text-align:center;margin-top:12px;line-height:1.6}
 
-/* Vision / Use of Funds */
-.vision-text {
-  font-size: 16px;
-  color: var(--text-secondary);
-  line-height: 1.75;
-  margin-bottom: 24px;
-}
-.funds-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.fund-row {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 16px 18px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-}
-.fund-row-icon {
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--teal-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.fund-row h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.fund-row p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+/* THANK YOU & FOOTER */
+#ty{display:none;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:80px 24px}
+#ty.show{display:flex}
+.tyc{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 28px}
+.tyc svg{width:28px;height:28px;color:var(--gr)}
+footer{padding:32px 24px;text-align:center;border-top:1px solid var(--border)}
+footer .br{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
+footer .br .a{background:linear-gradient(135deg,var(--av),#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-height:1.6}
 
-/* Express Interest (form) */
-.form-intro {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-.form-embed {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.form-embed iframe {
-  width: 100%;
-  min-height: 600px;
-  border: none;
-}
-.form-placeholder {
-  padding: 64px 24px;
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.form-placeholder svg { opacity: 0.25; }
+/* ANIMATIONS */
+.rv2{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv2.v{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
-/* ── Sidebar ── */
-.sidebar-col { position: relative; }
-.sidebar-sticky { position: sticky; top: 68px; }
+/* RESPONSIVE: HEIGHT */
+@media(max-height:700px){.s{padding:clamp(24px,5vh,60px) 24px}.h1{font-size:clamp(24px,4vw,36px)}.sh{font-size:clamp(13px,1.5vw,15px)}.ht{font-size:clamp(36px,7vw,56px)}.hd{margin-bottom:32px}.hm{margin-bottom:32px}.mg .mc,.hg .hs,.tech-step{padding:20px 16px}.mv{font-size:clamp(22px,3.5vw,28px)}.cc-big{font-size:clamp(28px,5vw,40px)}.cc-hero{padding:32px 24px}.tl .tc{padding:20px}.ra{font-size:clamp(36px,7vw,52px)}.road-phase{padding:20px 16px}}
+@media(max-height:600px){.s{padding:clamp(16px,4vh,40px) 20px}.ey{margin-bottom:12px}.h1{font-size:clamp(20px,3.5vw,28px);margin-bottom:12px}.sh{font-size:clamp(12px,1.3vw,14px)}.ht{font-size:clamp(28px,6vw,44px)}.hd{margin-bottom:24px}.sc,.cn-pipeline{display:none}.pg,.hg,.mg,.rts,.wg,.rg,.tl,.tech-grid,.flow-grid,.road-grid,.market-funnel,.comp-grid{margin-top:24px}.cc-hero{margin-top:24px;padding:24px 20px}.cc-avatar{width:80px;height:80px}.cc-desc{font-size:13px;margin-bottom:16px}}
+@media(max-height:500px){.s{padding:clamp(12px,3vh,24px) 16px}.ey{font-size:10px;margin-bottom:8px}.h1{font-size:clamp(18px,3vw,24px);margin-bottom:8px}.sh{font-size:12px}.ht{font-size:clamp(24px,5vw,36px)}.hp{margin-bottom:20px}.hm{gap:16px;margin-bottom:20px}.hmv{font-size:20px}.sc{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.2s !important}html{scroll-behavior:auto;scroll-snap-type:none}.rv2{opacity:1;transform:none}.bar{transform:scaleY(1)}}
 
-.sidebar-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 12px;
-}
-.sidebar-eyebrow {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-.sidebar-amount {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 16px;
-  line-height: 1.1;
-}
-.sidebar-note {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-.sidebar-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 16px 0;
-}
-
-/* Sidebar stats */
-.sidebar-stats {
-  list-style: none;
-}
-.sidebar-stat {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-}
-.sidebar-stat:last-child { border-bottom: none; }
-.sidebar-stat dt {
-  font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-.sidebar-stat dd {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-/* Sidebar nav */
-.sidebar-nav {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.sidebar-nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 18px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.15s, color 0.15s;
-}
-.sidebar-nav a:last-child { border-bottom: none; }
-.sidebar-nav a:hover { background: var(--bg); }
-.sidebar-nav a.active { color: var(--navy); font-weight: 700; border-left: 3px solid var(--navy); padding-left: 15px; }
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-.sidebar-nav a.active .nav-icon { color: var(--navy); }
-
-/* ── Footer ── */
-.footer {
-  background: var(--navy);
-  padding: 32px 0;
-}
-.footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.footer-left { display: flex; align-items: center; gap: 12px; }
-.footer-left img { height: 22px; }
-.footer-left span { color: #9696bc; font-size: 13px; }
-.footer-links { display: flex; gap: 20px; }
-.footer-links a { color: #9696bc; text-decoration: none; font-size: 13px; transition: color 0.2s; }
-.footer-links a:hover { color: #fff; }
-.footer-legal {
-  width: 100%;
-  text-align: center;
-  color: #6b6b88;
-  font-size: 11px;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-/* ── Responsive ── */
-@media (max-width: 860px) {
-  .main-grid { grid-template-columns: 1fr; }
-  .sidebar-col { order: -1; }
-  .sidebar-sticky { position: static; }
-  .sidebar-nav { display: none; }
-  .key-info-dl { grid-template-columns: repeat(2, 1fr); }
-  .team-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 500px) {
-  .masthead-inner { flex-direction: column; }
-  .masthead-text h1 { font-size: 22px; }
-  .key-info-dl { grid-template-columns: 1fr; }
-  .carousel-arrow { width: 32px; height: 32px; }
-  .thumb-btn img { width: 56px; height: 42px; }
-}
+/* RESPONSIVE: WIDTH */
+@media(max-width:768px){.s{padding:80px 20px}.pg,.wg,.pr,.csop-compare{grid-template-columns:1fr}.hg,.mg,.rts,.rg,.tech-grid,.flow-grid,.road-grid{grid-template-columns:1fr 1fr}.tl,.tl-3{grid-template-columns:1fr 1fr}.cn-grid,.comp-grid{grid-template-columns:1fr 1fr}.nd{display:none}.mf-tier{flex-direction:column;gap:4px;text-align:center}.mf-desc{text-align:center}}
+@media(max-width:480px){.hg,.mg,.rts,.tech-grid,.flow-grid,.road-grid{grid-template-columns:1fr}.ha{flex-direction:column;align-items:center}.tl,.tl-3{grid-template-columns:1fr}.cn-grid,.comp-grid{grid-template-columns:1fr}.cn-card{flex-direction:column;text-align:center;gap:12px}}
 </style>
 </head>
 <body>
+<nav class="nd" id="nv" aria-label="Slide navigation"><div class="dot on" data-s="hero" aria-label="Hero"></div><div class="dot" data-s="video" aria-label="Video"></div><div class="dot" data-s="problem" aria-label="Problem"></div><div class="dot" data-s="product" aria-label="Solution"></div><div class="dot" data-s="traction" aria-label="Traction"></div><div class="dot" data-s="distribution" aria-label="Distribution"></div><div class="dot" data-s="creators" aria-label="Creators"></div><div class="dot" data-s="technology" aria-label="Technology"></div><div class="dot" data-s="why" aria-label="Why"></div><div class="dot" data-s="market" aria-label="Market"></div><div class="dot" data-s="revenue" aria-label="Revenue"></div><div class="dot" data-s="roadmap" aria-label="Roadmap"></div><div class="dot" data-s="team" aria-label="Team"></div><div class="dot" data-s="round" aria-label="Round"></div><div class="dot" data-s="apply" aria-label="Apply"></div></nav>
+<main>
 
-<!-- ─── Top Nav ─── -->
-<nav class="topnav">
-  <div class="container">
-    <a href="#" class="topnav-logo">
-      <img src="logo-light.png" alt="NextStep">
-    </a>
-    <a href="https://forms.gle/YfeF1VfKzeisubwW8" target="_blank" class="btn-cta">Express Interest</a>
-  </div>
-</nav>
-
-<!-- ─── Masthead ─── -->
-<section class="masthead">
-  <div class="container">
-    <div class="masthead-title-row">
-      <div class="masthead-icon">
-        <img src="icon.png" alt="">
-      </div>
-      <h1>NextStep</h1>
-    </div>
-    <p class="masthead-desc">Built by the team behind <a href="https://www.instagram.com/consultingcomedy" target="_blank" style="color:#fff;text-decoration:underline;">Consulting Comedy</a>, the world's #1 consulting brand with over 4 million followers, NextStep is the talent intelligence platform for professional services. Using AI-powered matching, NextStep curates the best exit opportunities for consultants and delivers personalised, relevant roles straight to their inbox every week.</p>
-    <div class="masthead-links-row">
-      <a href="https://getnextstep.com" target="_blank" class="masthead-link">getnextstep.com</a>
-      <div class="masthead-socials">
-        <a href="https://www.linkedin.com/company/getnextstep" target="_blank" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/getnextstep" target="_blank" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="masthead-tags">
-      <span class="tag">Equity</span>
-      <span class="tag">Angel Round</span>
-      <span class="tag">United Kingdom</span>
-    </div>
-  </div>
+<!-- HERO -->
+<section class="s" id="hero">
+<div class="si" style="text-align:center">
+<div class="hp rv2"><span class="ld"></span> Angel Round Open</div>
+<h1 class="ht rv2 d1">Next<span class="a">Step</span></h1>
+<p class="hd rv2 d2">AI-powered career matching built by the consulting community, for the consulting community.</p>
+<div class="hm rv2 d3">
+<div class="hmi"><div class="hmv">4,000+</div><div class="hml">Users</div></div>
+<div class="hmi"><div class="hmv">50%+</div><div class="hml">MoM Growth</div></div>
+<div class="hmi"><div class="hmv">$0</div><div class="hml">CAC</div></div>
+<div class="hmi"><div class="hmv">4M+</div><div class="hml">Audience</div></div>
+</div>
+<div class="ha rv2 d4">
+<a href="#apply" class="btn bp bl">Express Interest</a>
+<a href="#problem" class="btn bs bl">Learn More</a>
+</div>
+</div>
+<div class="sc"><span>SCROLL</span><div class="ar"></div></div>
 </section>
 
-<!-- ─── Page Body: Two Columns ─── -->
-<div class="page-body">
-  <div class="container">
-    <div class="main-grid">
-
-      <!-- ════ LEFT: Content ════ -->
-      <div class="content-col">
-
-        <!-- Image / Video Carousel -->
-        <section id="carousel-section">
-          <div class="carousel" id="carousel">
-            <div class="carousel-slides" id="carousel-slides">
-              <!-- Slide 0: Video placeholder -->
-              <div class="carousel-slide">
-                <!-- Replace with your video embed:
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                -->
-                <div class="video-placeholder">
-                  <svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-                  Fundraising video coming soon
-                </div>
-              </div>
-              <!-- Slide 1 -->
-              <div class="carousel-slide">
-                <img src="hero.png" alt="NextStep Product">
-              </div>
-              <!-- Slide 2 -->
-              <div class="carousel-slide">
-                <img src="matching.png" alt="NextStep Matching">
-              </div>
-              <!-- Slide 3 -->
-              <div class="carousel-slide">
-                <img src="results.png" alt="NextStep Results">
-              </div>
-            </div>
-            <button class="carousel-arrow carousel-arrow--prev" onclick="moveSlide(-1)" aria-label="Previous">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#030352" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="carousel-arrow carousel-arrow--next" onclick="moveSlide(1)" aria-label="Next">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#030352" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg>
-            </button>
-            <div class="carousel-dots" id="carousel-dots"></div>
-          </div>
-          <div class="thumbnails" id="thumbnails"></div>
-        </section>
-
-        <!-- Key Information -->
-        <section id="key-information">
-          <div class="section-header"><h2>Key Information</h2></div>
-          <dl class="key-info-dl">
-            <div class="key-info-pair">
-              <dt>Investment type</dt>
-              <dd>Equity</dd>
-            </div>
-            <div class="key-info-pair">
-              <dt>Round</dt>
-              <dd>Angel Round</dd>
-            </div>
-            <div class="key-info-pair">
-              <dt>Location</dt>
-              <dd>United Kingdom</dd>
-            </div>
-            <div class="key-info-pair">
-              <dt>Active users</dt>
-              <dd>4,000+</dd>
-            </div>
-            <div class="key-info-pair">
-              <dt>MoM growth</dt>
-              <dd>50%+</dd>
-            </div>
-            <div class="key-info-pair">
-              <dt>Customer acquisition cost</dt>
-              <dd>$0</dd>
-            </div>
-          </dl>
-        </section>
-
-        <!-- Highlights -->
-        <section id="highlights">
-          <div class="section-header"><h2>Highlights</h2></div>
-          <ul class="highlights-list">
-            <li>
-              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Built by the creator of Consulting Comedy, with 4M+ followers across platforms, the world's #1 consulting brand.
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              4,000+ users and growing at over 50% month-on-month, with zero customer acquisition cost.
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              AI-powered matching engine (Agent Zero) delivers personalised exit opportunities to consultants weekly.
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Backed by advisors from Blazar Capital and Jobi Brands.
-            </li>
-            <li>
-              <svg class="check-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#37c3b0"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Built-in distribution via Consulting Comedy, White Collar Humour, and CSOP creator partners.
-            </li>
-          </ul>
-        </section>
-
-        <!-- The Idea -->
-        <section id="the-idea">
-          <div class="section-header"><h2>The Idea</h2></div>
-          <div class="idea-grid">
-            <div class="idea-item">
-              <div class="idea-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4a4a90" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              </div>
-              <div>
-                <h3>Problem</h3>
-                <p>Consultants waste months searching for exit opportunities through generic job boards that aren't built for them. Most send 200+ applications, hear back from a handful, and rarely find relevant roles. The process is time-consuming, inefficient, and broken.</p>
-              </div>
-            </div>
-            <div class="idea-item">
-              <div class="idea-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffa27a" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-              </div>
-              <div>
-                <h3>Solution</h3>
-                <p>NextStep is a talent intelligence platform that curates exit opportunities for consultants and matches them using AI. Candidates set their preferences once and receive a personalised shortlist of relevant roles to their inbox every week. Privacy is protected throughout.</p>
-              </div>
-            </div>
-            <div class="idea-item">
-              <div class="idea-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div>
-                <h3>Business model</h3>
-                <p>NextStep is free for candidates. The platform generates revenue by charging employers for access to the curated talent pool of consultants actively exploring their next move.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Team -->
-        <section id="team">
-          <div class="section-header"><h2>Team</h2></div>
-          <div class="team-grid">
-            <div class="team-card">
-              <div class="team-avatar"><img src="ahmed.jpg" alt="Ahmed"></div>
-              <div class="team-info">
-                <h3>Ahmed Eltom</h3>
-                <div class="role">Founder</div>
-                <a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="team-profile-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  View profile
-                </a>
-              </div>
-            </div>
-            <div class="team-card">
-              <div class="team-avatar"><img src="ana.jpg" alt="Ana"></div>
-              <div class="team-info">
-                <h3>Ana Colak Fustin</h3>
-                <div class="role">COO</div>
-                <a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="team-profile-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  View profile
-                </a>
-              </div>
-            </div>
-            <div class="team-card">
-              <div class="team-avatar"><img src="ryan.jpg" alt="Ryan"></div>
-              <div class="team-info">
-                <h3>Ryan Nelson</h3>
-                <div class="role">Advisor</div>
-                <a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="team-profile-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  View profile
-                </a>
-              </div>
-            </div>
-            <div class="team-card">
-              <div class="team-avatar"><img src="christian.jpg" alt="Christian"></div>
-              <div class="team-info">
-                <h3>Christian Arnstedt</h3>
-                <div class="role">Advisor</div>
-                <a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="team-profile-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  View profile
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Vision & Use of Funds -->
-        <section id="vision">
-          <div class="section-header"><h2>Vision &amp; Use of Funds</h2></div>
-          <p class="vision-text">NextStep's vision is bigger than consulting. We're building the talent intelligence platform for professional services, starting with consulting exits and expanding into every high-value career transition. The funds raised will go directly into:</p>
-          <div class="funds-list">
-            <div class="fund-row">
-              <div class="fund-row-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div>
-                <h4>Product Development</h4>
-                <p>Expand Agent Zero's matching capabilities and build the employer-side platform.</p>
-              </div>
-            </div>
-            <div class="fund-row">
-              <div class="fund-row-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div>
-                <h4>Employer Acquisition</h4>
-                <p>Grow the employer network to deliver more high-quality opportunities to candidates.</p>
-              </div>
-            </div>
-            <div class="fund-row">
-              <div class="fund-row-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </div>
-              <div>
-                <h4>Creator Network</h4>
-                <p>Scale the distribution engine with new creator partnerships and channels.</p>
-              </div>
-            </div>
-            <div class="fund-row">
-              <div class="fund-row-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#37c3b0" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-              </div>
-              <div>
-                <h4>Operations</h4>
-                <p>Build the foundation for scaling the team and infrastructure.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-      </div>
-
-      <!-- ════ RIGHT: Sidebar ════ -->
-      <div class="sidebar-col">
-        <div class="sidebar-sticky">
-
-          <!-- CTA Card -->
-          <div class="sidebar-card">
-            <div class="sidebar-eyebrow">Equity - Angel Round</div>
-            <div class="sidebar-amount">Raising Now</div>
-
-            <dl class="sidebar-stats">
-              <div class="sidebar-stat">
-                <dt>Investment type</dt>
-                <dd>Equity</dd>
-              </div>
-              <div class="sidebar-stat">
-                <dt>Round</dt>
-                <dd>Angel Round</dd>
-              </div>
-              <div class="sidebar-stat">
-                <dt>Location</dt>
-                <dd>United Kingdom</dd>
-              </div>
-            </dl>
-
-            <hr class="sidebar-divider">
-
-            <p class="sidebar-note">Interested in this opportunity? Express your interest and we'll be in touch with next steps.</p>
-            <a href="https://forms.gle/YfeF1VfKzeisubwW8" target="_blank" class="btn-cta btn-cta--block btn-cta--large">Express Interest</a>
-          </div>
-
-          <!-- Section Navigation -->
-          <nav class="sidebar-nav" id="sidebar-nav">
-            <a href="#key-information">
-              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
-              Key Information
-            </a>
-            <a href="#highlights">
-              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-              Highlights
-            </a>
-            <a href="#the-idea">
-              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
-              The Idea
-            </a>
-            <a href="#team">
-              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
-              Team
-            </a>
-            <a href="#vision">
-              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
-              Vision &amp; Funds
-            </a>
-            <a href="https://forms.gle/YfeF1VfKzeisubwW8" target="_blank">
-              <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-              Express Interest &#8599;
-            </a>
-          </nav>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
+<!-- VIDEO -->
+<section class="s s-tall vid-s" id="video">
+<div class="si">
+<div class="ey rv2" style="text-align:center">The Pitch</div>
+<h2 class="h1 rv2 d1" style="text-align:center;max-width:100%">See the vision in 3 minutes</h2>
+<div class="vid-wrap rv2 d2">
+<div class="vid-poster" id="vidPoster" onclick="playVideo()">
+<img src="video-poster-logo.png" alt="NextStep" class="vid-poster-logo">
+<div class="vid-play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
 </div>
+<video id="mainVid" playsinline style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover;display:none">
+<source src="https://rqimturydpfiwdzdtpyo.supabase.co/storage/v1/object/public/fundraising%20video/fundraising%20video.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+</section>
 
-<!-- ─── Footer ─── -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-left">
-      <img src="logo-light.png" alt="NextStep">
-      <span>ahmed@getnextstep.com</span>
-    </div>
-    <div class="footer-links">
-      <a href="https://getnextstep.com" target="_blank">Website</a>
-      <a href="https://www.linkedin.com/company/getnextstep" target="_blank">LinkedIn</a>
-      <a href="https://www.instagram.com/consultingcomedy" target="_blank">Instagram</a>
-    </div>
-    <div class="footer-legal">&copy; 2026 NextStep. All rights reserved. This page is for informational purposes only and does not constitute an offer of securities.</div>
-  </div>
+<!-- PROBLEM -->
+<section class="s" id="problem">
+<div class="si">
+<div class="ey rv2">The Problem</div>
+<h2 class="h1 rv2 d1">Brilliant minds. Broken job search.</h2>
+<p class="sh rv2 d2">Consultants are the most structured thinkers in business. Their career search is anything but.</p>
+<div class="pg rv2 d3">
+<div class="pc"><div class="pct" style="color:var(--av)">Candidate Side</div><div class="pi">60-hour weeks with zero time for a proper job search</div><div class="pi">200 applications on LinkedIn. 3 responses. None relevant.</div><div class="pi">30 weekly job alerts, mostly noise</div></div>
+<div class="pc"><div class="pct" style="color:var(--or)">Employer Side</div><div class="pi">Can't find the consultant talent they actually want</div><div class="pi">Job boards deliver hundreds of unqualified applicants</div><div class="pi">The best consultant talent is passive and never applies</div></div>
+</div>
+<div class="pf rv2 d4"><div class="pf-label">The Gap</div>High noise-to-signal ratio on both sides.</div>
+</div>
+</section>
+
+<!-- PRODUCT -->
+<section class="s" id="product">
+<div class="si">
+<div class="ey rv2">The Solution</div>
+<h2 class="h1 rv2 d1">Set it once. Get matched every week.</h2>
+<p class="sh rv2 d2">Our AI agent learns your background and preferences, then delivers 3-5 curated roles weekly. No scrolling. No spam.</p>
+<div class="flow-grid rv2 d3">
+<div class="flow-card"><div class="flow-num">01</div><div class="flow-time">~1 min</div><div class="flow-title">Set It Once</div><div class="flow-desc">Upload your CV or LinkedIn profile. Tell Agent Zero what you want next.</div></div>
+<div class="flow-card"><div class="flow-num">02</div><div class="flow-time">Weekly</div><div class="flow-title">Get Your Shortlist</div><div class="flow-desc">Receive 3-5 curated roles matched to your experience and preferences.</div></div>
+<div class="flow-card"><div class="flow-num">03</div><div class="flow-time">Your pace</div><div class="flow-title">Move When Ready</div><div class="flow-desc">Skim, save, or apply. No pressure. You choose when, or if, to engage.</div></div>
+</div>
+<div class="pr rv2 d4">
+<div class="pri"><div class="prc"><svg viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>Employers get pre-vetted talent</div>
+<div class="pri"><div class="prc"><svg viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>Candidates get options without the hunt</div>
+<div class="pri"><div class="prc"><svg viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>Free for candidates. Employers pay.</div>
+<div class="pri"><div class="prc"><svg viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>Cost per match is pennies</div>
+</div>
+</div>
+</section>
+
+<!-- TRACTION -->
+<section class="s" id="traction">
+<div class="si">
+<div class="ey rv2">Traction</div>
+<h2 class="h1 rv2 d1">Organic growth. Zero paid acquisition.</h2>
+<p class="sh rv2 d2">Soft launch numbers. No ads, no sales team. Creator-driven distribution and a product consultants want.</p>
+<div class="mg rv2 d3">
+<div class="mc"><div class="mv">4,000+</div><div class="ml">Registered</div></div>
+<div class="mc"><div class="mv">3,000+</div><div class="ml">CVs Uploaded</div></div>
+<div class="mc"><div class="mv">$0</div><div class="ml">CAC</div></div>
+<div class="mc"><div class="mv">50%+</div><div class="ml">MoM Growth</div></div>
+</div>
+<div class="ca rv2 d3">
+<div class="ct">Cumulative users, weeks 1-10</div>
+<div class="bc">
+<div class="bco"><div class="bar" style="height:10px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">1</span></div>
+<div class="bco"><div class="bar" style="height:16px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">2</span></div>
+<div class="bco"><div class="bar" style="height:22px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">3</span></div>
+<div class="bco"><div class="bar" style="height:32px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.65))"></div><span class="bla">4</span></div>
+<div class="bco"><div class="bar" style="height:44px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.7))"></div><span class="bla">5</span></div>
+<div class="bco"><div class="bar" style="height:55px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.7))"></div><span class="bla">6</span></div>
+<div class="bco"><div class="bar" style="height:68px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.75))"></div><span class="bla">7</span></div>
+<div class="bco"><div class="bar" style="height:80px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.8))"></div><span class="bla">8</span></div>
+<div class="bco"><div class="bar" style="height:90px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.85))"></div><span class="bla">9</span></div>
+<div class="bco"><div class="bar" style="height:100px;background:linear-gradient(to top,var(--ac),var(--av))"></div><span class="bla">10</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DISTRIBUTION -->
+<section class="s" id="distribution">
+<div class="si">
+<div class="ey rv2">Why Us</div>
+<h2 class="h1 rv2 d1" style="text-align:center;max-width:100%">We own the largest distribution channel directly into this audience</h2>
+<div class="cc-hero rv2 d2">
+<div class="cc-label">Our Unfair Advantage</div>
+<div class="cc-avatar"><img src="consulting-comedy.jpg" alt="Consulting Comedy"></div>
+<a href="https://www.instagram.com/consultingcomedy" target="_blank" class="cc-name-link">Consulting Comedy <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-left:4px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+<div class="cc-desc">The #1 consulting brand. An organic community of consultants and ex-consultants who trust us.</div>
+<div class="cc-big">4M+ followers</div>
+<div class="cc-sub">across Consulting Comedy + creator partner network</div>
+</div>
+</div>
+</section>
+
+<!-- CREATORS + CSOP -->
+<section class="s s-tall" id="creators">
+<div class="si">
+<div class="ey rv2">Creator Share Ownership Plan (CSOP)</div>
+<h2 class="h1 rv2 d1">Co-owners, not paid promoters.</h2>
+<p class="sh rv2 d2" style="max-width:680px">Our CSOP (Creator Share Ownership Plan) gives creators real equity in NextStep. Instead of paying influencer fees, we make creators co-owners with skin in the game. They promote because they own it. Think PRIME or Feastables, but for SaaS.</p>
+<div class="csop-compare rv2 d2">
+<div class="csop-col"><div class="csop-title" style="color:var(--or)">Traditional Monetization</div>
+<div class="csop-item"><span class="csop-x">&#10005;</span> Pay creators per post, they promote and move on</div>
+<div class="csop-item"><span class="csop-x">&#10005;</span> No skin in the game, content feels like an ad</div>
+<div class="csop-item"><span class="csop-x">&#10005;</span> Rent influence, don't own distribution</div>
+</div>
+<div class="csop-col"><div class="csop-title" style="color:var(--gr)">Creator Equity (CSOP)</div>
+<div class="csop-item"><span class="csop-check">&#10003;</span> 4-year vest, 1-year cliff, tied to milestones</div>
+<div class="csop-item"><span class="csop-check">&#10003;</span> Creators are co-owners, authentic content</div>
+<div class="csop-item"><span class="csop-check">&#10003;</span> Compounding distribution at near-zero CAC</div>
+</div>
+</div>
+<div class="cn-grid rv2 d3">
+<a href="https://www.instagram.com/whitecollarhumor" target="_blank" class="cn-card">
+<div class="cn-avatar"><img src="white-collar-humor.jpg" alt="White Collar Humor"></div>
+<div class="cn-info"><div class="cn-name">White Collar Humor</div><div class="cn-stat">400K followers</div></div>
+</a>
+<a href="https://www.instagram.com/koreanconsultant" target="_blank" class="cn-card">
+<div class="cn-avatar"><img src="korean-consultant.jpg" alt="Korean Consultant"></div>
+<div class="cn-info"><div class="cn-name">Korean Consultant</div><div class="cn-stat">70K followers</div></div>
+</a>
+<a href="https://www.instagram.com/donaldtheking/" target="_blank" class="cn-card">
+<div class="cn-avatar"><img src="donald-king.jpg" alt="Donald King"></div>
+<div class="cn-info"><div class="cn-name">Donald King</div><div class="cn-stat">20K followers</div></div>
+</a>
+</div>
+<div class="cn-pipeline rv2 d4">
+<div class="cn-pipeline-dots"><span></span><span></span><span></span></div>
+<div class="cn-pipeline-text">+ more creator partners in the pipeline</div>
+</div>
+</div>
+</section>
+
+<!-- TECHNOLOGY (NEW) -->
+<section class="s" id="technology">
+<div class="si">
+<div class="ey rv2">Technology</div>
+<h2 class="h1 rv2 d1">Multi-agentic AI across the full candidate cycle</h2>
+<p class="sh rv2 d2">An 8-stage data flywheel. Every interaction makes the matching engine smarter. Cost per match: ~$0.15.</p>
+<div class="tech-grid rv2 d3">
+<div class="tech-step"><div class="tech-num">01</div><div class="tech-name">Load Candidate</div><div class="tech-desc">Ingestion of 16 unique datapoints per user</div></div>
+<div class="tech-step"><div class="tech-num">02</div><div class="tech-name">Headhunter Agent</div><div class="tech-desc">AI-driven job title strategy</div></div>
+<div class="tech-step"><div class="tech-num">03</div><div class="tech-name">Match & Judge</div><div class="tech-desc">Pool check, scrape, LLM scoring</div></div>
+<div class="tech-step"><div class="tech-num">04</div><div class="tech-name">Save Results</div><div class="tech-desc">Persist matches to database</div></div>
+<div class="tech-step"><div class="tech-num">05</div><div class="tech-name">Email Matches</div><div class="tech-desc">Custom emails with matched roles</div></div>
+<div class="tech-step"><div class="tech-num">06</div><div class="tech-name">Auto Respond</div><div class="tech-desc">Customized responses to each reply</div></div>
+<div class="tech-step"><div class="tech-num">07</div><div class="tech-name">Parse Feedback</div><div class="tech-desc">Extract structured feedback from emails</div></div>
+<div class="tech-step"><div class="tech-num">08</div><div class="tech-name">Update Data</div><div class="tech-desc">Refine per user from clicks &amp; feedback</div></div>
+</div>
+<div class="tech-flywheel rv2 d4">Data Flywheel: every cycle improves precision</div>
+</div>
+</section>
+
+<!-- WHY -->
+<section class="s" id="why">
+<div class="si">
+<div class="ey rv2">Why NextStep Wins</div>
+<h2 class="h1 rv2 d1">$540B market. Zero scaled incumbents.</h2>
+<p class="sh rv2 d2">Massive, underserved market. No dominant player. We have distribution, tech, and community.</p>
+<div class="wg">
+<div class="cd wi rv2 d1"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>Massive Market</h3><p>$540B TAM in global professional recruitment. $92B consulting-adjacent. $3B SOM in UK/US consultant recruitment. No scaled competitor.</p></div>
+<div class="cd wi rv2 d2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
+<div class="cd wi rv2 d3"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
+<div class="cd wi rv2 d4"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>$12K ARR per employer. Free for candidates. More users attract more employers, more content, more users.</p></div>
+</div>
+</div>
+</section>
+
+<!-- MARKET (NEW) -->
+<section class="s" id="market">
+<div class="si">
+<div class="ey rv2">Market Opportunity</div>
+<h2 class="h1 rv2 d1">A $540B+ market with a clear path to capture</h2>
+<div class="market-funnel rv2 d2">
+<div class="mf-tier"><div class="mf-left"><div class="mf-badge">TAM</div><div class="mf-val">$540B</div></div><div class="mf-desc">Global professional recruitment spend</div></div>
+<div class="mf-tier"><div class="mf-left"><div class="mf-badge">SAM</div><div class="mf-val">$92B</div></div><div class="mf-desc">Consulting-adjacent recruitment</div></div>
+<div class="mf-tier"><div class="mf-left"><div class="mf-badge">SOM</div><div class="mf-val">$3B</div></div><div class="mf-desc">UK/US consultant recruitment fees</div></div>
+</div>
+<div class="comp-grid rv2 d3">
+<div class="comp-card"><div class="comp-name">Movemeon</div><div class="comp-raised">$4.5M raised</div><div class="comp-weakness">No AI, manual matching, UK-only</div></div>
+<div class="comp-card"><div class="comp-name">Top-Consultant</div><div class="comp-raised">$25-50M revenue</div><div class="comp-weakness">Legacy platform, zero personalization</div></div>
+<div class="comp-card"><div class="comp-name">Jack & Jill</div><div class="comp-raised">Seed stage</div><div class="comp-weakness">Validates AI matching, engineering vertical only</div></div>
+</div>
+</div>
+</section>
+
+<!-- REVENUE -->
+<section class="s" id="revenue">
+<div class="si">
+<div class="ey rv2">Revenue Model</div>
+<h2 class="h1 rv2 d1">Three revenue streams. Compounding flywheel.</h2>
+<p class="sh rv2 d2">Free for candidates. Employers pay. More users attract more employers, more content, more users.</p>
+<div class="rg rv2 d3">
+<div class="rc"><div class="rc-accent" style="background:var(--av)"></div><div class="rv">$500/mo</div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
+<div class="rc"><div class="rc-accent" style="background:var(--blue)"></div><div class="rv">$200-500</div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
+<div class="rc"><div class="rc-accent" style="background:var(--gr)"></div><div class="rv">$20-50/mo</div><div class="rn">Premium Tools (v2)</div><div class="rd">AI apps, mock interviews</div></div>
+</div>
+</div>
+</section>
+
+<!-- ROADMAP (NEW) -->
+<section class="s" id="roadmap">
+<div class="si">
+<div class="ey rv2">Roadmap</div>
+<h2 class="h1 rv2 d1">Building the talent intelligence platform for consulting</h2>
+<div class="road-grid rv2 d3">
+<div class="road-phase">
+<div class="road-status live">Live Now</div>
+<div class="road-name">Alpha</div>
+<div class="road-date">Build awareness, gather profiles</div>
+<ul class="road-items"><li>Sign up, profiles, CV upload</li><li>AI onboarding (Agent Zero)</li><li>Automated matching</li></ul>
+<div class="road-ms">3K candidates &middot; 80K jobs</div>
+</div>
+<div class="road-phase">
+<div class="road-status soon">Q2 2026</div>
+<div class="road-name">MVP</div>
+<div class="road-date">Full talent matching platform</div>
+<ul class="road-items"><li>Employer dashboard</li><li>Applicant tracking</li><li>Interview invites</li></ul>
+<div class="road-ms">5K candidates &middot; $10K MRR</div>
+</div>
+<div class="road-phase">
+<div class="road-status soon">Q4 2026</div>
+<div class="road-name">Growth</div>
+<div class="road-date">Scale AI matching</div>
+<ul class="road-items"><li>LLM semantic matching</li><li>AI mock interviews</li><li>Advanced analytics</li></ul>
+<div class="road-ms">50K candidates &middot; $100K MRR</div>
+</div>
+<div class="road-phase">
+<div class="road-status soon">Q2 2027</div>
+<div class="road-name">Expansion</div>
+<div class="road-date">Adjacent professional verticals</div>
+<ul class="road-items"><li>Finance, legal niches</li><li>Premium employer tools</li><li>Premium candidate tools</li></ul>
+<div class="road-ms">500K candidates &middot; $1M MRR</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section class="s s-tall" id="team">
+<div class="si">
+<div class="ey rv2">The Team</div>
+<h2 class="h1 rv2 d1">Creators who understand the audience. Operators who've done this before.</h2>
+<div class="team-label rv2">Core Team</div>
+<div class="tl tl-3" style="margin-top:0">
+<div class="cd tc rv2 d1"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Chief of Staff at PEP Health. Grew ARR from £2M to £3.4M. 7 years at Propel, specialist GTM recruitment for high-growth SaaS.</div><a href="https://www.linkedin.com/in/luke-tyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d2"><div class="ti"><img src="ahmed.jpg" alt="Ahmed Eltom"></div><div class="nm">Ahmed Eltom</div><div class="rl">CPO</div><div class="bi">Scaled multiple creator-led brands. 6+ years in consulting. Built the NextStep product and AI pipeline.</div><a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d3"><div class="ti"><img src="ana.jpg" alt="Ana Colak Fustin"></div><div class="nm">Ana Colak Fustin</div><div class="rl">COO</div><div class="bi">Scaled her own job search marketplace to over 10,000 customers. 12+ years in the recruitment space.</div><a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+</div>
+<div class="team-label rv2">Advisors</div>
+<div class="tl tl-3" style="margin-top:0">
+<div class="cd tc rv2 d1"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor</div><div class="bi">Ex-Commercial Director, Diary of a CEO. Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d2"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor</div><div class="bi">Founder & CEO, Blazar Capital. Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d3"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor</div><div class="bi">Founder & CEO, Jobi Brands. Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+</div>
+</div>
+</section>
+
+<!-- ROUND -->
+<section class="s" id="round">
+<div class="si">
+<div class="ey rv2" style="text-align:center">The Opportunity</div>
+<div class="ra rv2 d1">$500K</div>
+<div class="rt rv2 d2">Advanced Subscription Agreement (ASA) &middot; Angel Round</div>
+<div class="rts rv2 d3" style="grid-template-columns:repeat(2,1fr)">
+<div class="rtc"><div class="rtv" style="color:var(--av)">Equity</div><div class="rtl">Investment Type</div></div>
+<div class="rtc"><div class="rtv">UK</div><div class="rtl">Incorporated</div></div>
+</div>
+<div class="fb rv2 d3">
+<h3>Use of Funds</h3>
+<div class="fl"><span class="fn">Product</span><div class="ft"><div class="ff" style="width:40%;background:var(--av)"></div></div><span class="fp">40%</span></div>
+<div class="fl"><span class="fn">Employer Acquisition</span><div class="ft"><div class="ff" style="width:25%;background:var(--blue)"></div></div><span class="fp">25%</span></div>
+<div class="fl"><span class="fn">Creator Network</span><div class="ft"><div class="ff" style="width:20%;background:var(--gr)"></div></div><span class="fp">20%</span></div>
+<div class="fl"><span class="fn">Operations</span><div class="ft"><div class="ff" style="width:15%;background:var(--amber)"></div></div><span class="fp">15%</span></div>
+</div>
+<div style="text-align:center" class="rv2 d4"><a href="#apply" class="btn bp bl">I Want In</a></div>
+</div>
+</section>
+
+<!-- APPLY -->
+<section class="s s-tall" id="apply">
+<div class="si">
+<div style="text-align:center;margin-bottom:48px">
+<div class="ey rv2">Express Interest</div>
+<h2 class="h1 rv2 d1">Join the NextStep cap table.</h2>
+<p class="sh rv2 d2" style="margin:0 auto">Selectively inviting angels who bring more than capital.</p>
+</div>
+<div class="fw">
+<form id="f" onsubmit="sf(event)">
+<div class="fd rv2"><label class="fdl">Full Name *</label><input type="text" class="inp" placeholder="Your name" required></div>
+<div class="fd rv2"><label class="fdl">Email *</label><input type="email" class="inp" placeholder="you@email.com" required></div>
+<div class="fd rv2"><label class="fdl">LinkedIn *</label><span class="fdh">So we can learn about your background</span><input type="url" class="inp" placeholder="https://linkedin.com/in/yourname" required></div>
+<div class="fd rv2"><label class="fdl">Resume or Portfolio</label><span class="fdh">Optional</span><label class="uz" for="fu"><p>Click to upload PDF or DOC (max 10MB)</p><input type="file" id="fu" accept=".pdf,.doc,.docx"></label></div>
+<fieldset class="fd rv2" style="border:none;padding:0"><legend class="fdl">Angel investing experience *</legend>
+<div class="rgrp">
+<label class="ro"><input type="radio" name="q1" value="s" required><div><div class="ol">Seasoned Angel</div><div class="od">3+ early-stage investments</div></div></label>
+<label class="ro"><input type="radio" name="q1" value="g"><div><div class="ol">Getting Started</div><div class="od">1-2 investments so far</div></div></label>
+<label class="ro"><input type="radio" name="q1" value="f"><div><div class="ol">First Check</div><div class="od">This would be my first</div></div></label>
+</div></fieldset>
+<fieldset class="fd rv2" style="border:none;padding:0"><legend class="fdl">Domain expertise *</legend>
+<div class="rgrp">
+<label class="ro"><input type="radio" name="q2" value="t" required><div><div class="ol">Talent & HR Tech</div><div class="od">Recruitment, HRIS, workforce</div></div></label>
+<label class="ro"><input type="radio" name="q2" value="s"><div><div class="ol">SaaS & AI</div><div class="od">B2B software, AI/ML, marketplaces</div></div></label>
+<label class="ro"><input type="radio" name="q2" value="c"><div><div class="ol">Creator Economy</div><div class="od">Content, influencer, social</div></div></label>
+<label class="ro"><input type="radio" name="q2" value="p"><div><div class="ol">Professional Services</div><div class="od">Consulting, finance, legal</div></div></label>
+</div></fieldset>
+<fieldset class="fd rv2" style="border:none;padding:0"><legend class="fdl">Beyond capital, what do you bring?</legend>
+<div class="rgrp">
+<label class="ro"><input type="radio" name="q3" value="n"><div><div class="ol">Network & Intros</div><div class="od">Doors to employers, partners, investors</div></div></label>
+<label class="ro"><input type="radio" name="q3" value="o"><div><div class="ol">Operator Expertise</div><div class="od">Scaled products, teams, or GTM</div></div></label>
+<label class="ro"><input type="radio" name="q3" value="c"><div><div class="ol">Capital Focus</div><div class="od">Financial backer first</div></div></label>
+</div></fieldset>
+<div class="fd rv2"><label class="fdl">Anything else?</label><textarea class="inp" placeholder="Interest, experience, or questions..." rows="3"></textarea></div>
+<div class="sa rv2"><button type="submit" class="btn bp bl">Submit Interest</button></div>
+<p class="ffp rv2">Expression of interest, not a binding commitment. Confidential.</p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- THANK YOU -->
+<section id="ty">
+<div class="si">
+<div class="tyc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12l5 5L19 7"/></svg></div>
+<h2 class="h1" style="text-align:center;font-size:clamp(24px,4vw,36px)">Thank you for your interest.</h2>
+<p class="sh" style="text-align:center;margin:0 auto 16px">We review every submission personally. If your profile fits, we'll reach out within 5 business days.</p>
+<p style="font-size:13px;color:var(--t3);text-align:center;margin-bottom:40px">Keep an eye on your inbox.</p>
+<div style="text-align:center"><a href="#hero" class="btn bs">Back to Top</a></div>
+</div>
+</section>
+
+</main>
+<footer>
+<div class="br">Next<span class="a">Step</span></div>
+<p class="di">This page is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. Investment involves risk. Confidential.<br>&copy; 2026 NextStep. getnextstep.com</p>
 </footer>
 
 <script>
-// ── Carousel ──
-const slides = document.querySelectorAll('.carousel-slide');
-const slidesContainer = document.getElementById('carousel-slides');
-const dotsContainer = document.getElementById('carousel-dots');
-const thumbsContainer = document.getElementById('thumbnails');
-let currentSlide = 0;
+/* Reveal animations */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.08});
+document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
 
-// Build dots & thumbnails
-const thumbSrcs = [null]; // first slide is video, no thumb
-slides.forEach((slide, i) => {
-  // Dot
-  const dot = document.createElement('button');
-  dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-  dot.setAttribute('aria-label', 'Slide ' + (i + 1));
-  dot.onclick = () => goToSlide(i);
-  dotsContainer.appendChild(dot);
+/* Nav dot tracking */
+const secs=document.querySelectorAll('.s'),dots=document.querySelectorAll('.dot');
+const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){dots.forEach(d=>d.classList.remove('on'));const d=document.querySelector(`.dot[data-s="${x.target.id}"]`);if(d)d.classList.add('on')}})},{threshold:.35});
+secs.forEach(s=>so.observe(s));
+dots.forEach(d=>d.addEventListener('click',()=>{document.getElementById(d.dataset.s)?.scrollIntoView({behavior:'smooth'})}));
 
-  // Thumbnail
-  const img = slide.querySelector('img');
-  if (img) {
-    const btn = document.createElement('button');
-    btn.className = 'thumb-btn' + (i === 0 ? ' active' : '');
-    const thumbImg = document.createElement('img');
-    thumbImg.src = img.src;
-    thumbImg.alt = img.alt;
-    btn.appendChild(thumbImg);
-    btn.onclick = () => goToSlide(i);
-    thumbsContainer.appendChild(btn);
-  } else {
-    // Video slide thumb placeholder
-    const btn = document.createElement('button');
-    btn.className = 'thumb-btn active';
-    btn.innerHTML = '<div style="width:72px;height:54px;background:#0a0a1a;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#888"><polygon points="5,3 19,12 5,21"/></svg></div>';
-    btn.onclick = () => goToSlide(i);
-    thumbsContainer.appendChild(btn);
-  }
+/* Keyboard navigation */
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;
+  const secArr=Array.from(secs);
+  const current=secArr.findIndex(s=>{const r=s.getBoundingClientRect();return r.top>=-100&&r.top<window.innerHeight/2});
+  if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();secArr[Math.min(current+1,secArr.length-1)]?.scrollIntoView({behavior:'smooth'})}
+  else if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();secArr[Math.max(current-1,0)]?.scrollIntoView({behavior:'smooth'})}
+  else if(e.key==='Home'){e.preventDefault();secArr[0]?.scrollIntoView({behavior:'smooth'})}
+  else if(e.key==='End'){e.preventDefault();secArr[secArr.length-1]?.scrollIntoView({behavior:'smooth'})}
 });
 
-function goToSlide(n) {
-  currentSlide = n;
-  slidesContainer.style.transform = 'translateX(-' + (n * 100) + '%)';
-  document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === n));
-  document.querySelectorAll('.thumb-btn').forEach((t, i) => t.classList.toggle('active', i === n));
-}
+/* Video poster */
+function playVideo(){const p=document.getElementById('vidPoster'),v=document.getElementById('mainVid');p.classList.add('hidden');v.style.display='block';v.controls=true;v.play()}
 
-function moveSlide(dir) {
-  let next = currentSlide + dir;
-  if (next < 0) next = slides.length - 1;
-  if (next >= slides.length) next = 0;
-  goToSlide(next);
-}
+/* Form */
+function sf(e){e.preventDefault();const fd=new FormData(e.target);console.log('Form data:',Object.fromEntries(fd));document.getElementById('apply').style.display='none';document.getElementById('ty').classList.add('show');document.getElementById('ty').scrollIntoView({behavior:'smooth'})}
 
-// ── Sidebar active nav on scroll ──
-const sections = document.querySelectorAll('.content-col section[id]');
-const navLinks = document.querySelectorAll('#sidebar-nav a');
-
-function updateNav() {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.id;
-  });
-  navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-  });
-}
-window.addEventListener('scroll', updateNav);
-updateNav();
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+/* Smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});
 </script>
-
 </body>
 </html>
