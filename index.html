@@ -18,22 +18,25 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#09090b;--card:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.06);--bh:rgba(255,255,255,0.12);--t1:#fafafa;--t2:rgba(255,255,255,0.5);--t3:rgba(255,255,255,0.45);--ac:#7c3aed;--at:rgba(124,58,237,0.12);--av:#a78bfa;--gr:#22c55e;--or:#f97316;--blue:#3b82f6;--amber:#f59e0b}
-html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+html{scroll-behavior:smooth}
 body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5;overflow-x:hidden}
-.s{height:100vh;height:100dvh;overflow:hidden;display:flex;align-items:center;padding:clamp(40px,8vh,120px) 24px;position:relative;scroll-snap-align:start}
+.s{height:100vh;height:100dvh;overflow:hidden;display:flex;align-items:center;padding:clamp(40px,8vh,120px) 24px;position:relative}
 .s-tall{height:auto;min-height:100vh;overflow:visible}
 .si{max-width:960px;width:100%;margin:0 auto;position:relative;z-index:2}
 .ey{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--av);margin-bottom:20px}
 .h1{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.08;letter-spacing:-0.03em;margin-bottom:20px}
 .sh{font-size:clamp(15px,2vw,17px);font-weight:400;line-height:1.7;color:var(--t2);max-width:100%}
 .cd{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;transition:border-color .3s}
-.cd:hover{border-color:var(--bh)}
+.cd:hover{border-color:var(--bh);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 0 1px var(--bh)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;text-decoration:none;border:none;cursor:pointer;transition:all .25s;border-radius:8px}
-.bp{padding:12px 28px;background:var(--t1);color:var(--bg)}.bp:hover{opacity:.9;transform:translateY(-1px)}
+.bp{padding:12px 28px;background:var(--t1);color:var(--bg)}.bp:hover{opacity:1;transform:translateY(-2px);box-shadow:0 4px 20px rgba(255,255,255,.1)}
 .bs{padding:12px 28px;background:transparent;color:var(--t1);border:1px solid var(--border)}.bs:hover{border-color:var(--bh);background:var(--card)}
 .bl{padding:16px 40px;font-size:15px;border-radius:10px}
 .nd{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:8px}
-.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);cursor:pointer;transition:all .3s}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);cursor:pointer;transition:all .3s;position:relative}
+.dot:hover{background:rgba(255,255,255,.3);transform:scale(1.5)}
+.dot::after{content:attr(aria-label);position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--t2);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;font-family:'DM Sans',sans-serif}
+.dot:hover::after{opacity:1}
 .dot.on{background:var(--av);box-shadow:0 0 8px rgba(124,58,237,.4)}
 
 /* HERO */
@@ -64,6 +67,9 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .vid-poster-logo{max-width:min(60%,320px);height:auto;object-fit:contain;pointer-events:none}
 .vid-play-btn{width:64px;height:64px;border-radius:50%;background:rgba(124,58,237,.7);display:flex;align-items:center;justify-content:center;transition:all .3s;padding-left:3px}
 .vid-poster.hidden{opacity:0;pointer-events:none}
+.vid-play-btn{animation:pulse-play 2.5s ease-in-out infinite}
+@keyframes pulse-play{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.3)}50%{box-shadow:0 0 0 16px rgba(124,58,237,0)}}
+.vid-poster:hover .vid-play-btn{animation:none}
 
 /* PROBLEM */
 #problem::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.05),transparent 70%);top:-10%;right:-5%;filter:blur(80px);pointer-events:none}
@@ -73,7 +79,7 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .pi{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;line-height:1.6;color:var(--t2)}
 .pi:last-child{border-bottom:none}
 .pi::before{content:'';width:6px;height:6px;border-radius:50%;margin-top:8px;flex-shrink:0}
-.pc:first-child .pi::before{background:var(--av);opacity:.5}
+.pc:first-child .pi::before{background:var(--gr);opacity:.5}
 .pc:last-child .pi::before{background:var(--or);opacity:.5}
 .pf{text-align:center;margin-top:40px;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--t1);padding:24px 32px;border:1px solid rgba(124,58,237,.25);border-radius:12px;background:var(--at);letter-spacing:-0.01em}
 .pf-label{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--av);margin-bottom:8px}
@@ -109,7 +115,7 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .ct{font-size:12px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px}
 .bc{display:flex;align-items:flex-end;gap:6px;height:100px}
 .bco{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
-.bar{width:100%;border-radius:3px 3px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.bar{width:100%;border-radius:3px 3px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.16,1,.3,1),filter .2s}
 .ca.v .bar{transform:scaleY(1)}
 .bco:nth-child(1) .bar{transition-delay:.0s}.bco:nth-child(2) .bar{transition-delay:.06s}.bco:nth-child(3) .bar{transition-delay:.12s}.bco:nth-child(4) .bar{transition-delay:.18s}.bco:nth-child(5) .bar{transition-delay:.24s}.bco:nth-child(6) .bar{transition-delay:.3s}.bco:nth-child(7) .bar{transition-delay:.36s}.bco:nth-child(8) .bar{transition-delay:.42s}.bco:nth-child(9) .bar{transition-delay:.48s}.bco:nth-child(10) .bar{transition-delay:.54s}
 .bla{font-size:9px;color:var(--t3)}
@@ -139,8 +145,8 @@ body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;backgroun
 .cn-pipeline-dots span:nth-child(2){opacity:.35}
 .cn-pipeline-dots span:nth-child(3){opacity:.2}
 .cn-pipeline-text{font-size:13px;color:var(--t3);font-weight:500}
-a.cn-card{text-decoration:none;color:inherit;transition:border-color .2s}
-a.cn-card:hover{border-color:var(--bh)}
+a.cn-card{text-decoration:none;color:inherit;transition:all .25s cubic-bezier(.16,1,.3,1)}
+a.cn-card:hover{border-color:rgba(124,58,237,.3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
 
 /* CSOP COMPARISON */
 .csop-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:32px}
@@ -217,7 +223,7 @@ a.cn-card:hover{border-color:var(--bh)}
 .ti{width:80px;height:80px;border-radius:50%;background:var(--at);border:1px solid rgba(124,58,237,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--av);overflow:hidden}
 .ti img{width:100%;height:100%;object-fit:cover}
 .tc .nm{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:2px}
-.tc .rl{font-size:12px;color:var(--av);margin-bottom:8px}
+.tc .rl{font-size:13px;color:var(--av);margin-bottom:8px;font-weight:600}
 .tc .bi{font-size:12px;color:var(--t2);line-height:1.5}
 .tm-link{display:inline-flex;align-items:center;color:var(--t3);margin-top:8px;transition:color .2s}
 .tm-link:hover{color:var(--av)}
@@ -281,21 +287,51 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 /* ANIMATIONS */
 .rv2{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .rv2.v{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.35s}.d4{transition-delay:.5s}
 
 /* RESPONSIVE: HEIGHT */
 @media(max-height:700px){.s{padding:clamp(24px,5vh,60px) 24px}.h1{font-size:clamp(24px,4vw,36px)}.sh{font-size:clamp(13px,1.5vw,15px)}.ht{font-size:clamp(36px,7vw,56px)}.hd{margin-bottom:32px}.hm{margin-bottom:32px}.mg .mc,.hg .hs,.tech-step{padding:20px 16px}.mv{font-size:clamp(22px,3.5vw,28px)}.cc-big{font-size:clamp(28px,5vw,40px)}.cc-hero{padding:32px 24px}.tl .tc{padding:20px}.ra{font-size:clamp(36px,7vw,52px)}.road-phase{padding:20px 16px}}
 @media(max-height:600px){.s{padding:clamp(16px,4vh,40px) 20px}.ey{margin-bottom:12px}.h1{font-size:clamp(20px,3.5vw,28px);margin-bottom:12px}.sh{font-size:clamp(12px,1.3vw,14px)}.ht{font-size:clamp(28px,6vw,44px)}.hd{margin-bottom:24px}.sc,.cn-pipeline{display:none}.pg,.hg,.mg,.rts,.wg,.rg,.tl,.tech-grid,.flow-grid,.road-grid,.market-funnel,.comp-grid{margin-top:24px}.cc-hero{margin-top:24px;padding:24px 20px}.cc-avatar{width:80px;height:80px}.cc-desc{font-size:13px;margin-bottom:16px}}
 @media(max-height:500px){.s{padding:clamp(12px,3vh,24px) 16px}.ey{font-size:10px;margin-bottom:8px}.h1{font-size:clamp(18px,3vw,24px);margin-bottom:8px}.sh{font-size:12px}.ht{font-size:clamp(24px,5vw,36px)}.hp{margin-bottom:20px}.hm{gap:16px;margin-bottom:20px}.hmv{font-size:20px}.sc{display:none}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.2s !important}html{scroll-behavior:auto;scroll-snap-type:none}.rv2{opacity:1;transform:none}.bar{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.2s !important}html{scroll-behavior:auto;scroll-snap-type:none}.rv2{opacity:1;transform:none}.bar{transform:scaleY(1)}.ff{transform:scaleX(1) !important}}
 
 /* RESPONSIVE: WIDTH */
 @media(max-width:768px){.s{padding:80px 20px}.pg,.wg,.pr,.csop-compare{grid-template-columns:1fr}.hg,.mg,.rts,.rg,.tech-grid,.flow-grid,.road-grid{grid-template-columns:1fr 1fr}.tl,.tl-3{grid-template-columns:1fr 1fr}.cn-grid,.comp-grid{grid-template-columns:1fr 1fr}.nd{display:none}.mf-tier{flex-direction:column;gap:4px;text-align:center}.mf-desc{text-align:center}}
 @media(max-width:480px){.hg,.mg,.rts,.tech-grid,.flow-grid,.road-grid{grid-template-columns:1fr}.ha{flex-direction:column;align-items:center}.tl,.tl-3{grid-template-columns:1fr}.cn-grid,.comp-grid{grid-template-columns:1fr}.cn-card{flex-direction:column;text-align:center;gap:12px}}
+.vision-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;max-width:820px;margin:0 auto 32px;align-items:end}
+.vision-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px;text-align:left;display:flex;flex-direction:column;gap:12px;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .3s}
+.vision-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.vision-card--tomorrow{background:rgba(109,99,255,.08);border-color:rgba(109,99,255,.25)}
+.vision-card--tomorrow:hover{border-color:rgba(109,99,255,.5);box-shadow:0 12px 40px rgba(109,99,255,.15)}
+.vision-label{font-family:'Syne',sans-serif;font-size:clamp(28px,3.5vw,40px);font-weight:700;line-height:1.1}
+.vision-body{font-size:clamp(15px,1.6vw,18px);font-weight:600;line-height:1.5;color:var(--t1);margin:0}
+.vision-endgame{width:100%;max-width:820px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 28px;font-size:clamp(13px,1.4vw,15px);color:var(--t2);text-align:center;line-height:1.6}
+.mf-tier{transition:all .3s}.mf-tier:hover{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2)}.mf-tier:hover .mf-val{color:var(--av)}.mf-val{transition:color .3s}
+.ff{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.16,1,.3,1)}.fb.v .ff{transform:scaleX(1)}.fl:nth-child(2) .ff{transition-delay:.1s}.fl:nth-child(3) .ff{transition-delay:.2s}.fl:nth-child(4) .ff{transition-delay:.3s}
+.ti{transition:border-color .3s,box-shadow .3s}.tc:hover .ti{border-color:rgba(124,58,237,.3);box-shadow:0 0 20px rgba(124,58,237,.15)}
+.ca.v .bco .bar{transition-delay:0s}
+.bco{cursor:pointer;position:relative}
+.bco::before{content:attr(data-val);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:600;color:var(--av);opacity:0;transition:opacity .15s;white-space:nowrap;pointer-events:none}
+.bco:hover::before{opacity:1}
+.bco:hover .bar{filter:brightness(1.4);box-shadow:0 0 10px rgba(124,58,237,.35);transition:filter .1s,box-shadow .1s}
+@media(max-width:600px){.vision-cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav class="nd" id="nv" aria-label="Slide navigation"><div class="dot on" data-s="hero" aria-label="Hero"></div><div class="dot" data-s="video" aria-label="Video"></div><div class="dot" data-s="problem" aria-label="Problem"></div><div class="dot" data-s="product" aria-label="Solution"></div><div class="dot" data-s="traction" aria-label="Traction"></div><div class="dot" data-s="distribution" aria-label="Distribution"></div><div class="dot" data-s="creators" aria-label="Creators"></div><div class="dot" data-s="technology" aria-label="Technology"></div><div class="dot" data-s="why" aria-label="Why"></div><div class="dot" data-s="market" aria-label="Market"></div><div class="dot" data-s="revenue" aria-label="Revenue"></div><div class="dot" data-s="roadmap" aria-label="Roadmap"></div><div class="dot" data-s="team" aria-label="Team"></div><div class="dot" data-s="round" aria-label="Round"></div><div class="dot" data-s="apply" aria-label="Apply"></div></nav>
+<!-- PASSWORD GATE -->
+<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center">
+<div style="text-align:center;max-width:380px;padding:24px">
+<div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:700;margin-bottom:8px">Next<span style="background:linear-gradient(135deg,#a78bfa,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Step</span></div>
+<p style="font-size:14px;color:var(--t2);margin-bottom:32px">Enter the password to view this deck.</p>
+<form id="pw-form" onsubmit="return checkPw(event)" style="display:flex;flex-direction:column;gap:12px">
+<input type="password" id="pw-input" class="inp" placeholder="Password" autofocus style="text-align:center;font-size:16px">
+<button type="submit" class="btn bp" style="justify-content:center;padding:12px">Enter</button>
+<p id="pw-err" style="font-size:12px;color:#ef4444;display:none">Incorrect password. Try again.</p>
+</form>
+</div>
+</div>
+
+<nav class="nd" id="nv" aria-label="Slide navigation"><div class="dot on" data-s="hero" aria-label="Hero"></div><div class="dot" data-s="video" aria-label="Video"></div><div class="dot" data-s="problem" aria-label="Problem"></div><div class="dot" data-s="product" aria-label="Solution"></div><div class="dot" data-s="traction" aria-label="Traction"></div><div class="dot" data-s="distribution" aria-label="Distribution"></div><div class="dot" data-s="creators" aria-label="Creators"></div><div class="dot" data-s="technology" aria-label="Technology"></div><div class="dot" data-s="vision" aria-label="Vision"></div><div class="dot" data-s="why" aria-label="Why"></div><div class="dot" data-s="revenue" aria-label="Revenue"></div><div class="dot" data-s="roadmap" aria-label="Roadmap"></div><div class="dot" data-s="team" aria-label="Team"></div><div class="dot" data-s="round" aria-label="Round"></div><div class="dot" data-s="apply" aria-label="Apply"></div></nav>
 <main>
 
 <!-- HERO -->
@@ -308,11 +344,10 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="hmi"><div class="hmv">4,000+</div><div class="hml">Users</div></div>
 <div class="hmi"><div class="hmv">50%+</div><div class="hml">MoM Growth</div></div>
 <div class="hmi"><div class="hmv">$0</div><div class="hml">CAC</div></div>
-<div class="hmi"><div class="hmv">4M+</div><div class="hml">Audience</div></div>
+<div class="hmi"><div class="hmv">2M+</div><div class="hml">Total Followers</div></div>
 </div>
-<div class="ha rv2 d4">
-<a href="#apply" class="btn bp bl">Express Interest</a>
-<a href="#problem" class="btn bs bl">Learn More</a>
+<div class="ha rv2 d4" style="flex-direction:column;align-items:center;gap:0">
+<a href="#video" class="btn bs" style="padding:10px 24px;font-size:13px;border:none;color:var(--t3)">Scroll to explore &darr;</a>
 </div>
 </div>
 <div class="sc"><span>SCROLL</span><div class="ar"></div></div>
@@ -328,7 +363,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <img src="video-poster-logo.png" alt="NextStep" class="vid-poster-logo">
 <div class="vid-play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
 </div>
-<video id="mainVid" playsinline style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover;display:none">
+<video id="mainVid" playsinline preload="metadata" style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover;display:none">
 <source src="https://rqimturydpfiwdzdtpyo.supabase.co/storage/v1/object/public/fundraising%20video/fundraising%20video.mp4" type="video/mp4">
 </video>
 </div>
@@ -342,7 +377,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1">Brilliant minds. Broken job search.</h2>
 <p class="sh rv2 d2">Consultants are the most structured thinkers in business. Their career search is anything but.</p>
 <div class="pg rv2 d3">
-<div class="pc"><div class="pct" style="color:var(--av)">Candidate Side</div><div class="pi">60-hour weeks with zero time for a proper job search</div><div class="pi">200 applications on LinkedIn. 3 responses. None relevant.</div><div class="pi">30 weekly job alerts, mostly noise</div></div>
+<div class="pc"><div class="pct" style="color:var(--gr)">Candidate Side</div><div class="pi">60-hour weeks with zero time for a proper job search</div><div class="pi">200 applications on LinkedIn. 3 responses. None relevant.</div><div class="pi">30 weekly job alerts, mostly noise</div></div>
 <div class="pc"><div class="pct" style="color:var(--or)">Employer Side</div><div class="pi">Can't find the consultant talent they actually want</div><div class="pi">Job boards deliver hundreds of unqualified applicants</div><div class="pi">The best consultant talent is passive and never applies</div></div>
 </div>
 <div class="pf rv2 d4"><div class="pf-label">The Gap</div>High noise-to-signal ratio on both sides.</div>
@@ -383,16 +418,16 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="ca rv2 d3">
 <div class="ct">Cumulative users, weeks 1-10</div>
 <div class="bc">
-<div class="bco"><div class="bar" style="height:10px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">1</span></div>
-<div class="bco"><div class="bar" style="height:16px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">2</span></div>
-<div class="bco"><div class="bar" style="height:22px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">3</span></div>
-<div class="bco"><div class="bar" style="height:32px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.65))"></div><span class="bla">4</span></div>
-<div class="bco"><div class="bar" style="height:44px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.7))"></div><span class="bla">5</span></div>
-<div class="bco"><div class="bar" style="height:55px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.7))"></div><span class="bla">6</span></div>
-<div class="bco"><div class="bar" style="height:68px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.75))"></div><span class="bla">7</span></div>
-<div class="bco"><div class="bar" style="height:80px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.8))"></div><span class="bla">8</span></div>
-<div class="bco"><div class="bar" style="height:90px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.85))"></div><span class="bla">9</span></div>
-<div class="bco"><div class="bar" style="height:100px;background:linear-gradient(to top,var(--ac),var(--av))"></div><span class="bla">10</span></div>
+<div class="bco" data-val="120"><div class="bar" style="height:10px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">1</span></div>
+<div class="bco" data-val="210"><div class="bar" style="height:16px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">2</span></div>
+<div class="bco" data-val="380"><div class="bar" style="height:22px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">3</span></div>
+<div class="bco" data-val="620"><div class="bar" style="height:32px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.65))"></div><span class="bla">4</span></div>
+<div class="bco" data-val="980"><div class="bar" style="height:44px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.7))"></div><span class="bla">5</span></div>
+<div class="bco" data-val="1,400"><div class="bar" style="height:55px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.7))"></div><span class="bla">6</span></div>
+<div class="bco" data-val="2,100"><div class="bar" style="height:68px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.75))"></div><span class="bla">7</span></div>
+<div class="bco" data-val="2,800"><div class="bar" style="height:80px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.8))"></div><span class="bla">8</span></div>
+<div class="bco" data-val="3,400"><div class="bar" style="height:90px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.85))"></div><span class="bla">9</span></div>
+<div class="bco" data-val="4,000+"><div class="bar" style="height:100px;background:linear-gradient(to top,var(--ac),var(--av))"></div><span class="bla">10</span></div>
 </div>
 </div>
 </div>
@@ -408,7 +443,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="cc-avatar"><img src="consulting-comedy.jpg" alt="Consulting Comedy"></div>
 <a href="https://www.instagram.com/consultingcomedy" target="_blank" class="cc-name-link">Consulting Comedy <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-left:4px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
 <div class="cc-desc">The #1 consulting brand. An organic community of consultants and ex-consultants who trust us.</div>
-<div class="cc-big">4M+ followers</div>
+<div class="cc-big">2M+ followers</div>
 <div class="cc-sub">across Consulting Comedy + creator partner network</div>
 </div>
 </div>
@@ -417,7 +452,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- CREATORS + CSOP -->
 <section class="s s-tall" id="creators">
 <div class="si">
-<div class="ey rv2">Creator Share Ownership Plan (CSOP)</div>
+<div class="ey rv2">Creator Partners</div>
 <h2 class="h1 rv2 d1">Co-owners, not paid promoters.</h2>
 <p class="sh rv2 d2" style="max-width:680px">Our CSOP (Creator Share Ownership Plan) gives creators real equity in NextStep. Instead of paying influencer fees, we make creators co-owners with skin in the game. They promote because they own it. Think PRIME or Feastables, but for SaaS.</p>
 <div class="csop-compare rv2 d2">
@@ -473,35 +508,41 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 </div>
 </section>
 
-<!-- WHY -->
-<section class="s" id="why">
+<!-- VISION -->
+<section class="s" id="vision">
 <div class="si">
-<div class="ey rv2">Why NextStep Wins</div>
-<h2 class="h1 rv2 d1">$540B market. Zero scaled incumbents.</h2>
-<p class="sh rv2 d2">Massive, underserved market. No dominant player. We have distribution, tech, and community.</p>
-<div class="wg">
-<div class="cd wi rv2 d1"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>Massive Market</h3><p>$540B TAM in global professional recruitment. $92B consulting-adjacent. $3B SOM in UK/US consultant recruitment. No scaled competitor.</p></div>
-<div class="cd wi rv2 d2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
-<div class="cd wi rv2 d3"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
-<div class="cd wi rv2 d4"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>$12K ARR per employer. Free for candidates. More users attract more employers, more content, more users.</p></div>
+<div class="ey rv2">The Vision</div>
+<h2 class="h1 rv2 d1">Start with individuals. Scale to companies. Transform how the world hires.</h2>
+<p class="sh rv2 d2" style="margin-bottom:32px">We're building the talent intelligence layer for professional services.</p>
+<div class="vision-cards rv2 d3">
+<div class="vision-card vision-card--tomorrow">
+<span class="vision-label" style="color:var(--av)">Today</span>
+<p class="vision-body">We match consultants to their next role</p>
 </div>
+<div class="vision-card vision-card--tomorrow">
+<span class="vision-label" style="color:var(--av)">Tomorrow</span>
+<p class="vision-body">We power how companies <span style="text-decoration:underline;text-decoration-color:var(--av);text-underline-offset:4px">find, evaluate, and hire</span> top talent across every professional vertical.</p>
+</div>
+</div>
+<div class="vision-endgame rv2 d4">Replace the $540B recruitment industry with a talent intelligence layer that works for both sides.</div>
 </div>
 </section>
 
-<!-- MARKET (NEW) -->
-<section class="s" id="market">
+<!-- WHY WE WIN + MARKET -->
+<section class="s s-tall" id="why">
 <div class="si">
-<div class="ey rv2">Market Opportunity</div>
-<h2 class="h1 rv2 d1">A $540B+ market with a clear path to capture</h2>
+<div class="ey rv2">Why We Win</div>
+<h2 class="h1 rv2 d1">$540B market. Zero scaled incumbents. We have the edge.</h2>
 <div class="market-funnel rv2 d2">
 <div class="mf-tier"><div class="mf-left"><div class="mf-badge">TAM</div><div class="mf-val">$540B</div></div><div class="mf-desc">Global professional recruitment spend</div></div>
 <div class="mf-tier"><div class="mf-left"><div class="mf-badge">SAM</div><div class="mf-val">$92B</div></div><div class="mf-desc">Consulting-adjacent recruitment</div></div>
 <div class="mf-tier"><div class="mf-left"><div class="mf-badge">SOM</div><div class="mf-val">$3B</div></div><div class="mf-desc">UK/US consultant recruitment fees</div></div>
 </div>
-<div class="comp-grid rv2 d3">
-<div class="comp-card"><div class="comp-name">Movemeon</div><div class="comp-raised">$4.5M raised</div><div class="comp-weakness">No AI, manual matching, UK-only</div></div>
-<div class="comp-card"><div class="comp-name">Top-Consultant</div><div class="comp-raised">$25-50M revenue</div><div class="comp-weakness">Legacy platform, zero personalization</div></div>
-<div class="comp-card"><div class="comp-name">Jack & Jill</div><div class="comp-raised">Seed stage</div><div class="comp-weakness">Validates AI matching, engineering vertical only</div></div>
+<div class="wg" style="margin-top:32px">
+<div class="cd wi rv2 d1"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
+<div class="cd wi rv2 d2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
+<div class="cd wi rv2 d3"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>$12K ARR per employer. Free for candidates. More users attract more employers, more content, more users.</p></div>
+<div class="cd wi rv2 d4"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>No Scaled Incumbent</h3><p>Movemeon ($4.5M raised, no AI), Top-Consultant (legacy, zero personalization), Jack & Jill (engineering only). The space is wide open.</p></div>
 </div>
 </div>
 </section>
@@ -513,7 +554,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1">Three revenue streams. Compounding flywheel.</h2>
 <p class="sh rv2 d2">Free for candidates. Employers pay. More users attract more employers, more content, more users.</p>
 <div class="rg rv2 d3">
-<div class="rc"><div class="rc-accent" style="background:var(--av)"></div><div class="rv">$500/mo</div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
+<div class="rc"><div class="rc-accent" style="background:var(--or)"></div><div class="rv">$500/mo</div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
 <div class="rc"><div class="rc-accent" style="background:var(--blue)"></div><div class="rv">$200-500</div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
 <div class="rc"><div class="rc-accent" style="background:var(--gr)"></div><div class="rv">$20-50/mo</div><div class="rn">Premium Tools (v2)</div><div class="rd">AI apps, mock interviews</div></div>
 </div>
@@ -565,15 +606,15 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1">Creators who understand the audience. Operators who've done this before.</h2>
 <div class="team-label rv2">Core Team</div>
 <div class="tl tl-3" style="margin-top:0">
-<div class="cd tc rv2 d1"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Chief of Staff at PEP Health. Grew ARR from £2M to £3.4M. 7 years at Propel, specialist GTM recruitment for high-growth SaaS.</div><a href="https://www.linkedin.com/in/luke-tyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d1"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Associate Director at Propel, one of the UK top tech recruitment firms. Then Chief of Staff at PEP Health, growing ARR from £2M to £3.4M.</div><a href="https://www.linkedin.com/in/luketyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 <div class="cd tc rv2 d2"><div class="ti"><img src="ahmed.jpg" alt="Ahmed Eltom"></div><div class="nm">Ahmed Eltom</div><div class="rl">CPO</div><div class="bi">Scaled multiple creator-led brands. 6+ years in consulting. Built the NextStep product and AI pipeline.</div><a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 <div class="cd tc rv2 d3"><div class="ti"><img src="ana.jpg" alt="Ana Colak Fustin"></div><div class="nm">Ana Colak Fustin</div><div class="rl">COO</div><div class="bi">Scaled her own job search marketplace to over 10,000 customers. 12+ years in the recruitment space.</div><a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 </div>
 <div class="team-label rv2">Advisors</div>
 <div class="tl tl-3" style="margin-top:0">
-<div class="cd tc rv2 d1"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor</div><div class="bi">Ex-Commercial Director, Diary of a CEO. Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc rv2 d2"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor</div><div class="bi">Founder & CEO, Blazar Capital. Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc rv2 d3"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor</div><div class="bi">Founder & CEO, Jobi Brands. Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d1"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Ex-Commercial Director, Diary of a CEO</span></div><div class="bi">Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d2"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Blazar Capital</span></div><div class="bi">Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d3"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Jobi Brands</span></div><div class="bi">Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 </div>
 </div>
 </section>
@@ -582,7 +623,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <section class="s" id="round">
 <div class="si">
 <div class="ey rv2" style="text-align:center">The Opportunity</div>
-<div class="ra rv2 d1">$500K</div>
+<div class="ra rv2 d1">$750K</div>
 <div class="rt rv2 d2">Advanced Subscription Agreement (ASA) &middot; Angel Round</div>
 <div class="rts rv2 d3" style="grid-template-columns:repeat(2,1fr)">
 <div class="rtc"><div class="rtv" style="color:var(--av)">Equity</div><div class="rtl">Investment Type</div></div>
@@ -632,6 +673,14 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <label class="ro"><input type="radio" name="q3" value="o"><div><div class="ol">Operator Expertise</div><div class="od">Scaled products, teams, or GTM</div></div></label>
 <label class="ro"><input type="radio" name="q3" value="c"><div><div class="ol">Capital Focus</div><div class="od">Financial backer first</div></div></label>
 </div></fieldset>
+<fieldset class="fd rv2" style="border:none;padding:0"><legend class="fdl">How much would you be willing to commit? *</legend>
+<div class="rgrp">
+<label class="ro"><input type="radio" name="q4" value="10000" required><div><div class="ol">$10,000</div></div></label>
+<label class="ro"><input type="radio" name="q4" value="25000"><div><div class="ol">$25,000</div></div></label>
+<label class="ro"><input type="radio" name="q4" value="50000"><div><div class="ol">$50,000</div></div></label>
+<label class="ro"><input type="radio" name="q4" value="100000"><div><div class="ol">$100,000</div></div></label>
+<label class="ro"><input type="radio" name="q4" value="200000+"><div><div class="ol">$200,000+</div></div></label>
+</div></fieldset>
 <div class="fd rv2"><label class="fdl">Anything else?</label><textarea name="notes" class="inp" placeholder="Interest, experience, or questions..." rows="3"></textarea></div>
 <div class="sa rv2"><button type="submit" class="btn bp bl">Submit Interest</button></div>
 <p class="ffp rv2">Expression of interest, not a binding commitment. Confidential.</p>
@@ -658,13 +707,22 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 </footer>
 
 <script>
+/* Password gate */
+const PW_HASH='a]xR9kL2mP5';/* obfuscated check below */
+function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow=''}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
+if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none'}else{document.body.style.overflow='hidden'}
+
 /* Reveal animations */
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.08});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
 document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
+
+/* Bar chart + fund bar animation */
+const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
+document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
 
 /* Nav dot tracking */
 const secs=document.querySelectorAll('.s'),dots=document.querySelectorAll('.dot');
-const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){dots.forEach(d=>d.classList.remove('on'));const d=document.querySelector(`.dot[data-s="${x.target.id}"]`);if(d)d.classList.add('on')}})},{threshold:.35});
+const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){dots.forEach(d=>d.classList.remove('on'));const d=document.querySelector(`.dot[data-s="${x.target.id}"]`);if(d)d.classList.add('on')}})},{threshold:0,rootMargin:'-40% 0px -55% 0px'});
 secs.forEach(s=>so.observe(s));
 dots.forEach(d=>d.addEventListener('click',()=>{document.getElementById(d.dataset.s)?.scrollIntoView({behavior:'smooth'})}));
 
@@ -672,7 +730,8 @@ dots.forEach(d=>d.addEventListener('click',()=>{document.getElementById(d.datase
 document.addEventListener('keydown',e=>{
   if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;
   const secArr=Array.from(secs);
-  const current=secArr.findIndex(s=>{const r=s.getBoundingClientRect();return r.top>=-100&&r.top<window.innerHeight/2});
+  let current=secArr.findIndex(s=>{const r=s.getBoundingClientRect();return r.top>=-100&&r.top<window.innerHeight/2});
+  if(current===-1)current=secArr.length-1;
   if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();secArr[Math.min(current+1,secArr.length-1)]?.scrollIntoView({behavior:'smooth'})}
   else if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();secArr[Math.max(current-1,0)]?.scrollIntoView({behavior:'smooth'})}
   else if(e.key==='Home'){e.preventDefault();secArr[0]?.scrollIntoView({behavior:'smooth'})}
@@ -680,7 +739,7 @@ document.addEventListener('keydown',e=>{
 });
 
 /* Video poster */
-function playVideo(){const p=document.getElementById('vidPoster'),v=document.getElementById('mainVid');p.classList.add('hidden');v.style.display='block';v.controls=true;v.play()}
+function playVideo(){const p=document.getElementById('vidPoster'),v=document.getElementById('mainVid');v.style.display='block';v.controls=true;v.play().then(()=>{p.classList.add('hidden')}).catch(()=>{p.classList.remove('hidden');v.style.display='none'})}
 
 /* Form submission via Supabase Edge Function */
 async function sf(e){
@@ -695,6 +754,7 @@ async function sf(e){
     investing_experience:fd.get('q1'),
     domain_expertise:fd.get('q2'),
     value_add:fd.get('q3'),
+    commitment_amount:fd.get('q4'),
     notes:fd.get('notes')||null
   };
   try{
@@ -714,8 +774,23 @@ async function sf(e){
   }
 }
 
-/* Smooth anchors */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});
+/* Smooth anchors — custom eased scroll for controlled speed */
+function smoothScrollTo(target,duration){
+  const start=window.scrollY;
+  const end=target.getBoundingClientRect().top+start;
+  const distance=end-start;
+  let startTime=null;
+  function ease(t){return t<.5?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1}
+  function step(ts){
+    if(!startTime)startTime=ts;
+    const elapsed=ts-startTime;
+    const progress=Math.min(elapsed/duration,1);
+    window.scrollTo(0,start+distance*ease(progress));
+    if(progress<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)smoothScrollTo(t,1200)})});
 </script>
 </body>
 </html>
