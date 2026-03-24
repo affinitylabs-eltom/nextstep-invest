@@ -610,9 +610,9 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 </div>
 <div class="fw">
 <form id="f" onsubmit="sf(event)">
-<div class="fd rv2"><label class="fdl">Full Name *</label><input type="text" class="inp" placeholder="Your name" required></div>
-<div class="fd rv2"><label class="fdl">Email *</label><input type="email" class="inp" placeholder="you@email.com" required></div>
-<div class="fd rv2"><label class="fdl">LinkedIn *</label><span class="fdh">So we can learn about your background</span><input type="url" class="inp" placeholder="https://linkedin.com/in/yourname" required></div>
+<div class="fd rv2"><label class="fdl">Full Name *</label><input type="text" name="full_name" class="inp" placeholder="Your name" required></div>
+<div class="fd rv2"><label class="fdl">Email *</label><input type="email" name="email" class="inp" placeholder="you@email.com" required></div>
+<div class="fd rv2"><label class="fdl">LinkedIn *</label><span class="fdh">So we can learn about your background</span><input type="url" name="linkedin" class="inp" placeholder="https://linkedin.com/in/yourname" required></div>
 <div class="fd rv2"><label class="fdl">Resume or Portfolio</label><span class="fdh">Optional</span><label class="uz" for="fu"><p>Click to upload PDF or DOC (max 10MB)</p><input type="file" id="fu" accept=".pdf,.doc,.docx"></label></div>
 <fieldset class="fd rv2" style="border:none;padding:0"><legend class="fdl">Angel investing experience *</legend>
 <div class="rgrp">
@@ -633,7 +633,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <label class="ro"><input type="radio" name="q3" value="o"><div><div class="ol">Operator Expertise</div><div class="od">Scaled products, teams, or GTM</div></div></label>
 <label class="ro"><input type="radio" name="q3" value="c"><div><div class="ol">Capital Focus</div><div class="od">Financial backer first</div></div></label>
 </div></fieldset>
-<div class="fd rv2"><label class="fdl">Anything else?</label><textarea class="inp" placeholder="Interest, experience, or questions..." rows="3"></textarea></div>
+<div class="fd rv2"><label class="fdl">Anything else?</label><textarea name="notes" class="inp" placeholder="Interest, experience, or questions..." rows="3"></textarea></div>
 <div class="sa rv2"><button type="submit" class="btn bp bl">Submit Interest</button></div>
 <p class="ffp rv2">Expression of interest, not a binding commitment. Confidential.</p>
 </form>
@@ -683,8 +683,37 @@ document.addEventListener('keydown',e=>{
 /* Video poster */
 function playVideo(){const p=document.getElementById('vidPoster'),v=document.getElementById('mainVid');p.classList.add('hidden');v.style.display='block';v.controls=true;v.play()}
 
-/* Form */
-function sf(e){e.preventDefault();const fd=new FormData(e.target);console.log('Form data:',Object.fromEntries(fd));document.getElementById('apply').style.display='none';document.getElementById('ty').classList.add('show');document.getElementById('ty').scrollIntoView({behavior:'smooth'})}
+/* Form submission via Supabase Edge Function */
+async function sf(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type="submit"]');
+  btn.disabled=true;btn.textContent='Submitting...';
+  const fd=new FormData(e.target);
+  const payload={
+    full_name:fd.get('full_name'),
+    email:fd.get('email'),
+    linkedin:fd.get('linkedin'),
+    investing_experience:fd.get('q1'),
+    domain_expertise:fd.get('q2'),
+    value_add:fd.get('q3'),
+    notes:fd.get('notes')||null
+  };
+  try{
+    const res=await fetch('https://rqimturydpfiwdzdtpyo.supabase.co/functions/v1/investor-interest',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    if(!res.ok)throw new Error('Submission failed');
+    document.getElementById('apply').style.display='none';
+    document.getElementById('ty').classList.add('show');
+    document.getElementById('ty').scrollIntoView({behavior:'smooth'});
+  }catch(err){
+    console.error(err);
+    btn.disabled=false;btn.textContent='Submit Interest';
+    alert('Something went wrong. Please try again.');
+  }
+}
 
 /* Smooth anchors */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});
