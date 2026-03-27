@@ -603,8 +603,8 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="ey" data-a="fu" data-d="950" style="margin-bottom:16px">Expand to Adjacent Verticals</div>
 <div class="funnel-verticals"><span class="funnel-vertical-word" data-a="fu" data-d="1000">Finance.</span><span class="funnel-vertical-word" data-a="fu" data-d="1100">Legal.</span><span class="funnel-vertical-word" data-a="fu" data-d="1200">Accounting.</span></div>
 <div class="funnel-multiplier" data-a="fu" data-d="1250">4x the addressable audience. Same playbook. Same economics.</div>
-<div class="funnel-100m" data-a="zi" data-d="1300">$100M+</div>
-<div class="funnel-sub" data-a="fu" data-d="1350">annual recurring revenue</div>
+<div class="funnel-100m" id="funnel-100m" style="opacity:0;transform:scale(0.3)">$100M+</div>
+<div class="funnel-sub" id="funnel-100m-sub" style="opacity:0;transform:translateY(10px)">annual recurring revenue</div>
 </div>
 </div>
 </div>
@@ -1155,6 +1155,19 @@ if(vidWrap){
     scale:0.92,
     scrollTrigger:{trigger:vidWrap,start:'top 90%',end:'top 50%',scrub:true}
   });
+}
+
+/* $100M+ dramatic entrance — triggers when element enters viewport */
+const f100m=document.getElementById('funnel-100m');
+const f100mSub=document.getElementById('funnel-100m-sub');
+if(f100m){
+  ScrollTrigger.create({trigger:f100m,start:'top 90%',onEnter:()=>{
+    gsap.to(f100m,{opacity:1,scale:1,duration:0.8,ease:'back.out(1.7)',onComplete:()=>{
+      /* Pulse glow after landing */
+      gsap.to(f100m,{textShadow:'0 0 40px rgba(167,139,250,0.6), 0 0 80px rgba(124,58,237,0.3)',duration:0.6,yoyo:true,repeat:1,ease:'power2.inOut'});
+    }});
+    if(f100mSub) gsap.to(f100mSub,{opacity:1,y:0,duration:0.5,delay:0.3,ease:'power3.out'});
+  },once:true});
 }
 
 }catch(e){console.error('GSAP enhancement error:',e)}
