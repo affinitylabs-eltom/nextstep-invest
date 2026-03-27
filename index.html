@@ -826,6 +826,17 @@ function initAnim(){
     });
   },{threshold:0.08});
   document.querySelectorAll('[data-a]').forEach(el=>io.observe(el));
+  /* Safety: force-check elements already in viewport after a frame */
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('[data-a]:not(.show)').forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight&&r.bottom>0){
+        const d=parseInt(el.dataset.d||'0');
+        setTimeout(()=>el.classList.add('show'),d);
+        io.unobserve(el);
+      }
+    });
+  });
 
   /* Bar chart bars */
   const barObs=new IntersectionObserver(entries=>{
