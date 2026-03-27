@@ -1074,5 +1074,91 @@ if(demoVid&&demoWrap){
   prodObs.observe(document.getElementById('product'));
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+/* GSAP enhancements — layers on top of existing animation system */
+if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+try{
+gsap.registerPlugin(ScrollTrigger);
+
+/* Ladder: scroll-scrub progress line tied to scroll position */
+const lw=document.getElementById('ladder-wrap');
+const lp=document.getElementById('ladder-progress');
+const lr=document.querySelectorAll('.ladder-rung');
+if(lw&&lp&&lr.length){
+  ScrollTrigger.create({
+    trigger:lw,
+    start:'top 70%',
+    end:'bottom 30%',
+    scrub:true,
+    onUpdate:self=>{
+      lp.style.height=(self.progress*100)+'%';
+      lr.forEach((r,i)=>{
+        if(self.progress>=i/lr.length) r.classList.add('active');
+      });
+    }
+  });
+}
+
+/* Funnel: count-up numbers tied to scroll */
+document.querySelectorAll('.funnel-tier').forEach(tier=>{
+  const numEl=tier.querySelector('.funnel-num');
+  if(!numEl)return;
+  const text=numEl.textContent.trim();
+  let target,suffix;
+  if(text==='2M+'){target=2;suffix='M+'}
+  else if(text==='100,000'){target=100000;suffix=''}
+  else if(text==='2,000'){target=2000;suffix=''}
+  else if(text==='3,000'){target=3000;suffix=''}
+  else if(text.includes('$25M')){target=25;suffix='M ARR';
+    ScrollTrigger.create({trigger:tier,start:'top 85%',onEnter:()=>{
+      gsap.to({v:0},{v:25,duration:1,ease:'power3.out',onUpdate:function(){numEl.textContent='$'+Math.floor(this.targets()[0].v)+'M ARR'}});
+    },once:true});
+    return;
+  }
+  else return;
+  ScrollTrigger.create({trigger:tier,start:'top 85%',onEnter:()=>{
+    gsap.to({v:0},{v:target,duration:1,ease:'power3.out',onUpdate:function(){
+      const v=this.targets()[0].v;
+      if(target>=1000) numEl.textContent=Math.floor(v).toLocaleString()+suffix;
+      else numEl.textContent=(v>=target?target:v.toFixed(1).replace(/\.0$/,''))+suffix;
+    }});
+  },once:true});
+});
+
+/* Distribution: 2M+ follower count-up */
+const ccNum=document.getElementById('cc-follower-num');
+if(ccNum){
+  ScrollTrigger.create({trigger:'.cc-big',start:'top 80%',onEnter:()=>{
+    gsap.to({v:0},{v:2,duration:1.2,ease:'power3.out',onUpdate:function(){
+      const v=this.targets()[0].v;
+      ccNum.textContent=(v>=2?2:v.toFixed(1))+'M+';
+    }});
+  },once:true});
+}
+
+/* Hero metrics: subtle parallax on scroll */
+const heroInner=document.querySelector('#hero .si');
+if(heroInner){
+  gsap.to(heroInner,{
+    y:-40,opacity:0.6,
+    ease:'none',
+    scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}
+  });
+}
+
+/* Video section: scale up on scroll approach */
+const vidWrap=document.querySelector('.vid-wrap');
+if(vidWrap){
+  gsap.from(vidWrap,{
+    scale:0.92,
+    scrollTrigger:{trigger:vidWrap,start:'top 90%',end:'top 50%',scrub:true}
+  });
+}
+
+}catch(e){console.error('GSAP enhancement error:',e)}
+}
+</script>
 </body>
 </html>
