@@ -841,6 +841,10 @@ if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').s
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
 document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
 
+/* Fallback observer for custom animated elements (works without GSAP) */
+const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.hero-metric,.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
+
 /* Bar chart + fund bar animation */
 const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
 document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
@@ -914,9 +918,21 @@ function smoothScrollTo(target,duration){
 }
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)smoothScrollTo(t,1200)})});
 </script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script>
+/* Fallback: if GSAP fails to load, make all animated elements visible */
+var gsapLoaded=false;
+function showAllAnimated(){
+  if(gsapLoaded)return;
+  document.querySelectorAll('.hero-metric,.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(function(el){el.classList.add('in');el.classList.add('visible');el.style.opacity='1';el.style.transform='none'});
+}
+setTimeout(showAllAnimated,3000);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" onerror="showAllAnimated()"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" onerror="showAllAnimated()"></script>
+<script>
+if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){showAllAnimated()}else{
+gsapLoaded=true;
+try{
 gsap.registerPlugin(ScrollTrigger);
 
 /* Funnel cascade — each tier reveals as you scroll through the section */
@@ -1116,6 +1132,8 @@ if(demoVid&&demoWrap){
     once:true
   });
 }
+}catch(err){console.error('GSAP error:',err);gsapLoaded=false;showAllAnimated()}
+}/* end gsap else */
 </script>
 </body>
 </html>
