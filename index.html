@@ -833,21 +833,26 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <script>
 /* Password gate */
 const PW_HASH='a]xR9kL2mP5';/* obfuscated check below */
-function onDeckUnlocked(){document.querySelectorAll('.hero-metric').forEach((m,i)=>{setTimeout(()=>m.classList.add('in'),600+i*250)})}
-function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';onDeckUnlocked()}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
-if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';onDeckUnlocked()}else{document.body.style.overflow='hidden'}
-
-/* Reveal animations */
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
-document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
-
-/* Fallback observer for custom animated elements (works without GSAP) */
-const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
-document.querySelectorAll('.hero-metric,.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
-
-/* Bar chart + fund bar animation */
-const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
-document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
+var deckReady=false;
+function initAnimations(){
+  if(deckReady)return;
+  deckReady=true;
+  /* Hero metrics stagger */
+  document.querySelectorAll('.hero-metric').forEach((m,i)=>{setTimeout(()=>m.classList.add('in'),600+i*250)});
+  /* Reveal animations for rv2 elements */
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
+  document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
+  /* Fallback observer for custom animated elements */
+  const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
+  document.querySelectorAll('.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
+  /* Bar chart + fund bar animation */
+  const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
+  document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
+  /* Init GSAP if loaded */
+  if(typeof initGsapAnimations==='function')initGsapAnimations();
+}
+function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnimations()}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
+if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';initAnimations()}else{document.body.style.overflow='hidden'}
 
 /* Nav dot tracking */
 const secs=document.querySelectorAll('.s'),dots=document.querySelectorAll('.dot');
@@ -918,20 +923,11 @@ function smoothScrollTo(target,duration){
 }
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)smoothScrollTo(t,1200)})});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script>
-/* Fallback: if GSAP fails to load, make all animated elements visible */
-var gsapLoaded=false;
-function showAllAnimated(){
-  if(gsapLoaded)return;
-  document.querySelectorAll('.hero-metric,.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(function(el){el.classList.add('in');el.classList.add('visible');el.style.opacity='1';el.style.transform='none'});
-}
-setTimeout(showAllAnimated,3000);
-</script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" onerror="showAllAnimated()"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" onerror="showAllAnimated()"></script>
-<script>
-if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){showAllAnimated()}else{
-gsapLoaded=true;
+function initGsapAnimations(){
+if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;
 try{
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1132,8 +1128,10 @@ if(demoVid&&demoWrap){
     once:true
   });
 }
-}catch(err){console.error('GSAP error:',err);gsapLoaded=false;showAllAnimated()}
-}/* end gsap else */
+}catch(err){console.error('GSAP animation error:',err)}
+}/* end initGsapAnimations */
+/* If deck already unlocked (session), init GSAP now */
+if(deckReady)initGsapAnimations();
 </script>
 </body>
 </html>
