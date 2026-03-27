@@ -293,7 +293,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 @media(max-height:700px){.s{padding:clamp(24px,5vh,60px) 24px}.h1{font-size:clamp(24px,4vw,36px)}.sh{font-size:clamp(13px,1.5vw,15px)}.ht{font-size:clamp(36px,7vw,56px)}.hd{margin-bottom:32px}.hm{margin-bottom:32px}.mg .mc,.hg .hs,.tech-step{padding:20px 16px}.mv{font-size:clamp(22px,3.5vw,28px)}.cc-big{font-size:clamp(28px,5vw,40px)}.cc-hero{padding:32px 24px}.tl .tc{padding:20px}.ra{font-size:clamp(36px,7vw,52px)}.road-phase{padding:20px 16px}}
 @media(max-height:600px){.s{padding:clamp(16px,4vh,40px) 20px}.ey{margin-bottom:12px}.h1{font-size:clamp(20px,3.5vw,28px);margin-bottom:12px}.sh{font-size:clamp(12px,1.3vw,14px)}.ht{font-size:clamp(28px,6vw,44px)}.hd{margin-bottom:24px}.sc,.cn-pipeline{display:none}.pg,.hg,.mg,.rts,.wg,.rg,.tl,.tech-grid,.flow-grid,.road-grid,.market-funnel,.comp-grid{margin-top:24px}.cc-hero{margin-top:24px;padding:24px 20px}.cc-avatar{width:80px;height:80px}.cc-desc{font-size:13px;margin-bottom:16px}}
 @media(max-height:500px){.s{padding:clamp(12px,3vh,24px) 16px}.ey{font-size:10px;margin-bottom:8px}.h1{font-size:clamp(18px,3vw,24px);margin-bottom:8px}.sh{font-size:12px}.ht{font-size:clamp(24px,5vw,36px)}.hp{margin-bottom:20px}.hm{gap:16px;margin-bottom:20px}.hmv{font-size:20px}.sc{display:none}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.2s !important}html{scroll-behavior:auto;scroll-snap-type:none}.rv2{opacity:1;transform:none}.bar{transform:scaleY(1)}.ff{transform:scaleX(1) !important}.hero-metric,.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word{opacity:1 !important;transform:none !important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.2s !important}html{scroll-behavior:auto;scroll-snap-type:none}.rv2{opacity:1;transform:none}.bar{transform:scaleY(1)}.ff{transform:scaleX(1) !important}.hmi rv2,.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word{opacity:1 !important;transform:none !important}}
 
 /* RESPONSIVE: WIDTH */
 @media(max-width:768px){.s{padding:80px 20px}.pg,.wg,.pr,.csop-compare{grid-template-columns:1fr}.hg,.mg,.rts,.rg,.tech-grid,.flow-grid,.road-grid{grid-template-columns:1fr 1fr}.tl,.tl-3{grid-template-columns:1fr 1fr}.cn-grid,.comp-grid{grid-template-columns:1fr 1fr}.nd{display:none}.mf-tier{flex-direction:column;gap:4px;text-align:center}.mf-desc{text-align:center}}
@@ -359,32 +359,6 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 @media(max-width:768px){.funnel-tier{padding:16px 20px}.funnel-num{font-size:clamp(20px,5vw,28px)}.ladder-wrap{padding-left:36px}}
 @media(max-width:480px){.funnel-tier{flex-direction:column;gap:4px;text-align:center}.funnel-label{text-align:center}}
 
-/* HERO METRICS STAGGER */
-.hero-metric{opacity:0;transform:translateY(20px) scale(0.9)}
-.hero-metric.in{opacity:1;transform:translateY(0) scale(1);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-
-/* PROBLEM COLUMNS SLIDE */
-.pc-slide-left{opacity:0;transform:translateX(-30px)}.pc-slide-left.in{opacity:1;transform:translateX(0);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-.pc-slide-right{opacity:0;transform:translateX(30px)}.pc-slide-right.in{opacity:1;transform:translateX(0);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-
-/* DISTRIBUTION AVATAR SCALE */
-.cc-avatar-pop{opacity:0;transform:scale(0.5)}.cc-avatar-pop.in{opacity:1;transform:scale(1);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.34,1.56,.64,1)}
-.cc-big-count{opacity:0;transform:translateY(12px)}.cc-big-count.in{opacity:1;transform:translateY(0);transition:opacity .5s,transform .5s}
-
-/* ROADMAP PHASE SLIDE UP */
-.road-phase-anim{opacity:0;transform:translateY(24px)}.road-phase-anim.in{opacity:1;transform:translateY(0);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-
-/* TEAM POP */
-.tc-pop{opacity:0;transform:scale(0.85)}.tc-pop.in{opacity:1;transform:scale(1);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.34,1.56,.64,1)}
-
-/* ROUND AMOUNT */
-.ra-count{opacity:0;transform:scale(0.8)}.ra-count.in{opacity:1;transform:scale(1);transition:opacity .6s,transform .8s cubic-bezier(.34,1.56,.64,1)}
-
-/* WHY WE WIN CARDS */
-.wi-slide{opacity:0;transform:translateY(20px) rotate(-1deg)}.wi-slide.in{opacity:1;transform:translateY(0) rotate(0);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-
-/* REVENUE CARDS */
-.rc-flip{opacity:0;transform:perspective(600px) rotateX(15deg)}.rc-flip.in{opacity:1;transform:perspective(600px) rotateX(0);transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1)}
 
 /* SOLUTION DEMO */
 .demo-layout{display:flex;flex-direction:column;gap:0;margin-top:48px}
@@ -436,10 +410,10 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h1 class="ht rv2 d1">Next<span class="a">Step</span></h1>
 <p class="hd rv2 d2">We started with 2 million consultants who already trust us. Now we're building the platform that replaces how the world recruits.</p>
 <div class="hm">
-<div class="hmi hero-metric"><div class="hmv">2M+</div><div class="hml">Followers</div></div>
-<div class="hmi hero-metric"><div class="hmv">$0</div><div class="hml">CAC</div></div>
-<div class="hmi hero-metric"><div class="hmv">50%+</div><div class="hml">MoM Growth</div></div>
-<div class="hmi hero-metric"><div class="hmv">4,000+</div><div class="hml">Users</div></div>
+<div class="hmi rv2"><div class="hmv">2M+</div><div class="hml">Followers</div></div>
+<div class="hmi rv2"><div class="hmv">$0</div><div class="hml">CAC</div></div>
+<div class="hmi rv2"><div class="hmv">50%+</div><div class="hml">MoM Growth</div></div>
+<div class="hmi rv2"><div class="hmv">4,000+</div><div class="hml">Users</div></div>
 </div>
 <div class="ha rv2 d4" style="flex-direction:column;align-items:center;gap:8px">
 <a href="#video" class="btn bp" style="padding:10px 24px;font-size:13px">Watch the Pitch</a>
@@ -473,8 +447,8 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1">A $1 trillion industry that still runs on spam and guesswork.</h2>
 <p class="sh rv2 d2" style="max-width:640px">A senior consultant opens LinkedIn. 47 recruiter messages. None relevant. Meanwhile, a growth-stage startup has been searching for that exact profile for 6 months. Both sides lose.</p>
 <div class="pg rv2 d3">
-<div class="pc pc-slide-left"><div class="pct" style="color:var(--gr)">Candidate Side</div><div class="pi">60-hour weeks, zero time for a real job search</div><div class="pi">Hundreds of applications. A handful of responses. None that fit.</div><div class="pi">Drowning in irrelevant alerts and recruiter spam</div></div>
-<div class="pc pc-slide-right"><div class="pct" style="color:var(--or)">Employer Side</div><div class="pi">The talent they want doesn't show up on job boards</div><div class="pi">Flooded with unqualified applicants for every role</div><div class="pi">The best consultants are passive — they never apply</div></div>
+<div class="pc"><div class="pct" style="color:var(--gr)">Candidate Side</div><div class="pi">60-hour weeks, zero time for a real job search</div><div class="pi">Hundreds of applications. A handful of responses. None that fit.</div><div class="pi">Drowning in irrelevant alerts and recruiter spam</div></div>
+<div class="pc"><div class="pct" style="color:var(--or)">Employer Side</div><div class="pi">The talent they want doesn't show up on job boards</div><div class="pi">Flooded with unqualified applicants for every role</div><div class="pi">The best consultants are passive — they never apply</div></div>
 </div>
 <div class="pf rv2 d4"><div class="pf-label">The Gap</div>The best talent never applies. The best companies never find them.</div>
 </div>
@@ -556,10 +530,10 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1" style="text-align:center;max-width:100%">We own the largest distribution channel directly into this audience</h2>
 <div class="cc-hero rv2 d2">
 <div class="cc-label">Our Unfair Advantage</div>
-<div class="cc-avatar cc-avatar-pop"><img src="consulting-comedy.jpg" alt="Consulting Comedy"></div>
+<div class="cc-avatar rv2"><img src="consulting-comedy.jpg" alt="Consulting Comedy"></div>
 <a href="https://www.instagram.com/consultingcomedy" target="_blank" class="cc-name-link">Consulting Comedy <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-left:4px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
 <div class="cc-desc">The #1 consulting brand. An organic community of consultants and ex-consultants who trust us.</div>
-<div class="cc-big cc-big-count"><span id="cc-follower-num">2M+</span> followers</div>
+<div class="cc-big rv2 d1"><span id="cc-follower-num">2M+</span> followers</div>
 <div class="cc-sub">across Consulting Comedy + creator partner network</div>
 </div>
 <div class="rv2 d3" style="text-align:center;margin-top:32px"><div class="ey" style="margin-bottom:8px">Creator Share Ownership Plan (CSOP)</div><p class="sh" style="max-width:600px;margin:0 auto">No influencer fees. No paid promotions. Creators earn equity as long-term partners — they promote because they own it. Zero CAC, compounding distribution.</p></div>
@@ -683,10 +657,10 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="mf-tier"><div class="mf-left"><div class="mf-badge">SOM</div><div class="mf-val">$3B</div></div><div class="mf-desc">UK/US consultant recruitment fees</div></div>
 </div>
 <div class="wg" style="margin-top:32px">
-<div class="cd wi wi-slide"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
-<div class="cd wi wi-slide"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
-<div class="cd wi wi-slide"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>Free for candidates. More users attract more employers, more content, more users.</p></div>
-<div class="cd wi wi-slide"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>No Scaled Incumbent</h3><p>Movemeon ($4.5M raised, no AI), Top-Consultant (legacy, zero personalization), Jack & Jill. The space is wide open.</p></div>
+<div class="cd wi rv2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
+<div class="cd wi rv2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
+<div class="cd wi rv2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>Free for candidates. More users attract more employers, more content, more users.</p></div>
+<div class="cd wi rv2"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>No Scaled Incumbent</h3><p>Movemeon ($4.5M raised, no AI), Top-Consultant (legacy, zero personalization), Jack & Jill. The space is wide open.</p></div>
 </div>
 </div>
 </section>
@@ -698,9 +672,9 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1">Three revenue streams. Compounding flywheel.</h2>
 <p class="sh rv2 d2">Free for candidates. Employers pay. More users attract more employers, more content, more users.</p>
 <div class="rg rv2 d3">
-<div class="rc rc-flip"><div class="rc-accent" style="background:var(--or)"></div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
-<div class="rc rc-flip"><div class="rc-accent" style="background:var(--blue)"></div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
-<div class="rc rc-flip"><div class="rc-accent" style="background:var(--gr)"></div><div class="rn">Premium Tools</div><div class="rd">AI apps, mock interviews</div></div>
+<div class="rc rv2"><div class="rc-accent" style="background:var(--or)"></div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
+<div class="rc rv2"><div class="rc-accent" style="background:var(--blue)"></div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
+<div class="rc rv2"><div class="rc-accent" style="background:var(--gr)"></div><div class="rn">Premium Tools</div><div class="rd">AI apps, mock interviews</div></div>
 </div>
 </div>
 </section>
@@ -711,28 +685,28 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="ey rv2">Roadmap</div>
 <h2 class="h1 rv2 d1">From consulting to the talent intelligence platform</h2>
 <div class="road-grid rv2 d3">
-<div class="road-phase road-phase-anim">
+<div class="road-phase rv2">
 <div class="road-status live">Live Now</div>
 <div class="road-name">Consulting Matching</div>
 <div class="road-date">Prove the model with our audience</div>
 <ul class="road-items"><li>AI agent onboarding (Agent Zero)</li><li>Autonomous job matching</li><li>Creator-driven user acquisition</li></ul>
 <div class="road-ms">4K candidates &middot; $0 CAC</div>
 </div>
-<div class="road-phase road-phase-anim">
+<div class="road-phase rv2">
 <div class="road-status soon">12 Months</div>
 <div class="road-name">Full Marketplace</div>
 <div class="road-date">Two-sided revenue from employers</div>
 <ul class="road-items"><li>Employer dashboard &amp; subscriptions</li><li>Applicant tracking &amp; scoring</li><li>Premium candidate tools</li></ul>
 <div class="road-ms">10K candidates &middot; First revenue</div>
 </div>
-<div class="road-phase road-phase-anim">
+<div class="road-phase rv2">
 <div class="road-status soon">24 Months</div>
 <div class="road-name">Adjacent Verticals</div>
 <div class="road-date">Finance. Legal. Accounting.</div>
 <ul class="road-items"><li>New creator partnerships per vertical</li><li>Same playbook, new audiences</li><li>4x addressable market</li></ul>
 <div class="road-ms">100K candidates &middot; $25M ARR</div>
 </div>
-<div class="road-phase road-phase-anim">
+<div class="road-phase rv2">
 <div class="road-status soon">36 Months</div>
 <div class="road-name">Talent Intelligence</div>
 <div class="road-date">The platform layer for professional hiring</div>
@@ -750,15 +724,15 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <h2 class="h1 rv2 d1">Creators who understand the audience. Operators who've done this before.</h2>
 <div class="team-label rv2">Core Team</div>
 <div class="tl tl-3" style="margin-top:0">
-<div class="cd tc tc-pop rv2 d1"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Associate Director at Propel, a leading GTM strategy and recruitment consultancy. Then Chief of Staff at PEP Health, growing ARR to $3.4M in 18 months.</div><a href="https://www.linkedin.com/in/luketyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc tc-pop rv2 d2"><div class="ti"><img src="ahmed.jpg" alt="Ahmed Eltom"></div><div class="nm">Ahmed Eltom</div><div class="rl">CPO</div><div class="bi">Scaled multiple creator-led brands. 6+ years in consulting. Built the NextStep product and AI pipeline.</div><a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc tc-pop rv2 d3"><div class="ti"><img src="ana.jpg" alt="Ana Colak Fustin"></div><div class="nm">Ana Colak Fustin</div><div class="rl">COO</div><div class="bi">Scaled her own job search marketplace to over 10,000 customers. 12+ years in the recruitment space.</div><a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d1"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Associate Director at Propel, a leading GTM strategy and recruitment consultancy. Then Chief of Staff at PEP Health, growing ARR to $3.4M in 18 months.</div><a href="https://www.linkedin.com/in/luketyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d2"><div class="ti"><img src="ahmed.jpg" alt="Ahmed Eltom"></div><div class="nm">Ahmed Eltom</div><div class="rl">CPO</div><div class="bi">Scaled multiple creator-led brands. 6+ years in consulting. Built the NextStep product and AI pipeline.</div><a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d3"><div class="ti"><img src="ana.jpg" alt="Ana Colak Fustin"></div><div class="nm">Ana Colak Fustin</div><div class="rl">COO</div><div class="bi">Scaled her own job search marketplace to over 10,000 customers. 12+ years in the recruitment space.</div><a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 </div>
 <div class="team-label rv2">Advisors</div>
 <div class="tl tl-3" style="margin-top:0">
-<div class="cd tc tc-pop rv2 d1"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Ex-Commercial Director, Diary of a CEO</span></div><div class="bi">Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc tc-pop rv2 d2"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Blazar Capital</span></div><div class="bi">Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc tc-pop rv2 d3"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Jobi Brands</span></div><div class="bi">Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d1"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Ex-Commercial Director, Diary of a CEO</span></div><div class="bi">Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d2"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Blazar Capital</span></div><div class="bi">Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc rv2 d3"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Jobi Brands</span></div><div class="bi">Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 </div>
 </div>
 </section>
@@ -767,7 +741,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <section class="s" id="round">
 <div class="si">
 <div class="ey rv2" style="text-align:center">The Opportunity</div>
-<div class="ra ra-count">$750K</div>
+<div class="ra rv2 d1">$750K</div>
 <div class="rt rv2 d2">Advanced Subscription Agreement (ASA) &middot; Angel Round</div>
 <div class="rts rv2 d3" style="grid-template-columns:repeat(2,1fr)">
 <div class="rtc"><div class="rtv" style="color:var(--av)">Equity</div><div class="rtl">Investment Type</div></div>
@@ -837,16 +811,14 @@ var deckReady=false;
 function initAnimations(){
   if(deckReady)return;
   deckReady=true;
-  /* Hero metrics stagger */
-  document.querySelectorAll('.hero-metric').forEach((m,i)=>{setTimeout(()=>m.classList.add('in'),600+i*250)});
   /* Small delay to let layout settle after gate removal, then start observers */
   requestAnimationFrame(()=>{requestAnimationFrame(()=>{
-    /* Reveal animations for rv2 elements */
+    /* Reveal animations for rv2 elements — the core animation system */
     const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
     document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
-    /* Observer for custom animated elements */
-    const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
-    document.querySelectorAll('.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
+    /* Funnel elements */
+    const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
+    document.querySelectorAll('.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
     /* Bar chart + fund bar animation */
     const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
     document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
@@ -1039,48 +1011,12 @@ if(ladderWrap&&ladderRungs.length){
   });
 }
 
-/* ===== SCROLL ANIMATIONS PER SLIDE ===== */
-
-/* PROBLEM — columns slide in from left/right */
-ScrollTrigger.create({trigger:'.pc-slide-left',start:'top 80%',onEnter:()=>document.querySelector('.pc-slide-left')?.classList.add('in'),once:true});
-ScrollTrigger.create({trigger:'.pc-slide-right',start:'top 80%',onEnter:()=>setTimeout(()=>document.querySelector('.pc-slide-right')?.classList.add('in'),200),once:true});
-
-/* DISTRIBUTION — avatar pops, then follower count slides up */
-ScrollTrigger.create({trigger:'.cc-avatar-pop',start:'top 80%',onEnter:()=>{
-  document.querySelector('.cc-avatar-pop')?.classList.add('in');
-  setTimeout(()=>{
-    document.querySelector('.cc-big-count')?.classList.add('in');
-    const numEl=document.getElementById('cc-follower-num');
-    if(numEl){const s=performance.now();(function u(n){const e=Math.min((n-s)/1200,1);const v=(2*(1-Math.pow(1-e,3))).toFixed(1);numEl.textContent=(e<1?v:2)+'M+';if(e<1)requestAnimationFrame(u)})(s)}
-  },400);
+/* DISTRIBUTION — follower count-up */
+ScrollTrigger.create({trigger:'.cc-big',start:'top 80%',onEnter:()=>{
+  const numEl=document.getElementById('cc-follower-num');
+  if(numEl){const s=performance.now();(function u(n){const e=Math.min((n-s)/1200,1);const v=(2*(1-Math.pow(1-e,3))).toFixed(1);numEl.textContent=(e<1?v:2)+'M+';if(e<1)requestAnimationFrame(u)})(s)}
 },once:true});
-
-/* WHY WE WIN — cards stagger in with slight rotation */
-const wiCards=document.querySelectorAll('.wi-slide');
-ScrollTrigger.create({trigger:'.wg',start:'top 75%',onEnter:()=>{
-  wiCards.forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*150));
 },once:true});
-
-/* REVENUE — cards flip in */
-const rcCards=document.querySelectorAll('.rc-flip');
-ScrollTrigger.create({trigger:'.rg',start:'top 80%',onEnter:()=>{
-  rcCards.forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*180));
-},once:true});
-
-/* ROADMAP — phases slide up one by one */
-const roadPhases=document.querySelectorAll('.road-phase-anim');
-ScrollTrigger.create({trigger:'.road-grid',start:'top 80%',onEnter:()=>{
-  roadPhases.forEach((p,i)=>setTimeout(()=>p.classList.add('in'),i*200));
-},once:true});
-
-/* TEAM — cards pop in with bounce */
-const teamCards=document.querySelectorAll('.tc-pop');
-ScrollTrigger.create({trigger:'.tl',start:'top 80%',onEnter:()=>{
-  teamCards.forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*150));
-},once:true});
-
-/* ROUND — amount scales up */
-ScrollTrigger.create({trigger:'.ra-count',start:'top 80%',onEnter:()=>document.querySelector('.ra-count')?.classList.add('in'),once:true});
 
 /* Demo video — step sync */
 const demoVid=document.getElementById('demoVid');
