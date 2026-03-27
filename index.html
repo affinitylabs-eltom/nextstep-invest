@@ -839,17 +839,20 @@ function initAnimations(){
   deckReady=true;
   /* Hero metrics stagger */
   document.querySelectorAll('.hero-metric').forEach((m,i)=>{setTimeout(()=>m.classList.add('in'),600+i*250)});
-  /* Reveal animations for rv2 elements */
-  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
-  document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
-  /* Fallback observer for custom animated elements */
-  const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
-  document.querySelectorAll('.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
-  /* Bar chart + fund bar animation */
-  const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
-  document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
-  /* Init GSAP if loaded */
-  if(typeof initGsapAnimations==='function')initGsapAnimations();
+  /* Small delay to let layout settle after gate removal, then start observers */
+  requestAnimationFrame(()=>{requestAnimationFrame(()=>{
+    /* Reveal animations for rv2 elements */
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
+    document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
+    /* Observer for custom animated elements */
+    const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
+    document.querySelectorAll('.pc-slide-left,.pc-slide-right,.cc-avatar-pop,.cc-big-count,.wi-slide,.rc-flip,.road-phase-anim,.tc-pop,.ra-count,.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
+    /* Bar chart + fund bar animation */
+    const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
+    document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
+    /* Init GSAP if loaded */
+    if(typeof initGsapAnimations==='function')initGsapAnimations();
+  })});
 }
 function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnimations()}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
 if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';initAnimations()}else{document.body.style.overflow='hidden'}
