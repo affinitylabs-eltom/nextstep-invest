@@ -1170,6 +1170,80 @@ if(f100m){
   },once:true});
 }
 
+/* === SCRUB TIMELINES — elements animate tied to scroll position === */
+
+/* Problem: bullets stagger as you scroll through */
+const probTl=gsap.timeline({scrollTrigger:{trigger:'#problem',start:'top 80%',end:'bottom 40%',scrub:1}});
+document.querySelectorAll('#problem .pi').forEach((pi,i)=>{
+  probTl.from(pi,{opacity:0,y:20,duration:0.3},i*0.08);
+});
+
+/* Solution: steps drop in as you scroll */
+const solTl=gsap.timeline({scrollTrigger:{trigger:'#product',start:'top 80%',end:'top 30%',scrub:1}});
+document.querySelectorAll('#product .demo-step').forEach((step,i)=>{
+  solTl.from(step,{opacity:0,y:30,duration:0.3},i*0.15);
+});
+
+/* Traction: bars grow as you scroll through */
+const tracTl=gsap.timeline({scrollTrigger:{trigger:'#traction .ca',start:'top 85%',end:'bottom 50%',scrub:1}});
+document.querySelectorAll('#traction .bar').forEach((bar,i)=>{
+  tracTl.from(bar,{scaleY:0,transformOrigin:'bottom',duration:0.2},i*0.06);
+});
+
+/* Distribution: creator cards stagger in */
+const distTl=gsap.timeline({scrollTrigger:{trigger:'.cn-grid',start:'top 85%',end:'bottom 60%',scrub:1}});
+document.querySelectorAll('.cn-card').forEach((card,i)=>{
+  distTl.from(card,{opacity:0,y:24,duration:0.3},i*0.15);
+});
+
+/* Opportunity funnel: tiers cascade on scroll */
+const funTl=gsap.timeline({scrollTrigger:{trigger:'#funnel',start:'top 80%',end:'bottom 50%',scrub:1}});
+document.querySelectorAll('.funnel-tier,.funnel-arrow').forEach((el,i)=>{
+  funTl.from(el,{opacity:0,y:16,duration:0.2},i*0.08);
+});
+
+/* Why We Win: TAM/SAM/SOM + cards stagger */
+const whyTl=gsap.timeline({scrollTrigger:{trigger:'#why',start:'top 70%',end:'bottom 40%',scrub:1}});
+document.querySelectorAll('#why .mf-tier').forEach((t,i)=>{
+  whyTl.from(t,{opacity:0,x:-30,duration:0.3},i*0.1);
+});
+document.querySelectorAll('#why .cd.wi').forEach((c,i)=>{
+  whyTl.from(c,{opacity:0,y:20,duration:0.3},0.3+i*0.1);
+});
+
+/* Revenue: cards flip in */
+const revTl=gsap.timeline({scrollTrigger:{trigger:'#revenue .rg',start:'top 85%',end:'bottom 60%',scrub:1}});
+document.querySelectorAll('#revenue .rc').forEach((c,i)=>{
+  revTl.from(c,{opacity:0,rotateX:15,transformOrigin:'top',duration:0.3},i*0.15);
+});
+
+/* Roadmap: phases slide up */
+const roadTl=gsap.timeline({scrollTrigger:{trigger:'.road-grid',start:'top 85%',end:'bottom 60%',scrub:1}});
+document.querySelectorAll('.road-phase').forEach((p,i)=>{
+  roadTl.from(p,{opacity:0,y:24,duration:0.3},i*0.12);
+});
+
+/* Team: cards pop in */
+const teamTl=gsap.timeline({scrollTrigger:{trigger:'#team',start:'top 70%',end:'bottom 40%',scrub:1}});
+document.querySelectorAll('#team .cd.tc').forEach((c,i)=>{
+  teamTl.from(c,{opacity:0,scale:0.85,duration:0.3},i*0.1);
+});
+
+/* Round: amount + fund bars */
+const roundTl=gsap.timeline({scrollTrigger:{trigger:'#round',start:'top 70%',end:'bottom 50%',scrub:1}});
+roundTl.from('.ra',{opacity:0,scale:0.7,duration:0.4},0);
+roundTl.from('.rt',{opacity:0,y:16,duration:0.3},0.15);
+roundTl.from('.rts',{opacity:0,y:16,duration:0.3},0.25);
+document.querySelectorAll('#round .ff').forEach((ff,i)=>{
+  roundTl.from(ff,{scaleX:0,transformOrigin:'left',duration:0.3},0.35+i*0.08);
+});
+
+/* Apply: form fields cascade */
+const applyTl=gsap.timeline({scrollTrigger:{trigger:'#apply',start:'top 70%',end:'top 20%',scrub:1}});
+document.querySelectorAll('#apply .fd, #apply .sa, #apply .ffp').forEach((el,i)=>{
+  applyTl.from(el,{opacity:0,y:16,duration:0.2},i*0.08);
+});
+
 }catch(e){console.error('GSAP enhancement error:',e)}
 }
 </script>
