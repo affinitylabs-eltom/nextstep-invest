@@ -1,0 +1,8 @@
+video/node_modules/
+video/src/
+video/package*.json
+video/tsconfig.json
+video/out/*.png
+.claude/
+desktop.ini
+*.png.tmp
