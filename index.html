@@ -194,12 +194,18 @@ a.cn-card:hover{border-color:rgba(124,58,237,.3);transform:translateY(-2px);box-
 
 /* REVENUE */
 #revenue::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.02),transparent 50%,rgba(34,197,94,.02));pointer-events:none}
-.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-top:32px}
-.rc{background:var(--bg);padding:32px 24px;text-align:center}
-.rv{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px}
-.rn{font-size:13px;font-weight:500;margin-bottom:4px}
-.rd{font-size:11px;color:var(--t3)}
-.rc-accent{width:32px;height:3px;border-radius:2px;margin:0 auto 16px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.rc{padding:32px 28px;border:1px solid var(--border);border-radius:14px;background:var(--card);text-align:left;transition:border-color .3s,transform .3s}
+.rc:hover{border-color:var(--bh);transform:translateY(-3px)}
+.rc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.rc-icon svg{width:24px;height:24px}
+.rn{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px}
+.rd{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:16px}
+.rc-details{list-style:none;padding:0;margin:0}
+.rc-details li{font-size:12px;color:var(--t2);padding:6px 0;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;line-height:1.5}
+.rc-details li::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;background:var(--dot);opacity:.6}
+.rc-accent{display:none}
+@media(max-width:768px){.rg{grid-template-columns:1fr}}
 
 /* ROADMAP */
 #roadmap::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,197,94,.02),rgba(124,58,237,.02),rgba(59,130,246,.02));pointer-events:none}
@@ -674,15 +680,45 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 </section>
 
 <!-- REVENUE -->
-<section class="s" id="revenue">
+<section class="s s-tall" id="revenue">
 <div class="si">
 <div class="ey" data-a="fu">Revenue Model</div>
 <h2 class="h1" data-a="fu" data-d="100">Three revenue streams. Compounding flywheel.</h2>
 <p class="sh" data-a="fu" data-d="200">Free for candidates. Employers pay. More users attract more employers, more content, more users.</p>
 <div class="rg">
-<div class="rc" data-a="fp" data-d="300"><div class="rc-accent" style="background:var(--or)"></div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
-<div class="rc" data-a="fp" data-d="450"><div class="rc-accent" style="background:var(--blue)"></div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
-<div class="rc" data-a="fp" data-d="600"><div class="rc-accent" style="background:var(--gr)"></div><div class="rn">Premium Tools</div><div class="rd">AI apps, mock interviews</div></div>
+<div class="rc" data-a="fu" data-d="200">
+<div class="rc-icon" style="background:rgba(249,115,22,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--or)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+<div class="rn">Employer Subscriptions</div>
+<div class="rd">Companies pay monthly for access to matched, pre-qualified consultant talent.</div>
+<ul class="rc-details">
+<li style="--dot:var(--or)">Employer dashboard with candidate profiles</li>
+<li style="--dot:var(--or)">AI-scored applicant matching</li>
+<li style="--dot:var(--or)">Interview scheduling and tracking</li>
+<li style="--dot:var(--or)">Dedicated talent pipeline</li>
+</ul>
+</div>
+<div class="rc" data-a="fu" data-d="350">
+<div class="rc-icon" style="background:rgba(59,130,246,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+<div class="rn">Promoted Listings</div>
+<div class="rd">Employers boost their roles to the top of candidate feeds for faster fills.</div>
+<ul class="rc-details">
+<li style="--dot:var(--blue)">Priority placement in weekly matches</li>
+<li style="--dot:var(--blue)">Featured roles in email digests</li>
+<li style="--dot:var(--blue)">Enhanced visibility across the network</li>
+<li style="--dot:var(--blue)">Performance analytics per listing</li>
+</ul>
+</div>
+<div class="rc" data-a="fu" data-d="500">
+<div class="rc-icon" style="background:rgba(34,197,94,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0110 10c0 5.52-4.48 10-10 10S2 17.52 2 12"/><path d="M12 6v6l4 2"/></svg></div>
+<div class="rn">Premium Candidate Tools</div>
+<div class="rd">Power users pay for advanced AI features that accelerate their career search.</div>
+<ul class="rc-details">
+<li style="--dot:var(--gr)">AI mock interviews with feedback</li>
+<li style="--dot:var(--gr)">CV optimization and scoring</li>
+<li style="--dot:var(--gr)">Salary benchmarking insights</li>
+<li style="--dot:var(--gr)">Priority matching and early access</li>
+</ul>
+</div>
 </div>
 </div>
 </section>
