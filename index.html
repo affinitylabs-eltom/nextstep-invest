@@ -302,7 +302,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 .ff-anim{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.16,1,.3,1)}
 .ff-anim.show{transform:scaleX(1)}
 /* Count-up handled by JS */
-@media(prefers-reduced-motion:reduce){[data-a]{transform:none !important;transition:opacity .4s ease !important}[data-a].show{opacity:1 !important}.bar-anim{transform:scaleY(0) !important;transition:transform .4s ease !important}.bar-anim.show{transform:scaleY(1) !important}.ff-anim{transform:scaleX(0) !important;transition:transform .4s ease !important}.ff-anim.show{transform:scaleX(1) !important}}
+@media(prefers-reduced-motion:reduce){[data-a],[data-a].show,.bar-anim,.bar-anim.show,.ff-anim,.ff-anim.show{opacity:1 !important;transform:none !important;transition:none !important}}
 
 /* RESPONSIVE: HEIGHT */
 @media(max-height:700px){.s{padding:clamp(24px,5vh,60px) 24px}.h1{font-size:clamp(24px,4vw,36px)}.sh{font-size:clamp(13px,1.5vw,15px)}.ht{font-size:clamp(36px,7vw,56px)}.hd{margin-bottom:32px}.hm{margin-bottom:32px}.mg .mc,.hg .hs,.tech-step{padding:20px 16px}.mv{font-size:clamp(22px,3.5vw,28px)}.cc-big{font-size:clamp(28px,5vw,40px)}.cc-hero{padding:32px 24px}.tl .tc{padding:20px}.ra{font-size:clamp(36px,7vw,52px)}.road-phase{padding:20px 16px}}
@@ -574,37 +574,37 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <p class="sh" data-a="fu" data-d="200">Consulting proves the model. Adjacent verticals multiply it.</p>
 <div class="ey" data-a="fu" data-d="250" style="margin-top:48px;margin-bottom:16px">Consulting Only</div>
 <div class="funnel" id="funnel">
-<div class="funnel-tier" data-a="fu" data-d="200" style="background:rgba(124,58,237,.03)">
+<div class="funnel-tier" data-a="fu" data-d="300" style="background:rgba(124,58,237,.03)">
 <div class="funnel-num">2M+</div>
 <div class="funnel-label">Followers across our creator network</div>
 </div>
-<div class="funnel-arrow" data-a="fu" data-d="300">&darr; 5% sign up</div>
-<div class="funnel-tier" data-a="fu" data-d="400" style="background:rgba(124,58,237,.04)">
+<div class="funnel-arrow" data-a="fu" data-d="500">&darr; 5% sign up</div>
+<div class="funnel-tier" data-a="fu" data-d="700" style="background:rgba(124,58,237,.04)">
 <div class="funnel-num">100,000</div>
 <div class="funnel-label">Candidates on the platform</div>
 </div>
-<div class="funnel-arrow" data-a="fu" data-d="500">&darr; 2% employer conversion &nbsp;&middot;&nbsp; 3% candidate conversion</div>
-<div class="funnel-tier" data-a="fu" data-d="600" style="background:rgba(124,58,237,.05)">
+<div class="funnel-arrow" data-a="fu" data-d="900">&darr; 2% employer conversion &nbsp;&middot;&nbsp; 3% candidate conversion</div>
+<div class="funnel-tier" data-a="fu" data-d="1100" style="background:rgba(124,58,237,.05)">
 <div class="funnel-num">2,000</div>
 <div class="funnel-label">Paying employers</div>
 </div>
-<div class="funnel-tier" data-a="fu" data-d="700" style="background:rgba(124,58,237,.05)">
+<div class="funnel-tier" data-a="fu" data-d="1300" style="background:rgba(124,58,237,.05)">
 <div class="funnel-num">3,000</div>
 <div class="funnel-label">Premium candidates</div>
 </div>
-<div class="funnel-arrow" data-a="fu" data-d="800">&darr;</div>
-<div class="funnel-tier" data-a="fu" data-d="900" style="background:rgba(124,58,237,.07);border-color:rgba(124,58,237,.2)">
+<div class="funnel-arrow" data-a="fu" data-d="1500">&darr;</div>
+<div class="funnel-tier" data-a="fu" data-d="1700" style="background:rgba(124,58,237,.07);border-color:rgba(124,58,237,.2)">
 <div class="funnel-num" style="color:var(--av)">$25M ARR</div>
 <div class="funnel-label">From consulting alone</div>
 </div>
 </div>
-<div class="funnel-result" data-a="fu" data-d="950" id="funnel-result">
+<div class="funnel-result" data-a="fu" data-d="1900" id="funnel-result">
 <div class="funnel-expand">
-<div class="ey" data-a="fu" data-d="950" style="margin-bottom:16px">Expand to Adjacent Verticals</div>
-<div class="funnel-verticals"><span class="funnel-vertical-word" data-a="fu" data-d="1000">Finance.</span><span class="funnel-vertical-word" data-a="fu" data-d="1100">Legal.</span><span class="funnel-vertical-word" data-a="fu" data-d="1200">Accounting.</span></div>
-<div class="funnel-multiplier" data-a="fu" data-d="1250">4x the addressable audience. Same playbook. Same economics.</div>
-<div class="funnel-100m" id="funnel-100m" style="opacity:0;transform:scale(0.3)">$100M+</div>
-<div class="funnel-sub" id="funnel-100m-sub" style="opacity:0;transform:translateY(10px)">annual recurring revenue</div>
+<div class="ey" data-a="fu" data-d="2000" style="margin-bottom:16px">Expand to Adjacent Verticals</div>
+<div class="funnel-verticals"><span class="funnel-vertical-word" data-a="fu" data-d="2200">Finance.</span><span class="funnel-vertical-word" data-a="fu" data-d="2500">Legal.</span><span class="funnel-vertical-word" data-a="fu" data-d="2800">Accounting.</span></div>
+<div class="funnel-multiplier" data-a="fu" data-d="3000">4x the addressable audience. Same playbook. Same economics.</div>
+<div class="funnel-100m" data-a="zi" data-d="3200">$100M+</div>
+<div class="funnel-sub" data-a="fu" data-d="3400">annual recurring revenue</div>
 </div>
 </div>
 </div>
@@ -1072,179 +1072,6 @@ if(demoVid&&demoWrap){
   /* Auto-play muted when product section is visible */
   const prodObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){if(demoVid.paused)playDemo();prodObs.unobserve(x.target)}})},{threshold:.3});
   prodObs.observe(document.getElementById('product'));
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script>
-/* GSAP enhancements — layers on top of existing animation system */
-if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
-try{
-gsap.registerPlugin(ScrollTrigger);
-
-/* Ladder: scroll-scrub progress line tied to scroll position */
-const lw=document.getElementById('ladder-wrap');
-const lp=document.getElementById('ladder-progress');
-const lr=document.querySelectorAll('.ladder-rung');
-if(lw&&lp&&lr.length){
-  ScrollTrigger.create({
-    trigger:lw,
-    start:'top 70%',
-    end:'bottom 30%',
-    scrub:true,
-    onUpdate:self=>{
-      lp.style.height=(self.progress*100)+'%';
-      lr.forEach((r,i)=>{
-        if(self.progress>=i/lr.length) r.classList.add('active');
-      });
-    }
-  });
-}
-
-/* Funnel: count-up numbers tied to scroll */
-document.querySelectorAll('.funnel-tier').forEach(tier=>{
-  const numEl=tier.querySelector('.funnel-num');
-  if(!numEl)return;
-  const text=numEl.textContent.trim();
-  let target,suffix;
-  if(text==='2M+'){target=2;suffix='M+'}
-  else if(text==='100,000'){target=100000;suffix=''}
-  else if(text==='2,000'){target=2000;suffix=''}
-  else if(text==='3,000'){target=3000;suffix=''}
-  else if(text.includes('$25M')){target=25;suffix='M ARR';
-    ScrollTrigger.create({trigger:tier,start:'top 85%',onEnter:()=>{
-      gsap.to({v:0},{v:25,duration:1,ease:'power3.out',onUpdate:function(){numEl.textContent='$'+Math.floor(this.targets()[0].v)+'M ARR'}});
-    },once:true});
-    return;
-  }
-  else return;
-  ScrollTrigger.create({trigger:tier,start:'top 85%',onEnter:()=>{
-    gsap.to({v:0},{v:target,duration:1,ease:'power3.out',onUpdate:function(){
-      const v=this.targets()[0].v;
-      if(target>=1000) numEl.textContent=Math.floor(v).toLocaleString()+suffix;
-      else numEl.textContent=(v>=target?target:v.toFixed(1).replace(/\.0$/,''))+suffix;
-    }});
-  },once:true});
-});
-
-/* Distribution: 2M+ follower count-up */
-const ccNum=document.getElementById('cc-follower-num');
-if(ccNum){
-  ScrollTrigger.create({trigger:'.cc-big',start:'top 80%',onEnter:()=>{
-    gsap.to({v:0},{v:2,duration:1.2,ease:'power3.out',onUpdate:function(){
-      const v=this.targets()[0].v;
-      ccNum.textContent=(v>=2?2:v.toFixed(1))+'M+';
-    }});
-  },once:true});
-}
-
-/* Hero metrics: subtle parallax on scroll */
-const heroInner=document.querySelector('#hero .si');
-if(heroInner){
-  gsap.to(heroInner,{
-    y:-40,opacity:0.6,
-    ease:'none',
-    scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}
-  });
-}
-
-/* Video section: scale up on scroll approach */
-const vidWrap=document.querySelector('.vid-wrap');
-if(vidWrap){
-  gsap.from(vidWrap,{
-    scale:0.92,
-    scrollTrigger:{trigger:vidWrap,start:'top 90%',end:'top 50%',scrub:true}
-  });
-}
-
-/* $100M+ dramatic entrance — triggers when element enters viewport */
-const f100m=document.getElementById('funnel-100m');
-const f100mSub=document.getElementById('funnel-100m-sub');
-if(f100m){
-  ScrollTrigger.create({trigger:f100m,start:'top 90%',onEnter:()=>{
-    gsap.to(f100m,{opacity:1,scale:1,duration:0.8,ease:'back.out(1.7)',onComplete:()=>{
-      /* Pulse glow after landing */
-      gsap.to(f100m,{textShadow:'0 0 40px rgba(167,139,250,0.6), 0 0 80px rgba(124,58,237,0.3)',duration:0.6,yoyo:true,repeat:1,ease:'power2.inOut'});
-    }});
-    if(f100mSub) gsap.to(f100mSub,{opacity:1,y:0,duration:0.5,delay:0.3,ease:'power3.out'});
-  },once:true});
-}
-
-/* === SCRUB TIMELINES — elements animate tied to scroll position === */
-
-/* Problem: bullets stagger as you scroll through */
-const probTl=gsap.timeline({scrollTrigger:{trigger:'#problem',start:'top 80%',end:'bottom 40%',scrub:1}});
-document.querySelectorAll('#problem .pi').forEach((pi,i)=>{
-  probTl.from(pi,{opacity:0,y:20,duration:0.3},i*0.08);
-});
-
-/* Solution: steps drop in as you scroll */
-const solTl=gsap.timeline({scrollTrigger:{trigger:'#product',start:'top 80%',end:'top 30%',scrub:1}});
-document.querySelectorAll('#product .demo-step').forEach((step,i)=>{
-  solTl.from(step,{opacity:0,y:30,duration:0.3},i*0.15);
-});
-
-/* Traction: bars grow as you scroll through */
-const tracTl=gsap.timeline({scrollTrigger:{trigger:'#traction .ca',start:'top 85%',end:'bottom 50%',scrub:1}});
-document.querySelectorAll('#traction .bar').forEach((bar,i)=>{
-  tracTl.from(bar,{scaleY:0,transformOrigin:'bottom',duration:0.2},i*0.06);
-});
-
-/* Distribution: creator cards stagger in */
-const distTl=gsap.timeline({scrollTrigger:{trigger:'.cn-grid',start:'top 85%',end:'bottom 60%',scrub:1}});
-document.querySelectorAll('.cn-card').forEach((card,i)=>{
-  distTl.from(card,{opacity:0,y:24,duration:0.3},i*0.15);
-});
-
-/* Opportunity funnel: tiers cascade on scroll */
-const funTl=gsap.timeline({scrollTrigger:{trigger:'#funnel',start:'top 80%',end:'bottom 50%',scrub:1}});
-document.querySelectorAll('.funnel-tier,.funnel-arrow').forEach((el,i)=>{
-  funTl.from(el,{opacity:0,y:16,duration:0.2},i*0.08);
-});
-
-/* Why We Win: TAM/SAM/SOM + cards stagger */
-const whyTl=gsap.timeline({scrollTrigger:{trigger:'#why',start:'top 70%',end:'bottom 40%',scrub:1}});
-document.querySelectorAll('#why .mf-tier').forEach((t,i)=>{
-  whyTl.from(t,{opacity:0,x:-30,duration:0.3},i*0.1);
-});
-document.querySelectorAll('#why .cd.wi').forEach((c,i)=>{
-  whyTl.from(c,{opacity:0,y:20,duration:0.3},0.3+i*0.1);
-});
-
-/* Revenue: cards flip in */
-const revTl=gsap.timeline({scrollTrigger:{trigger:'#revenue .rg',start:'top 85%',end:'bottom 60%',scrub:1}});
-document.querySelectorAll('#revenue .rc').forEach((c,i)=>{
-  revTl.from(c,{opacity:0,rotateX:15,transformOrigin:'top',duration:0.3},i*0.15);
-});
-
-/* Roadmap: phases slide up */
-const roadTl=gsap.timeline({scrollTrigger:{trigger:'.road-grid',start:'top 85%',end:'bottom 60%',scrub:1}});
-document.querySelectorAll('.road-phase').forEach((p,i)=>{
-  roadTl.from(p,{opacity:0,y:24,duration:0.3},i*0.12);
-});
-
-/* Team: cards pop in */
-const teamTl=gsap.timeline({scrollTrigger:{trigger:'#team',start:'top 70%',end:'bottom 40%',scrub:1}});
-document.querySelectorAll('#team .cd.tc').forEach((c,i)=>{
-  teamTl.from(c,{opacity:0,scale:0.85,duration:0.3},i*0.1);
-});
-
-/* Round: amount + fund bars */
-const roundTl=gsap.timeline({scrollTrigger:{trigger:'#round',start:'top 70%',end:'bottom 50%',scrub:1}});
-roundTl.from('.ra',{opacity:0,scale:0.7,duration:0.4},0);
-roundTl.from('.rt',{opacity:0,y:16,duration:0.3},0.15);
-roundTl.from('.rts',{opacity:0,y:16,duration:0.3},0.25);
-document.querySelectorAll('#round .ff').forEach((ff,i)=>{
-  roundTl.from(ff,{scaleX:0,transformOrigin:'left',duration:0.3},0.35+i*0.08);
-});
-
-/* Apply: form fields cascade */
-const applyTl=gsap.timeline({scrollTrigger:{trigger:'#apply',start:'top 70%',end:'top 20%',scrub:1}});
-document.querySelectorAll('#apply .fd, #apply .sa, #apply .ffp').forEach((el,i)=>{
-  applyTl.from(el,{opacity:0,y:16,duration:0.2},i*0.08);
-});
-
-}catch(e){console.error('GSAP enhancement error:',e)}
 }
 </script>
 </body>
