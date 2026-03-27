@@ -1016,9 +1016,13 @@ ScrollTrigger.create({trigger:'.cc-big',start:'top 80%',onEnter:()=>{
   const numEl=document.getElementById('cc-follower-num');
   if(numEl){const s=performance.now();(function u(n){const e=Math.min((n-s)/1200,1);const v=(2*(1-Math.pow(1-e,3))).toFixed(1);numEl.textContent=(e<1?v:2)+'M+';if(e<1)requestAnimationFrame(u)})(s)}
 },once:true});
-},once:true});
 
-/* Demo video — step sync */
+}catch(err){console.error('GSAP animation error:',err)}
+}/* end initGsapAnimations */
+/* If deck already unlocked (session), init GSAP now */
+if(deckReady)initGsapAnimations();
+
+/* Demo video — step sync (independent of GSAP) */
 const demoVid=document.getElementById('demoVid');
 const demoOverlay=document.getElementById('demoOverlay');
 const demoWrap=document.getElementById('demoWrap');
@@ -1027,7 +1031,7 @@ const demoSteps=document.querySelectorAll('.demo-step[data-start]');
 if(demoVid&&demoWrap){
   function playDemo(){
     demoOverlay.classList.add('hidden');
-    demoVid.play();
+    demoVid.play().catch(()=>{});
   }
   demoWrap.addEventListener('click',()=>{
     if(demoVid.paused) playDemo();
@@ -1037,7 +1041,7 @@ if(demoVid&&demoWrap){
   function setActiveStep(index){
     demoSteps.forEach(s=>s.classList.remove('active'));
     demoSteps[index]?.classList.add('active');
-    demoStepsContainer.className='demo-steps step-'+index;
+    if(demoStepsContainer) demoStepsContainer.className='demo-steps step-'+index;
   }
   setActiveStep(0);
   demoVid.addEventListener('timeupdate',()=>{
@@ -1059,18 +1063,10 @@ if(demoVid&&demoWrap){
       playDemo();
     });
   });
-  /* Auto-play muted when section scrolls into view */
-  ScrollTrigger.create({
-    trigger:'#product',
-    start:'top 60%',
-    onEnter:()=>{if(demoVid.paused) playDemo()},
-    once:true
-  });
+  /* Auto-play muted when product section is visible */
+  const prodObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){if(demoVid.paused)playDemo();prodObs.unobserve(x.target)}})},{threshold:.3});
+  prodObs.observe(document.getElementById('product'));
 }
-}catch(err){console.error('GSAP animation error:',err)}
-}/* end initGsapAnimations */
-/* If deck already unlocked (session), init GSAP now */
-if(deckReady)initGsapAnimations();
 </script>
 </body>
 </html>
