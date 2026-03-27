@@ -284,6 +284,26 @@ footer .br .a{background:linear-gradient(135deg,var(--av),#c084fc);-webkit-backg
 footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-height:1.6}
 
 
+/* SCROLL ANIMATIONS — all elements start hidden, revealed by JS after password */
+[data-a]{opacity:0;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+[data-a="fu"]{transform:translateY(24px)}
+[data-a="fd"]{transform:translateY(-24px)}
+[data-a="fl"]{transform:translateX(-30px)}
+[data-a="fr"]{transform:translateX(30px)}
+[data-a="zi"]{transform:scale(.85)}
+[data-a="zv"]{transform:scale(.92)}
+[data-a="fp"]{transform:perspective(600px) rotateX(12deg)}
+[data-a].show{opacity:1;transform:none}
+[data-a="fp"].show{transform:perspective(600px) rotateX(0)}
+/* Bar grow */
+.bar-anim{transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.bar-anim.show{transform:scaleY(1)}
+/* Fund bar */
+.ff-anim{transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.ff-anim.show{transform:scaleX(1)}
+/* Count-up handled by JS */
+@media(prefers-reduced-motion:reduce){[data-a],[data-a].show,.bar-anim,.bar-anim.show,.ff-anim,.ff-anim.show{opacity:1 !important;transform:none !important;transition:none !important}}
+
 /* RESPONSIVE: HEIGHT */
 @media(max-height:700px){.s{padding:clamp(24px,5vh,60px) 24px}.h1{font-size:clamp(24px,4vw,36px)}.sh{font-size:clamp(13px,1.5vw,15px)}.ht{font-size:clamp(36px,7vw,56px)}.hd{margin-bottom:32px}.hm{margin-bottom:32px}.mg .mc,.hg .hs,.tech-step{padding:20px 16px}.mv{font-size:clamp(22px,3.5vw,28px)}.cc-big{font-size:clamp(28px,5vw,40px)}.cc-hero{padding:32px 24px}.tl .tc{padding:20px}.ra{font-size:clamp(36px,7vw,52px)}.road-phase{padding:20px 16px}}
 @media(max-height:600px){.s{padding:clamp(16px,4vh,40px) 20px}.ey{margin-bottom:12px}.h1{font-size:clamp(20px,3.5vw,28px);margin-bottom:12px}.sh{font-size:clamp(12px,1.3vw,14px)}.ht{font-size:clamp(28px,6vw,44px)}.hd{margin-bottom:24px}.sc,.cn-pipeline{display:none}.pg,.hg,.mg,.rts,.wg,.rg,.tl,.tech-grid,.flow-grid,.road-grid,.market-funnel,.comp-grid{margin-top:24px}.cc-hero{margin-top:24px;padding:24px 20px}.cc-avatar{width:80px;height:80px}.cc-desc{font-size:13px;margin-bottom:16px}}
@@ -394,16 +414,16 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- HERO -->
 <section class="s" id="hero">
 <div class="si" style="text-align:center">
-<div class="hp"><span class="ld"></span> Angel Round Open</div>
-<h1 class="ht">Next<span class="a">Step</span></h1>
-<p class="hd">We started with 2 million consultants who already trust us. Now we're building the platform that replaces how the world recruits.</p>
+<div class="hp" data-a="fu" data-d="0"><span class="ld"></span> Angel Round Open</div>
+<h1 class="ht" data-a="fu" data-d="100">Next<span class="a">Step</span></h1>
+<p class="hd" data-a="fu" data-d="250">We started with 2 million consultants who already trust us. Now we're building the platform that replaces how the world recruits.</p>
 <div class="hm">
-<div class="hmi"><div class="hmv">2M+</div><div class="hml">Followers</div></div>
-<div class="hmi"><div class="hmv">$0</div><div class="hml">CAC</div></div>
-<div class="hmi"><div class="hmv">50%+</div><div class="hml">MoM Growth</div></div>
-<div class="hmi"><div class="hmv">4,000+</div><div class="hml">Users</div></div>
+<div class="hmi" data-a="fu" data-d="400" data-count="2" data-suffix="M+" data-prefix=""><div class="hmv">2M+</div><div class="hml">Followers</div></div>
+<div class="hmi" data-a="fu" data-d="550"><div class="hmv">$0</div><div class="hml">CAC</div></div>
+<div class="hmi" data-a="fu" data-d="700" data-count="50" data-suffix="%+" data-prefix=""><div class="hmv">50%+</div><div class="hml">MoM Growth</div></div>
+<div class="hmi" data-a="fu" data-d="850" data-count="4000" data-suffix="+" data-prefix=""><div class="hmv">4,000+</div><div class="hml">Users</div></div>
 </div>
-<div class="ha" style="flex-direction:column;align-items:center;gap:8px">
+<div class="ha" data-a="fu" data-d="1000" style="flex-direction:column;align-items:center;gap:8px">
 <a href="#video" class="btn bp" style="padding:10px 24px;font-size:13px">Watch the Pitch</a>
 <a href="#problem" class="btn bs" style="padding:10px 24px;font-size:13px;border:none;color:var(--t3)">Scroll to explore &darr;</a>
 </div>
@@ -414,9 +434,9 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- VIDEO -->
 <section class="s s-tall vid-s" id="video">
 <div class="si">
-<div class="ey" style="text-align:center">The Pitch</div>
-<h2 class="h1" style="text-align:center;max-width:100%">See the vision in 2 minutes</h2>
-<div class="vid-wrap">
+<div class="ey" data-a="fu" style="text-align:center">The Pitch</div>
+<h2 class="h1" data-a="fu" data-d="100" style="text-align:center;max-width:100%">See the vision in 2 minutes</h2>
+<div class="vid-wrap" data-a="zv" data-d="200">
 <div class="vid-poster" id="vidPoster" onclick="playVideo()">
 <img src="video-poster-logo.png" alt="NextStep" class="vid-poster-logo">
 <div class="vid-play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
@@ -431,24 +451,24 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- PROBLEM -->
 <section class="s s-tall" id="problem">
 <div class="si">
-<div class="ey">The Problem</div>
-<h2 class="h1">A $1 trillion industry that still runs on spam and guesswork.</h2>
-<p class="sh" style="max-width:640px">A senior consultant opens LinkedIn. 47 recruiter messages. None relevant. Meanwhile, a growth-stage startup has been searching for that exact profile for 6 months. Both sides lose.</p>
+<div class="ey" data-a="fu">The Problem</div>
+<h2 class="h1" data-a="fu" data-d="100">A $1 trillion industry that still runs on spam and guesswork.</h2>
+<p class="sh" data-a="fu" data-d="200" style="max-width:640px">A senior consultant opens LinkedIn. 47 recruiter messages. None relevant. Meanwhile, a growth-stage startup has been searching for that exact profile for 6 months. Both sides lose.</p>
 <div class="pg">
-<div class="pc"><div class="pct" style="color:var(--gr)">Candidate Side</div><div class="pi">60-hour weeks, zero time for a real job search</div><div class="pi">Hundreds of applications. A handful of responses. None that fit.</div><div class="pi">Drowning in irrelevant alerts and recruiter spam</div></div>
-<div class="pc"><div class="pct" style="color:var(--or)">Employer Side</div><div class="pi">The talent they want doesn't show up on job boards</div><div class="pi">Flooded with unqualified applicants for every role</div><div class="pi">The best consultants are passive — they never apply</div></div>
+<div class="pc" data-a="fl" data-d="300"><div class="pct" style="color:var(--gr)">Candidate Side</div><div class="pi">60-hour weeks, zero time for a real job search</div><div class="pi">Hundreds of applications. A handful of responses. None that fit.</div><div class="pi">Drowning in irrelevant alerts and recruiter spam</div></div>
+<div class="pc" data-a="fr" data-d="500"><div class="pct" style="color:var(--or)">Employer Side</div><div class="pi">The talent they want doesn't show up on job boards</div><div class="pi">Flooded with unqualified applicants for every role</div><div class="pi">The best consultants are passive — they never apply</div></div>
 </div>
-<div class="pf"><div class="pf-label">The Gap</div>The best talent never applies. The best companies never find them.</div>
+<div class="pf" data-a="fu" data-d="600"><div class="pf-label">The Gap</div>The best talent never applies. The best companies never find them.</div>
 </div>
 </section>
 
 <!-- PRODUCT -->
 <section class="s s-tall" id="product">
 <div class="si">
-<div class="ey">The Solution</div>
-<h2 class="h1">Your entire career search. Fully autonomous.</h2>
-<p class="sh" style="max-width:640px">A personal AI agent that runs your whole recruitment process — from finding roles to applying to preparing for interviews. You set it up once. It does the rest.</p>
-<div class="demo-layout">
+<div class="ey" data-a="fu">The Solution</div>
+<h2 class="h1" data-a="fu" data-d="100">Your entire career search. Fully autonomous.</h2>
+<p class="sh" data-a="fu" data-d="200" style="max-width:640px">A personal AI agent that runs your whole recruitment process — from finding roles to applying to preparing for interviews. You set it up once. It does the rest.</p>
+<div class="demo-layout" data-a="fu" data-d="300">
 <div class="demo-steps step-0" id="demoSteps">
 <div class="demo-step active" data-start="0" data-end="15">
 <div class="demo-step-num">STEP 01</div>
@@ -475,7 +495,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 </video>
 </div>
 </div>
-<div class="demo-bullets">
+<div class="demo-bullets" data-a="fu" data-d="400">
 <div class="pri" style="flex:1;min-width:200px"><div class="prc"><svg viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>Free for candidates</div>
 <div class="pri" style="flex:1;min-width:200px"><div class="prc"><svg viewBox="0 0 12 12" fill="none" stroke="#22c55e" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>Cost per match is pennies</div>
 </div>
@@ -485,27 +505,27 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- TRACTION -->
 <section class="s" id="traction">
 <div class="si">
-<div class="ey">Traction</div>
-<h2 class="h1">10 weeks. 4,000 users. Zero dollars spent.</h2>
-<p class="sh">Soft launch numbers. No ads, no sales team. Creator-driven distribution and a product consultants want.</p>
+<div class="ey" data-a="fu">Traction</div>
+<h2 class="h1" data-a="fu" data-d="100">10 weeks. 4,000 users. Zero dollars spent.</h2>
+<p class="sh" data-a="fu" data-d="200">Soft launch numbers. No ads, no sales team. Creator-driven distribution and a product consultants want.</p>
 <div class="mg">
-<div class="mc"><div class="mv">4,000+</div><div class="ml">Registered</div></div>
-<div class="mc"><div class="mv">$0</div><div class="ml">CAC</div></div>
-<div class="mc"><div class="mv">50%+</div><div class="ml">MoM Growth</div></div>
+<div class="mc" data-a="fu" data-d="300" data-count="4000" data-suffix="+"><div class="mv">4,000+</div><div class="ml">Registered</div></div>
+<div class="mc" data-a="fu" data-d="450"><div class="mv">$0</div><div class="ml">CAC</div></div>
+<div class="mc" data-a="fu" data-d="600" data-count="50" data-suffix="%+"><div class="mv">50%+</div><div class="ml">MoM Growth</div></div>
 </div>
-<div class="ca">
+<div class="ca" data-a="fu" data-d="400">
 <div class="ct">Cumulative users, weeks 1-10</div>
 <div class="bc">
-<div class="bco" data-val="120"><div class="bar" style="height:10px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">1</span></div>
-<div class="bco" data-val="210"><div class="bar" style="height:16px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">2</span></div>
-<div class="bco" data-val="380"><div class="bar" style="height:22px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">3</span></div>
-<div class="bco" data-val="620"><div class="bar" style="height:32px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.65))"></div><span class="bla">4</span></div>
-<div class="bco" data-val="980"><div class="bar" style="height:44px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.7))"></div><span class="bla">5</span></div>
-<div class="bco" data-val="1,400"><div class="bar" style="height:55px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.7))"></div><span class="bla">6</span></div>
-<div class="bco" data-val="2,100"><div class="bar" style="height:68px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.75))"></div><span class="bla">7</span></div>
-<div class="bco" data-val="2,800"><div class="bar" style="height:80px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.8))"></div><span class="bla">8</span></div>
-<div class="bco" data-val="3,400"><div class="bar" style="height:90px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.85))"></div><span class="bla">9</span></div>
-<div class="bco" data-val="4,000+"><div class="bar" style="height:100px;background:linear-gradient(to top,var(--ac),var(--av))"></div><span class="bla">10</span></div>
+<div class="bco" data-val="120"><div class="bar bar-anim" style="height:10px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">1</span></div>
+<div class="bco" data-val="210"><div class="bar bar-anim" style="height:16px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">2</span></div>
+<div class="bco" data-val="380"><div class="bar bar-anim" style="height:22px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.6))"></div><span class="bla">3</span></div>
+<div class="bco" data-val="620"><div class="bar bar-anim" style="height:32px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.65))"></div><span class="bla">4</span></div>
+<div class="bco" data-val="980"><div class="bar bar-anim" style="height:44px;background:linear-gradient(to top,var(--ac),rgba(124,58,237,.7))"></div><span class="bla">5</span></div>
+<div class="bco" data-val="1,400"><div class="bar bar-anim" style="height:55px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.7))"></div><span class="bla">6</span></div>
+<div class="bco" data-val="2,100"><div class="bar bar-anim" style="height:68px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.75))"></div><span class="bla">7</span></div>
+<div class="bco" data-val="2,800"><div class="bar bar-anim" style="height:80px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.8))"></div><span class="bla">8</span></div>
+<div class="bco" data-val="3,400"><div class="bar bar-anim" style="height:90px;background:linear-gradient(to top,var(--ac),rgba(167,139,250,.85))"></div><span class="bla">9</span></div>
+<div class="bco" data-val="4,000+"><div class="bar bar-anim" style="height:100px;background:linear-gradient(to top,var(--ac),var(--av))"></div><span class="bla">10</span></div>
 </div>
 </div>
 </div>
@@ -514,32 +534,32 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- DISTRIBUTION + CREATORS -->
 <section class="s s-tall" id="distribution">
 <div class="si">
-<div class="ey">Why Us</div>
-<h2 class="h1" style="text-align:center;max-width:100%">We own the largest distribution channel directly into this audience</h2>
-<div class="cc-hero">
+<div class="ey" data-a="fu">Why Us</div>
+<h2 class="h1" data-a="fu" data-d="100" style="text-align:center;max-width:100%">We own the largest distribution channel directly into this audience</h2>
+<div class="cc-hero" data-a="fu" data-d="200">
 <div class="cc-label">Our Unfair Advantage</div>
-<div class="cc-avatar"><img src="consulting-comedy.jpg" alt="Consulting Comedy"></div>
+<div class="cc-avatar" data-a="zi" data-d="300"><img src="consulting-comedy.jpg" alt="Consulting Comedy"></div>
 <a href="https://www.instagram.com/consultingcomedy" target="_blank" class="cc-name-link">Consulting Comedy <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-left:4px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
 <div class="cc-desc">The #1 consulting brand. An organic community of consultants and ex-consultants who trust us.</div>
-<div class="cc-big"><span id="cc-follower-num">2M+</span> followers</div>
+<div class="cc-big" data-a="fu" data-d="400"><span id="cc-follower-num">2M+</span> followers</div>
 <div class="cc-sub">across Consulting Comedy + creator partner network</div>
 </div>
-<div style="text-align:center;margin-top:32px"><div class="ey" style="margin-bottom:8px">Creator Share Ownership Plan (CSOP)</div><p class="sh" style="max-width:600px;margin:0 auto">No influencer fees. No paid promotions. Creators earn equity as long-term partners — they promote because they own it. Zero CAC, compounding distribution.</p></div>
+<div data-a="fu" data-d="300" style="text-align:center;margin-top:32px"><div class="ey" style="margin-bottom:8px">Creator Share Ownership Plan (CSOP)</div><p class="sh" style="max-width:600px;margin:0 auto">No influencer fees. No paid promotions. Creators earn equity as long-term partners — they promote because they own it. Zero CAC, compounding distribution.</p></div>
 <div class="cn-grid" style="margin-top:24px">
-<a href="https://www.instagram.com/whitecollarhumor" target="_blank" class="cn-card">
+<a href="https://www.instagram.com/whitecollarhumor" target="_blank" class="cn-card" data-a="fu" data-d="400">
 <div class="cn-avatar"><img src="white-collar-humor.jpg" alt="White Collar Humor"></div>
 <div class="cn-info"><div class="cn-name">White Collar Humor</div><div class="cn-stat">400K followers</div></div>
 </a>
-<a href="https://www.instagram.com/koreanconsultant" target="_blank" class="cn-card">
+<a href="https://www.instagram.com/koreanconsultant" target="_blank" class="cn-card" data-a="fu" data-d="550">
 <div class="cn-avatar"><img src="korean-consultant.jpg" alt="Korean Consultant"></div>
 <div class="cn-info"><div class="cn-name">Korean Consultant</div><div class="cn-stat">70K followers</div></div>
 </a>
-<a href="https://www.instagram.com/donaldtheking/" target="_blank" class="cn-card">
+<a href="https://www.instagram.com/donaldtheking/" target="_blank" class="cn-card" data-a="fu" data-d="700">
 <div class="cn-avatar"><img src="donald-king.jpg" alt="Donald King"></div>
 <div class="cn-info"><div class="cn-name">Donald King</div><div class="cn-stat">20K followers</div></div>
 </a>
 </div>
-<div class="cn-pipeline">
+<div class="cn-pipeline" data-a="fu" data-d="800">
 <div class="cn-pipeline-dots"><span></span><span></span><span></span></div>
 <div class="cn-pipeline-text">+ more creator partners in the pipeline</div>
 </div>
@@ -549,42 +569,42 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- UNIT ECONOMICS — KILLER SLIDE -->
 <section class="s s-tall" id="unit-economics">
 <div class="si" style="text-align:center">
-<div class="ey">The Opportunity</div>
-<h2 class="h1">From followers to a $100M business.</h2>
-<p class="sh">Consulting proves the model. Adjacent verticals multiply it.</p>
-<div class="ey" style="margin-top:48px;margin-bottom:16px">Consulting Only</div>
+<div class="ey" data-a="fu">The Opportunity</div>
+<h2 class="h1" data-a="fu" data-d="100">From followers to a $100M business.</h2>
+<p class="sh" data-a="fu" data-d="200">Consulting proves the model. Adjacent verticals multiply it.</p>
+<div class="ey" data-a="fu" data-d="250" style="margin-top:48px;margin-bottom:16px">Consulting Only</div>
 <div class="funnel" id="funnel">
-<div class="funnel-tier" style="background:rgba(124,58,237,.03)">
+<div class="funnel-tier" data-a="fu" data-d="300" style="background:rgba(124,58,237,.03)">
 <div class="funnel-num">2M+</div>
 <div class="funnel-label">Followers across our creator network</div>
 </div>
-<div class="funnel-arrow">&darr; 5% sign up</div>
-<div class="funnel-tier" style="background:rgba(124,58,237,.04)">
+<div class="funnel-arrow" data-a="fu" data-d="375">&darr; 5% sign up</div>
+<div class="funnel-tier" data-a="fu" data-d="450" style="background:rgba(124,58,237,.04)">
 <div class="funnel-num">100,000</div>
 <div class="funnel-label">Candidates on the platform</div>
 </div>
-<div class="funnel-arrow">&darr; 2% employer conversion &nbsp;&middot;&nbsp; 3% candidate conversion</div>
-<div class="funnel-tier" style="background:rgba(124,58,237,.05)">
+<div class="funnel-arrow" data-a="fu" data-d="525">&darr; 2% employer conversion &nbsp;&middot;&nbsp; 3% candidate conversion</div>
+<div class="funnel-tier" data-a="fu" data-d="600" style="background:rgba(124,58,237,.05)">
 <div class="funnel-num">2,000</div>
 <div class="funnel-label">Paying employers</div>
 </div>
-<div class="funnel-tier" style="background:rgba(124,58,237,.05)">
+<div class="funnel-tier" data-a="fu" data-d="750" style="background:rgba(124,58,237,.05)">
 <div class="funnel-num">3,000</div>
 <div class="funnel-label">Premium candidates</div>
 </div>
-<div class="funnel-arrow">&darr;</div>
-<div class="funnel-tier" style="background:rgba(124,58,237,.07);border-color:rgba(124,58,237,.2)">
+<div class="funnel-arrow" data-a="fu" data-d="825">&darr;</div>
+<div class="funnel-tier" data-a="fu" data-d="900" style="background:rgba(124,58,237,.07);border-color:rgba(124,58,237,.2)">
 <div class="funnel-num" style="color:var(--av)">$25M ARR</div>
 <div class="funnel-label">From consulting alone</div>
 </div>
 </div>
-<div class="funnel-result" id="funnel-result">
-<div class="funnel-expand">
-<div class="ey" style="margin-bottom:16px">Expand to Adjacent Verticals</div>
-<div class="funnel-verticals"><span class="funnel-vertical-word">Finance.</span><span class="funnel-vertical-word">Legal.</span><span class="funnel-vertical-word">Accounting.</span></div>
+<div class="funnel-result" data-a="fu" data-d="800" id="funnel-result">
+<div class="funnel-expand" data-a="zi" data-d="900">
+<div class="ey" data-a="fu" data-d="850" style="margin-bottom:16px">Expand to Adjacent Verticals</div>
+<div class="funnel-verticals"><span class="funnel-vertical-word" data-a="fu" data-d="900">Finance.</span><span class="funnel-vertical-word" data-a="fu" data-d="1100">Legal.</span><span class="funnel-vertical-word" data-a="fu" data-d="1300">Accounting.</span></div>
 <div class="funnel-multiplier">4x the addressable audience. Same playbook. Same economics.</div>
-<div class="funnel-100m">$100M+</div>
-<div class="funnel-sub">annual recurring revenue</div>
+<div class="funnel-100m" data-a="zi" data-d="1400">$100M+</div>
+<div class="funnel-sub" data-a="fu" data-d="1500">annual recurring revenue</div>
 </div>
 </div>
 </div>
@@ -593,62 +613,62 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- THE LADDER — BIG VISION -->
 <section class="s s-tall" id="ladder">
 <div class="si">
-<div class="ey">The Vision</div>
-<h2 class="h1">Consulting is the first step. Not the ceiling.</h2>
-<p class="sh" style="max-width:600px">Every great marketplace started with a wedge. Uber had black cars. Airbnb had air mattresses. We have 2 million consultants who already know our name.</p>
-<div class="ladder-wrap" id="ladder-wrap">
+<div class="ey" data-a="fu">The Vision</div>
+<h2 class="h1" data-a="fu" data-d="100">Consulting is the first step. Not the ceiling.</h2>
+<p class="sh" data-a="fu" data-d="200" style="max-width:600px">Every great marketplace started with a wedge. Uber had black cars. Airbnb had air mattresses. We have 2 million consultants who already know our name.</p>
+<div class="ladder-wrap" data-a="fu" data-d="300" id="ladder-wrap">
 <div class="ladder-line"></div>
 <div class="ladder-progress" id="ladder-progress"></div>
-<div class="ladder-rung current active" data-rung="0">
+<div class="ladder-rung current active" data-a="fl" data-d="400" data-rung="0">
 <div class="ladder-dot"></div>
 <div class="ladder-time">Today</div>
 <div class="ladder-title">Consulting career matching</div>
 <div class="ladder-desc">We're here. 4,000+ users, zero paid acquisition, product-market fit emerging.</div>
 </div>
-<div class="ladder-rung" data-rung="1">
+<div class="ladder-rung" data-a="fl" data-d="550" data-rung="1">
 <div class="ladder-dot"></div>
 <div class="ladder-time">12 months</div>
 <div class="ladder-title">Full talent marketplace</div>
 <div class="ladder-desc">Employer dashboard, subscriptions, two-sided revenue.</div>
 </div>
-<div class="ladder-rung" data-rung="2">
+<div class="ladder-rung" data-a="fl" data-d="700" data-rung="2">
 <div class="ladder-dot"></div>
 <div class="ladder-time">24 months</div>
 <div class="ladder-title">Adjacent verticals</div>
 <div class="ladder-desc">Finance, legal, accounting. Same playbook, new audiences.</div>
 </div>
-<div class="ladder-rung" data-rung="3">
+<div class="ladder-rung" data-a="fl" data-d="850" data-rung="3">
 <div class="ladder-dot"></div>
 <div class="ladder-time">36 months</div>
 <div class="ladder-title">Talent intelligence platform</div>
 <div class="ladder-desc">Predictive matching, compensation benchmarks, workforce planning.</div>
 </div>
-<div class="ladder-rung" data-rung="4">
+<div class="ladder-rung" data-a="fl" data-d="1000" data-rung="4">
 <div class="ladder-dot"></div>
 <div class="ladder-time">Endgame</div>
 <div class="ladder-title">Replace the $1T recruitment industry</div>
 <div class="ladder-desc">A world where talent finds opportunity automatically.</div>
 </div>
 </div>
-<p class="ladder-closing">We're not building a job board. We're building the infrastructure for how professionals find their next move.</p>
+<p class="ladder-closing" data-a="fu" data-d="500">We're not building a job board. We're building the infrastructure for how professionals find their next move.</p>
 </div>
 </section>
 
 <!-- WHY WE WIN + MARKET -->
 <section class="s s-tall" id="why">
 <div class="si">
-<div class="ey">Why We Win</div>
-<h2 class="h1">$1T market. Zero scaled incumbents. We have the edge.</h2>
+<div class="ey" data-a="fu">Why We Win</div>
+<h2 class="h1" data-a="fu" data-d="100">$1T market. Zero scaled incumbents. We have the edge.</h2>
 <div class="market-funnel">
-<div class="mf-tier"><div class="mf-left"><div class="mf-badge">TAM</div><div class="mf-val">$1T</div></div><div class="mf-desc">Global professional recruitment spend</div></div>
-<div class="mf-tier"><div class="mf-left"><div class="mf-badge">SAM</div><div class="mf-val">$92B</div></div><div class="mf-desc">Consulting-adjacent recruitment</div></div>
-<div class="mf-tier"><div class="mf-left"><div class="mf-badge">SOM</div><div class="mf-val">$3B</div></div><div class="mf-desc">UK/US consultant recruitment fees</div></div>
+<div class="mf-tier" data-a="fl" data-d="200"><div class="mf-left"><div class="mf-badge">TAM</div><div class="mf-val">$1T</div></div><div class="mf-desc">Global professional recruitment spend</div></div>
+<div class="mf-tier" data-a="fl" data-d="350"><div class="mf-left"><div class="mf-badge">SAM</div><div class="mf-val">$92B</div></div><div class="mf-desc">Consulting-adjacent recruitment</div></div>
+<div class="mf-tier" data-a="fl" data-d="500"><div class="mf-left"><div class="mf-badge">SOM</div><div class="mf-val">$3B</div></div><div class="mf-desc">UK/US consultant recruitment fees</div></div>
 </div>
 <div class="wg" style="margin-top:32px">
-<div class="cd wi"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
-<div class="cd wi"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
-<div class="cd wi"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>Free for candidates. More users attract more employers, more content, more users.</p></div>
-<div class="cd wi"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>No Scaled Incumbent</h3><p>Movemeon ($4.5M raised, no AI), Top-Consultant (legacy, zero personalization), Jack & Jill. The space is wide open.</p></div>
+<div class="cd wi" data-a="fu" data-d="200"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Creator-Led Distribution</h3><p>CSOP gives creators equity, not ad fees. Co-owners creating authentic content. Near-zero CAC at scale.</p></div>
+<div class="cd wi" data-a="fu" data-d="350"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><h3>Multi-Agent AI Pipeline</h3><p>8-stage data flywheel across the full candidate cycle. Every interaction makes the engine smarter. ~$0.15/match.</p></div>
+<div class="cd wi" data-a="fu" data-d="500"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Compounding Economics</h3><p>Free for candidates. More users attract more employers, more content, more users.</p></div>
+<div class="cd wi" data-a="fu" data-d="650"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><h3>No Scaled Incumbent</h3><p>Movemeon ($4.5M raised, no AI), Top-Consultant (legacy, zero personalization), Jack & Jill. The space is wide open.</p></div>
 </div>
 </div>
 </section>
@@ -656,13 +676,13 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- REVENUE -->
 <section class="s" id="revenue">
 <div class="si">
-<div class="ey">Revenue Model</div>
-<h2 class="h1">Three revenue streams. Compounding flywheel.</h2>
-<p class="sh">Free for candidates. Employers pay. More users attract more employers, more content, more users.</p>
+<div class="ey" data-a="fu">Revenue Model</div>
+<h2 class="h1" data-a="fu" data-d="100">Three revenue streams. Compounding flywheel.</h2>
+<p class="sh" data-a="fu" data-d="200">Free for candidates. Employers pay. More users attract more employers, more content, more users.</p>
 <div class="rg">
-<div class="rc"><div class="rc-accent" style="background:var(--or)"></div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
-<div class="rc"><div class="rc-accent" style="background:var(--blue)"></div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
-<div class="rc"><div class="rc-accent" style="background:var(--gr)"></div><div class="rn">Premium Tools</div><div class="rd">AI apps, mock interviews</div></div>
+<div class="rc" data-a="fp" data-d="300"><div class="rc-accent" style="background:var(--or)"></div><div class="rn">Employer Subscriptions</div><div class="rd">Dashboard, applicants, scores</div></div>
+<div class="rc" data-a="fp" data-d="450"><div class="rc-accent" style="background:var(--blue)"></div><div class="rn">Promoted Listings</div><div class="rd">Boosted visibility in feeds</div></div>
+<div class="rc" data-a="fp" data-d="600"><div class="rc-accent" style="background:var(--gr)"></div><div class="rn">Premium Tools</div><div class="rd">AI apps, mock interviews</div></div>
 </div>
 </div>
 </section>
@@ -670,31 +690,31 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- ROADMAP (NEW) -->
 <section class="s" id="roadmap">
 <div class="si">
-<div class="ey">Roadmap</div>
-<h2 class="h1">From consulting to the talent intelligence platform</h2>
+<div class="ey" data-a="fu">Roadmap</div>
+<h2 class="h1" data-a="fu" data-d="100">From consulting to the talent intelligence platform</h2>
 <div class="road-grid">
-<div class="road-phase">
+<div class="road-phase" data-a="fu" data-d="200">
 <div class="road-status live">Live Now</div>
 <div class="road-name">Consulting Matching</div>
 <div class="road-date">Prove the model with our audience</div>
 <ul class="road-items"><li>AI agent onboarding (Agent Zero)</li><li>Autonomous job matching</li><li>Creator-driven user acquisition</li></ul>
 <div class="road-ms">4K candidates &middot; $0 CAC</div>
 </div>
-<div class="road-phase">
+<div class="road-phase" data-a="fu" data-d="350">
 <div class="road-status soon">12 Months</div>
 <div class="road-name">Full Marketplace</div>
 <div class="road-date">Two-sided revenue from employers</div>
 <ul class="road-items"><li>Employer dashboard &amp; subscriptions</li><li>Applicant tracking &amp; scoring</li><li>Premium candidate tools</li></ul>
 <div class="road-ms">10K candidates &middot; First revenue</div>
 </div>
-<div class="road-phase">
+<div class="road-phase" data-a="fu" data-d="500">
 <div class="road-status soon">24 Months</div>
 <div class="road-name">Adjacent Verticals</div>
 <div class="road-date">Finance. Legal. Accounting.</div>
 <ul class="road-items"><li>New creator partnerships per vertical</li><li>Same playbook, new audiences</li><li>4x addressable market</li></ul>
 <div class="road-ms">100K candidates &middot; $25M ARR</div>
 </div>
-<div class="road-phase">
+<div class="road-phase" data-a="fu" data-d="650">
 <div class="road-status soon">36 Months</div>
 <div class="road-name">Talent Intelligence</div>
 <div class="road-date">The platform layer for professional hiring</div>
@@ -708,19 +728,19 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- TEAM -->
 <section class="s s-tall" id="team">
 <div class="si">
-<div class="ey">The Team</div>
-<h2 class="h1">Creators who understand the audience. Operators who've done this before.</h2>
-<div class="team-label">Core Team</div>
+<div class="ey" data-a="fu">The Team</div>
+<h2 class="h1" data-a="fu" data-d="100">Creators who understand the audience. Operators who've done this before.</h2>
+<div class="team-label" data-a="fu">Core Team</div>
 <div class="tl tl-3" style="margin-top:0">
-<div class="cd tc"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Associate Director at Propel, a leading GTM strategy and recruitment consultancy. Then Chief of Staff at PEP Health, growing ARR to $3.4M in 18 months.</div><a href="https://www.linkedin.com/in/luketyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc"><div class="ti"><img src="ahmed.jpg" alt="Ahmed Eltom"></div><div class="nm">Ahmed Eltom</div><div class="rl">CPO</div><div class="bi">Scaled multiple creator-led brands. 6+ years in consulting. Built the NextStep product and AI pipeline.</div><a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc"><div class="ti"><img src="ana.jpg" alt="Ana Colak Fustin"></div><div class="nm">Ana Colak Fustin</div><div class="rl">COO</div><div class="bi">Scaled her own job search marketplace to over 10,000 customers. 12+ years in the recruitment space.</div><a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc" data-a="zi" data-d="200"><div class="ti"><img src="luke.jpg" alt="Luke Tyrrell"></div><div class="nm">Luke Tyrrell</div><div class="rl">CEO</div><div class="bi">Associate Director at Propel, a leading GTM strategy and recruitment consultancy. Then Chief of Staff at PEP Health, growing ARR to $3.4M in 18 months.</div><a href="https://www.linkedin.com/in/luketyrrell/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc" data-a="zi" data-d="350"><div class="ti"><img src="ahmed.jpg" alt="Ahmed Eltom"></div><div class="nm">Ahmed Eltom</div><div class="rl">CPO</div><div class="bi">Scaled multiple creator-led brands. 6+ years in consulting. Built the NextStep product and AI pipeline.</div><a href="https://www.linkedin.com/in/aeltom/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc" data-a="zi" data-d="500"><div class="ti"><img src="ana.jpg" alt="Ana Colak Fustin"></div><div class="nm">Ana Colak Fustin</div><div class="rl">COO</div><div class="bi">Scaled her own job search marketplace to over 10,000 customers. 12+ years in the recruitment space.</div><a href="https://www.linkedin.com/in/ana-colak-fustin/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 </div>
-<div class="team-label">Advisors</div>
+<div class="team-label" data-a="fu">Advisors</div>
 <div class="tl tl-3" style="margin-top:0">
-<div class="cd tc"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Ex-Commercial Director, Diary of a CEO</span></div><div class="bi">Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Blazar Capital</span></div><div class="bi">Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-<div class="cd tc"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Jobi Brands</span></div><div class="bi">Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc" data-a="zi" data-d="200"><div class="ti"><img src="alexandra.jpg" alt="Alexandra Didio"></div><div class="nm">Alexandra Didio</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Ex-Commercial Director, Diary of a CEO</span></div><div class="bi">Creator economy specialist. Deep network of creator and management agencies.</div><a href="https://www.linkedin.com/in/alexandradidio/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc" data-a="zi" data-d="350"><div class="ti"><img src="christian.jpg" alt="Christian Arnstedt"></div><div class="nm">Christian Arnstedt</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Blazar Capital</span></div><div class="bi">Built creator-led companies with Emma Chamberlain and Logan Paul. 100+ creator platform.</div><a href="https://www.linkedin.com/in/christian-arnstedt/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+<div class="cd tc" data-a="zi" data-d="500"><div class="ti"><img src="ryan.jpg" alt="Ryan Nelson"></div><div class="nm">Ryan Nelson</div><div class="rl">Advisor<br><span style="color:var(--t1);font-weight:700">Founder & CEO, Jobi Brands</span></div><div class="bi">Built celebrity-led brands with Courteney Cox and Kaley Cuoco. Multi-brand portfolio operator.</div><a href="https://www.linkedin.com/in/ryangnelson/" target="_blank" class="tm-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 </div>
 </div>
 </section>
@@ -728,21 +748,21 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <!-- ROUND -->
 <section class="s" id="round">
 <div class="si">
-<div class="ey" style="text-align:center">The Opportunity</div>
-<div class="ra">$750K</div>
-<div class="rt">Advanced Subscription Agreement (ASA) &middot; Angel Round</div>
-<div class="rts" style="grid-template-columns:repeat(2,1fr)">
+<div class="ey" data-a="fu" style="text-align:center">The Opportunity</div>
+<div class="ra" data-a="zi" data-d="100">$750K</div>
+<div class="rt" data-a="fu" data-d="200">Advanced Subscription Agreement (ASA) &middot; Angel Round</div>
+<div class="rts" data-a="fu" data-d="300" style="grid-template-columns:repeat(2,1fr)">
 <div class="rtc"><div class="rtv" style="color:var(--av)">Equity</div><div class="rtl">Investment Type</div></div>
 <div class="rtc"><div class="rtv">UK</div><div class="rtl">Incorporated</div></div>
 </div>
-<div class="fb">
+<div class="fb" data-a="fu" data-d="400">
 <h3>Use of Funds</h3>
-<div class="fl"><span class="fn">Product</span><div class="ft"><div class="ff" style="width:40%;background:var(--av)"></div></div><span class="fp">40%</span></div>
-<div class="fl"><span class="fn">Employer Acquisition</span><div class="ft"><div class="ff" style="width:25%;background:var(--blue)"></div></div><span class="fp">25%</span></div>
-<div class="fl"><span class="fn">Creator Network</span><div class="ft"><div class="ff" style="width:20%;background:var(--gr)"></div></div><span class="fp">20%</span></div>
-<div class="fl"><span class="fn">Operations</span><div class="ft"><div class="ff" style="width:15%;background:var(--amber)"></div></div><span class="fp">15%</span></div>
+<div class="fl"><span class="fn">Product</span><div class="ft"><div class="ff ff-anim" style="width:40%;background:var(--av)"></div></div><span class="fp">40%</span></div>
+<div class="fl"><span class="fn">Employer Acquisition</span><div class="ft"><div class="ff ff-anim" style="width:25%;background:var(--blue)"></div></div><span class="fp">25%</span></div>
+<div class="fl"><span class="fn">Creator Network</span><div class="ft"><div class="ff ff-anim" style="width:20%;background:var(--gr)"></div></div><span class="fp">20%</span></div>
+<div class="fl"><span class="fn">Operations</span><div class="ft"><div class="ff ff-anim" style="width:15%;background:var(--amber)"></div></div><span class="fp">15%</span></div>
 </div>
-<div style="text-align:center" class=""><a href="#apply" class="btn bp bl">I Want In</a></div>
+<div style="text-align:center" data-a="fu" data-d="500"><a href="#apply" class="btn bp bl">I Want In</a></div>
 </div>
 </section>
 
@@ -750,16 +770,16 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <section class="s s-tall" id="apply">
 <div class="si">
 <div style="text-align:center;margin-bottom:48px">
-<div class="ey">Express Interest</div>
-<h2 class="h1">Join the NextStep cap table.</h2>
-<p class="sh" style="margin:0 auto">Selectively inviting angels who bring more than capital.</p>
+<div class="ey" data-a="fu">Express Interest</div>
+<h2 class="h1" data-a="fu" data-d="100">Join the NextStep cap table.</h2>
+<p class="sh" data-a="fu" data-d="200" style="margin:0 auto">Selectively inviting angels who bring more than capital.</p>
 </div>
 <div class="fw">
 <form id="f" onsubmit="sf(event)">
-<div class="fd"><label class="fdl">Full Name *</label><input type="text" name="full_name" class="inp" placeholder="Your name" required></div>
-<div class="fd"><label class="fdl">Email *</label><input type="email" name="email" class="inp" placeholder="you@email.com" required></div>
-<div class="fd"><label class="fdl">LinkedIn *</label><span class="fdh">So we can learn about your background</span><input type="url" name="linkedin" class="inp" placeholder="https://linkedin.com/in/yourname" required></div>
-<fieldset class="fd" style="border:none;padding:0"><legend class="fdl">How much would you be willing to commit? *</legend>
+<div class="fd" data-a="fu" data-d="200"><label class="fdl">Full Name *</label><input type="text" name="full_name" class="inp" placeholder="Your name" required></div>
+<div class="fd" data-a="fu" data-d="300"><label class="fdl">Email *</label><input type="email" name="email" class="inp" placeholder="you@email.com" required></div>
+<div class="fd" data-a="fu" data-d="400"><label class="fdl">LinkedIn *</label><span class="fdh">So we can learn about your background</span><input type="url" name="linkedin" class="inp" placeholder="https://linkedin.com/in/yourname" required></div>
+<fieldset class="fd" data-a="fu" data-d="500" style="border:none;padding:0"><legend class="fdl">How much would you be willing to commit? *</legend>
 <div class="rgrp">
 <label class="ro"><input type="radio" name="q4" value="10000" required><div><div class="ol">$10,000</div></div></label>
 <label class="ro"><input type="radio" name="q4" value="25000"><div><div class="ol">$25,000</div></div></label>
@@ -767,9 +787,9 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <label class="ro"><input type="radio" name="q4" value="100000"><div><div class="ol">$100,000</div></div></label>
 <label class="ro"><input type="radio" name="q4" value="200000+"><div><div class="ol">$200,000+</div></div></label>
 </div></fieldset>
-<div class="fd"><label class="fdl">Tell us about yourself and why you're interested</label><textarea name="notes" class="inp" placeholder="Your background, what excites you about NextStep, questions..." rows="3"></textarea></div>
-<div class="sa"><button type="submit" class="btn bp bl">Submit Interest</button></div>
-<p class="ffp">Expression of interest, not a binding commitment. Confidential.</p>
+<div class="fd" data-a="fu" data-d="600"><label class="fdl">Tell us about yourself and why you're interested</label><textarea name="notes" class="inp" placeholder="Your background, what excites you about NextStep, questions..." rows="3"></textarea></div>
+<div class="sa" data-a="fu"><button type="submit" class="btn bp bl">Submit Interest</button></div>
+<p class="ffp" data-a="fu">Expression of interest, not a binding commitment. Confidential.</p>
 </form>
 </div>
 </div>
@@ -793,9 +813,124 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 </footer>
 
 <script>
-/* Password gate */
-function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow=''}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
-if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none'}else{document.body.style.overflow='hidden'}
+/* Animation system — initialize only after password gate */
+function initAnim(){
+  /* IntersectionObserver for data-a elements */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const d=parseInt(e.target.dataset.d||'0');
+        setTimeout(()=>e.target.classList.add('show'),d);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08});
+  document.querySelectorAll('[data-a]').forEach(el=>io.observe(el));
+
+  /* Bar chart bars */
+  const barObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.bar-anim').forEach((bar,i)=>{
+          setTimeout(()=>bar.classList.add('show'),i*60);
+        });
+        barObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.ca').forEach(el=>barObs.observe(el));
+
+  /* Fund allocation bars */
+  const ffObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.ff-anim').forEach((bar,i)=>{
+          setTimeout(()=>bar.classList.add('show'),i*100);
+        });
+        ffObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.fb').forEach(el=>ffObs.observe(el));
+
+  /* Count-up animations */
+  const countObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&e.target.dataset.count){
+        const el=e.target.querySelector('.hmv,.mv,.funnel-num');
+        const target=parseFloat(e.target.dataset.count);
+        const suffix=e.target.dataset.suffix||'';
+        const prefix=e.target.dataset.prefix||'';
+        if(el){
+          const d=parseInt(e.target.dataset.d||'0');
+          setTimeout(()=>{
+            const s=performance.now();
+            (function tick(now){
+              const p=Math.min((now-s)/1000,1);
+              const eased=1-Math.pow(1-p,3);
+              const v=target*(eased);
+              if(target>=1000) el.textContent=prefix+Math.floor(v).toLocaleString()+suffix;
+              else if(target<10) el.textContent=prefix+(v).toFixed(v>=target?0:1).replace(/\.0$/,'')+suffix;
+              else el.textContent=prefix+Math.floor(v)+suffix;
+              if(p<1)requestAnimationFrame(tick);
+              else{
+                if(target>=1000) el.textContent=prefix+Math.floor(target).toLocaleString()+suffix;
+                else el.textContent=prefix+target+suffix;
+              }
+            })(s);
+          },d);
+        }
+        countObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('[data-count]').forEach(el=>countObs.observe(el));
+
+  /* Follower count-up for distribution */
+  const ccObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const numEl=document.getElementById('cc-follower-num');
+        if(numEl){
+          const s=performance.now();
+          (function u(n){const e=Math.min((n-s)/1200,1);const v=(2*(1-Math.pow(1-e,3)));numEl.textContent=(e<1?v.toFixed(1):2)+'M+';if(e<1)requestAnimationFrame(u)})(s);
+        }
+        ccObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  const ccBig=document.querySelector('.cc-big');
+  if(ccBig) ccObs.observe(ccBig);
+
+  /* Ladder scroll progress */
+  const ladderWrap=document.getElementById('ladder-wrap');
+  const ladderProgress=document.getElementById('ladder-progress');
+  const ladderRungs=document.querySelectorAll('.ladder-rung');
+  if(ladderWrap&&ladderRungs.length){
+    const ladderObs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          /* Switch to scroll listener while in view */
+          function onScroll(){
+            const rect=ladderWrap.getBoundingClientRect();
+            const viewH=window.innerHeight;
+            const progress=Math.max(0,Math.min(1,(viewH*0.7-rect.top)/(rect.height)));
+            if(ladderProgress) ladderProgress.style.height=(progress*100)+'%';
+            ladderRungs.forEach((rung,i)=>{
+              if(progress>=(i/ladderRungs.length)) rung.classList.add('active');
+            });
+          }
+          window.addEventListener('scroll',onScroll,{passive:true});
+          onScroll();
+        }
+      });
+    },{threshold:0});
+    ladderObs.observe(ladderWrap);
+  }
+}
+
+function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnim()}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
+if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';initAnim()}else{document.body.style.overflow='hidden'}
 
 
 /* Nav dot tracking */
