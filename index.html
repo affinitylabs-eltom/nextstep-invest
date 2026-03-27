@@ -806,28 +806,20 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 
 <script>
 /* Password gate */
-const PW_HASH='a]xR9kL2mP5';/* obfuscated check below */
-var deckReady=false;
-function initAnimations(){
-  if(deckReady)return;
-  deckReady=true;
-  /* Small delay to let layout settle after gate removal, then start observers */
-  requestAnimationFrame(()=>{requestAnimationFrame(()=>{
-    /* Reveal animations for rv2 elements — the core animation system */
-    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
-    document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
-    /* Funnel elements */
-    const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
-    document.querySelectorAll('.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
-    /* Bar chart + fund bar animation */
-    const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
-    document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
-    /* Init GSAP if loaded */
-    if(typeof initGsapAnimations==='function')initGsapAnimations();
-  })});
-}
-function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnimations()}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
-if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';initAnimations()}else{document.body.style.overflow='hidden'}
+function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow=''}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
+if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none'}else{document.body.style.overflow='hidden'}
+
+/* Reveal animations — runs immediately, elements animate behind gate */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.rv2').forEach(e=>obs.observe(e));
+
+/* Bar chart + fund bar animation */
+const chartObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');chartObs.unobserve(x.target)}})},{threshold:.3});
+document.querySelectorAll('.ca,.fb').forEach(e=>chartObs.observe(e));
+
+/* Funnel elements */
+const animObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');animObs.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.funnel-tier,.funnel-arrow,.funnel-result,.funnel-expand,.funnel-vertical-word').forEach(e=>animObs.observe(e));
 
 /* Nav dot tracking */
 const secs=document.querySelectorAll('.s'),dots=document.querySelectorAll('.dot');
@@ -901,8 +893,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script>
-function initGsapAnimations(){
-if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;
+if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
 try{
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1017,10 +1008,8 @@ ScrollTrigger.create({trigger:'.cc-big',start:'top 80%',onEnter:()=>{
   if(numEl){const s=performance.now();(function u(n){const e=Math.min((n-s)/1200,1);const v=(2*(1-Math.pow(1-e,3))).toFixed(1);numEl.textContent=(e<1?v:2)+'M+';if(e<1)requestAnimationFrame(u)})(s)}
 },once:true});
 
-}catch(err){console.error('GSAP animation error:',err)}
-}/* end initGsapAnimations */
-/* If deck already unlocked (session), init GSAP now */
-if(deckReady)initGsapAnimations();
+}catch(err){console.error('GSAP error:',err)}
+}/* end GSAP */
 
 /* Demo video — step sync (independent of GSAP) */
 const demoVid=document.getElementById('demoVid');
