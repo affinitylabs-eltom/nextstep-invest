@@ -419,13 +419,7 @@ footer .di{font-size:10px;color:var(--t3);max-width:560px;margin:0 auto;line-hei
 <div class="ey" style="text-align:center;margin-bottom:8px">See It in Action</div>
 <p class="sh" style="text-align:center;margin:0 auto 24px">A 2-minute walkthrough of the vision and the product.</p>
 <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#0a0a1a;border:1px solid var(--border);position:relative;box-shadow:0 0 80px rgba(124,58,237,.08),0 4px 60px rgba(0,0,0,.5)">
-<div id="vidPoster" onclick="playPitchVideo()" style="position:absolute;top:0;left:0;width:100%;height:100%;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;cursor:pointer;z-index:2;transition:opacity .4s">
-<img src="video-poster-logo.png" alt="NextStep" style="max-width:min(60%,320px);height:auto;object-fit:contain;pointer-events:none">
-<div style="width:64px;height:64px;border-radius:50%;background:rgba(124,58,237,.7);display:flex;align-items:center;justify-content:center;padding-left:3px;transition:all .3s;animation:pulse-play 2.5s ease-in-out infinite"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
-</div>
-<video id="mainVid" playsinline preload="metadata" style="width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover;display:none">
-<source src="https://rqimturydpfiwdzdtpyo.supabase.co/storage/v1/object/public/fundraising%20video/fundraising%20video.mp4" type="video/mp4">
-</video>
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/48SSP-YFjd0?rel=0" title="NextStep — See It in Action" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
 </div>
 </div>
 
@@ -866,8 +860,7 @@ async function sf(e){
   }
 }
 
-/* Pitch video */
-function playPitchVideo(){const p=document.getElementById('vidPoster'),v=document.getElementById('mainVid');v.style.display='block';v.controls=true;v.play().then(()=>{p.style.opacity='0';p.style.pointerEvents='none'}).catch(()=>{p.style.opacity='1';p.style.pointerEvents='auto';v.style.display='none'})}
+/* Pitch video — now YouTube embed */
 
 /* Smooth anchors */
 function smoothScrollTo(target,duration){
