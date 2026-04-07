@@ -788,7 +788,7 @@ function initAnim(){
 }
 
 /* Password */
-function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnim()}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
+function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnim();_tk('password_entered',{password_entered:true})}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
 if(sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';initAnim()}else{document.body.style.overflow='hidden'}
 
 /* Nav dots with step progress */
@@ -923,6 +923,32 @@ if(demoVid&&demoWrap){
     });
   });
 }
+</script>
+<script>
+(function(){
+  const TK_URL='https://rqimturydpfiwdzdtpyo.supabase.co/functions/v1/track-visit';
+  const params=new URLSearchParams(window.location.search);
+  const ref=params.get('ref');
+  if(!ref)return;
+  const start=Date.now();
+  let maxScroll=0;
+  function _tkSend(event,extra){
+    const data=Object.assign({ref:ref,event:event,page_url:window.location.href,referrer:document.referrer||null,user_agent:navigator.userAgent},extra||{});
+    navigator.sendBeacon?navigator.sendBeacon(TK_URL,JSON.stringify(data)):fetch(TK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),keepalive:true});
+  }
+  window._tk=function(event,extra){_tkSend(event,extra)};
+  _tkSend('page_view');
+  window.addEventListener('scroll',function(){
+    const pct=Math.round((window.scrollY+window.innerHeight)/document.documentElement.scrollHeight*100);
+    if(pct>maxScroll)maxScroll=pct;
+  });
+  function sendExit(){
+    const seconds=Math.round((Date.now()-start)/1000);
+    _tkSend('page_exit',{time_on_page:seconds,scroll_depth:maxScroll});
+  }
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')sendExit()});
+  window.addEventListener('pagehide',sendExit);
+})();
 </script>
 </body>
 </html>
