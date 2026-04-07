@@ -78,7 +78,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <div style="font-size:20px;font-weight:700;margin-bottom:8px">NextStep Dashboard</div>
 <p style="font-size:14px;color:#8b949e;margin-bottom:32px">Enter the password to access outreach tracking.</p>
 <form onsubmit="return checkDashPw(event)" style="display:flex;flex-direction:column;gap:12px">
-<div style="position:relative"><input type="password" id="dash-pw" placeholder="Password" autofocus style="text-align:center;font-size:16px;padding-right:40px"><button type="button" onclick="const i=document.getElementById('dash-pw');const s=this.querySelector('svg');if(i.type==='password'){i.type='text';s.innerHTML='<path d=\'M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94\'/><path d=\'M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19\'/><path d=\'M14.12 14.12a3 3 0 11-4.24-4.24\'/><line x1=\'1\' y1=\'1\' x2=\'23\' y2=\'23\'/>'}else{i.type='password';s.innerHTML='<path d=\'M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\'/><circle cx=\'12\' cy=\'12\' r=\'3\'/>'}" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+<div style="position:relative"><input type="password" id="dash-pw" placeholder="Password" autofocus style="text-align:center;font-size:16px;padding-right:40px"><button type="button" id="dash-eye" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
 <button type="submit" class="pw-submit">Enter</button>
 <p id="dash-pw-err" style="font-size:12px;color:#ef4444;display:none">Incorrect password. Try again.</p>
 </form>
@@ -132,6 +132,17 @@ function checkDashPw(e){
   }
   return false;
 }
+document.getElementById('dash-eye').addEventListener('click',function(){
+  var i=document.getElementById('dash-pw');
+  var s=this.querySelector('svg');
+  if(i.type==='password'){
+    i.type='text';
+    s.innerHTML='<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><path d="M14.12 14.12a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  }else{
+    i.type='password';
+    s.innerHTML='<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+});
 if(sessionStorage.getItem('dash-auth')==='1'){
   document.getElementById('pw-gate').style.display='none';
   document.getElementById('app').style.display='block';
