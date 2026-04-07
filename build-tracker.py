@@ -12,10 +12,19 @@ html = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextStep Outreach Tracker</title>
+<title>NextStep Outreach Dashboard</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f1117;color:#e1e4e8}
+.pw-gate{position:fixed;inset:0;background:#0f1117;z-index:9999;display:flex;align-items:center;justify-content:center}
+.pw-box{background:#161b22;border:1px solid #21262d;border-radius:12px;padding:40px;text-align:center;max-width:380px;width:90%}
+.pw-box h2{font-size:18px;margin-bottom:8px}
+.pw-box p{font-size:13px;color:#8b949e;margin-bottom:24px}
+.pw-box input{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #30363d;background:#0d1117;color:#e1e4e8;font-size:14px;outline:none;margin-bottom:12px}
+.pw-box input:focus{border-color:#58a6ff}
+.pw-box button{width:100%;padding:10px;border-radius:8px;border:none;background:#58a6ff;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+.pw-box button:hover{background:#4c94e0}
+.pw-err{font-size:12px;color:#ef4444;display:none;margin-bottom:8px}
 .hdr{padding:24px 32px;border-bottom:1px solid #21262d;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .hdr h1{font-size:20px;font-weight:600}
 .stats{display:flex;gap:12px;font-size:13px;color:#8b949e}
@@ -67,6 +76,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </style>
 </head>
 <body>
+<div class="pw-gate" id="pw-gate">
+  <div class="pw-box">
+    <h2>NextStep Dashboard</h2>
+    <p>Enter the password to access outreach tracking.</p>
+    <form onsubmit="return checkDashPw(event)">
+      <input type="password" id="dash-pw" placeholder="Password" autofocus>
+      <p class="pw-err" id="dash-pw-err">Incorrect password. Try again.</p>
+      <button type="submit">Enter</button>
+    </form>
+  </div>
+</div>
+<div id="app" style="display:none">
 <div class="hdr">
   <h1>NextStep Outreach Tracker</h1>
   <div class="stats">
@@ -98,6 +119,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 <div class="wrap" id="list"></div>
 <div class="toast" id="toast"></div>
+</div>
+<script>
+function checkDashPw(e){
+  e.preventDefault();
+  var v=document.getElementById('dash-pw').value;
+  if(v==='NextStep2026!'){
+    document.getElementById('pw-gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    sessionStorage.setItem('dash-auth','1');
+  }else{
+    document.getElementById('dash-pw-err').style.display='block';
+    document.getElementById('dash-pw').value='';
+    document.getElementById('dash-pw').focus();
+  }
+  return false;
+}
+if(sessionStorage.getItem('dash-auth')==='1'){
+  document.getElementById('pw-gate').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+</script>
 <script>
 const DATA_B64="PLACEHOLDER_B64";
 const D=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(DATA_B64),c=>c.charCodeAt(0))));
@@ -273,4 +315,8 @@ html = html.replace('PLACEHOLDER_B64', b64)
 with open(os.path.join(DIR, 'outreach-tracker.html'), 'w', encoding='utf-8') as f:
     f.write(html)
 
+with open(os.path.join(DIR, 'dashboard', 'index.html'), 'w', encoding='utf-8') as f:
+    f.write(html)
+
 print(f"Built tracker with {len(investors)} investors")
+print(f"Output: outreach-tracker.html + dashboard/index.html")
