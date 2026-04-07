@@ -274,22 +274,75 @@ async function loadAnalytics(){
       a.visits.push(r);
     });
 
-    if(Object.keys(analyticsData).length===0){
-      el.innerHTML='<p>No visits tracked yet. Links will start tracking once investors open them.</p>';
-      return;
+    // Also fetch HeyReach events
+    let hrHtml="";
+    try{
+      const hrRes=await fetch(SB_URL+"/rest/v1/heyreach_events?select=*&order=created_at.desc&limit=50",{
+        headers:{"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY}
+      });
+      const hrRows=await hrRes.json();
+      if(hrRows.length>0){
+        hrHtml='<h3 style="font-size:14px;margin:24px 0 12px;color:#e1e4e8">HeyReach Activity</h3>';
+        hrHtml+='<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="border-bottom:1px solid #30363d;text-align:left"><th style="padding:8px;color:#8b949e">Event</th><th style="padding:8px;color:#8b949e">Lead</th><th style="padding:8px;color:#8b949e">Campaign</th><th style="padding:8px;color:#8b949e">Message</th><th style="padding:8px;color:#8b949e">Time</th></tr></thead><tbody>';
+        hrRows.forEach(r=>{
+          const evColor=r.event_type.includes("REPLY")?"color:#3fb950":r.event_type.includes("ACCEPT")?"color:#58a6ff":"color:#e1e4e8";
+          const time=new Date(r.created_at).toLocaleDateString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+          const msg=r.message_text?r.message_text.substring(0,60)+(r.message_text.length>60?"...":""):"-";
+          hrHtml+='<tr style="border-bottom:1px solid #21262d"><td style="padding:8px;'+evColor+'">'+esc(r.event_type)+'</td><td style="padding:8px">'+esc(r.lead_name||"-")+'</td><td style="padding:8px;color:#8b949e">'+esc(r.campaign_name||"-")+'</td><td style="padding:8px;color:#8b949e;font-size:12px">'+esc(msg)+'</td><td style="padding:8px;color:#8b949e">'+time+'</td></tr>';
+        });
+        hrHtml+='</tbody></table>';
+      }
+    }catch(e){console.log("HeyReach events fetch error:",e)}
+
+    // Also fetch HeyReach campaign stats via API
+    let campaignHtml="";
+    try{
+      const cRes=await fetch("https://api.heyreach.io/api/public/campaign/GetAll",{
+        method:"POST",headers:{"X-API-KEY":"WzaUywbybulLzp5VYJqWnhgPEibkdWlmq9r7l/L5E78=","Content-Type":"application/json"},body:"{}"
+      });
+      const cData=await cRes.json();
+      if(cData.items&&cData.items.length>0){
+        campaignHtml='<h3 style="font-size:14px;margin:0 0 12px;color:#e1e4e8">HeyReach Campaigns</h3>';
+        campaignHtml+='<div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">';
+        cData.items.forEach(c=>{
+          const s=c.progressStats;
+          const statusColor=c.status==="IN_PROGRESS"?"#3fb950":c.status==="PAUSED"?"#d29922":"#8b949e";
+          campaignHtml+='<div style="background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:16px;flex:1;min-width:250px">';
+          campaignHtml+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><strong>'+esc(c.name)+'</strong><span style="font-size:11px;color:'+statusColor+'">'+c.status+'</span></div>';
+          campaignHtml+='<div style="font-size:13px;color:#8b949e;display:grid;grid-template-columns:1fr 1fr;gap:4px">';
+          campaignHtml+='<span>Total: <strong style="color:#e1e4e8">'+s.totalUsers+'</strong></span>';
+          campaignHtml+='<span>Pending: <strong style="color:#d29922">'+s.totalUsersPending+'</strong></span>';
+          campaignHtml+='<span>In progress: <strong style="color:#58a6ff">'+s.totalUsersInProgress+'</strong></span>';
+          campaignHtml+='<span>Finished: <strong style="color:#3fb950">'+s.totalUsersFinished+'</strong></span>';
+          campaignHtml+='<span>Failed: <strong style="color:#ef4444">'+s.totalUsersFailed+'</strong></span>';
+          campaignHtml+='<span>Excluded: <strong style="color:#8b949e">'+s.totalUsersExcluded+'</strong></span>';
+          campaignHtml+='</div></div>';
+        });
+        campaignHtml+='</div>';
+      }
+    }catch(e){console.log("HeyReach campaign fetch error:",e)}
+
+    // Build final output
+    let html=campaignHtml;
+
+    if(Object.keys(analyticsData).length>0){
+      html+='<h3 style="font-size:14px;margin:0 0 12px;color:#e1e4e8">Deck Views</h3>';
+      html+='<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="border-bottom:1px solid #30363d;text-align:left"><th style="padding:8px;color:#8b949e">Investor</th><th style="padding:8px;color:#8b949e">Views</th><th style="padding:8px;color:#8b949e">Password</th><th style="padding:8px;color:#8b949e">Scroll</th><th style="padding:8px;color:#8b949e">Time</th><th style="padding:8px;color:#8b949e">Last Visit</th></tr></thead><tbody>';
+      const sorted=Object.entries(analyticsData).sort((a,b)=>b[1].views-a[1].views);
+      sorted.forEach(([name,a])=>{
+        const pwBadge=a.password?'<span style="color:#3fb950">Yes</span>':'<span style="color:#484f58">No</span>';
+        const scroll=a.maxScroll?a.maxScroll+"%":"-";
+        const time=a.maxTime?formatTime(a.maxTime):"-";
+        const last=a.lastVisit?new Date(a.lastVisit).toLocaleDateString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}):"-";
+        const rowColor=a.password?"color:#3fb950":a.views>0?"color:#e1e4e8":"color:#8b949e";
+        html+='<tr style="border-bottom:1px solid #21262d;'+rowColor+'"><td style="padding:8px">'+name+'</td><td style="padding:8px">'+a.views+'</td><td style="padding:8px">'+pwBadge+'</td><td style="padding:8px">'+scroll+'</td><td style="padding:8px">'+time+'</td><td style="padding:8px">'+last+'</td></tr>';
+      });
+      html+='</tbody></table>';
+    } else {
+      html+='<p style="color:#8b949e">No deck views tracked yet.</p>';
     }
 
-    let html='<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="border-bottom:1px solid #30363d;text-align:left"><th style="padding:8px;color:#8b949e">Investor</th><th style="padding:8px;color:#8b949e">Views</th><th style="padding:8px;color:#8b949e">Password</th><th style="padding:8px;color:#8b949e">Scroll</th><th style="padding:8px;color:#8b949e">Time</th><th style="padding:8px;color:#8b949e">Last Visit</th></tr></thead><tbody>';
-    const sorted=Object.entries(analyticsData).sort((a,b)=>b[1].views-a[1].views);
-    sorted.forEach(([name,a])=>{
-      const pwBadge=a.password?'<span style="color:#3fb950">Yes</span>':'<span style="color:#484f58">No</span>';
-      const scroll=a.maxScroll?a.maxScroll+"%":"-";
-      const time=a.maxTime?formatTime(a.maxTime):"-";
-      const last=a.lastVisit?new Date(a.lastVisit).toLocaleDateString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}):"-";
-      const rowColor=a.password?"color:#3fb950":a.views>0?"color:#e1e4e8":"color:#8b949e";
-      html+='<tr style="border-bottom:1px solid #21262d;'+rowColor+'"><td style="padding:8px">'+name+'</td><td style="padding:8px">'+a.views+'</td><td style="padding:8px">'+pwBadge+'</td><td style="padding:8px">'+scroll+'</td><td style="padding:8px">'+time+'</td><td style="padding:8px">'+last+'</td></tr>';
-    });
-    html+='</tbody></table>';
+    html+=hrHtml;
     el.innerHTML=html;
     render();
   }catch(err){

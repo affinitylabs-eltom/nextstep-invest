@@ -11,8 +11,8 @@ create table if not exists visitor_tracking (
   created_at timestamptz default now()
 );
 
-create index idx_visitor_tracking_ref on visitor_tracking(ref);
-create index idx_visitor_tracking_created on visitor_tracking(created_at);
+create index if not exists idx_visitor_tracking_ref on visitor_tracking(ref);
+create index if not exists idx_visitor_tracking_created on visitor_tracking(created_at);
 
 alter table visitor_tracking enable row level security;
 
