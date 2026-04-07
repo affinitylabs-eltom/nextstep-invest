@@ -11,14 +11,11 @@ const SLACK_WEBHOOKS = [
   Deno.env.get("SLACK_WEBHOOK_URL2"),
 ].filter(Boolean) as string[];
 
-async function sendSlack(eventType: string, leadName: string | null, campaignName: string | null, leadLinkedin: string | null) {
-  const emoji = eventType.includes("ACCEPT") ? ":handshake:" : ":bell:";
-  const label = eventType.includes("ACCEPT") ? "Connection Accepted" : eventType;
-
+async function sendSlack(leadName: string | null, campaignName: string | null, leadLinkedin: string | null, messageText: string | null) {
   const blocks = [
     {
       type: "header",
-      text: { type: "plain_text", text: `${emoji} Investor Outreach: ${label}`, emoji: true },
+      text: { type: "plain_text", text: ":speech_balloon: Investor Reply Received!", emoji: true },
     },
     {
       type: "section",
@@ -27,6 +24,9 @@ async function sendSlack(eventType: string, leadName: string | null, campaignNam
         { type: "mrkdwn", text: `*Campaign:*\n${campaignName || "Unknown"}` },
       ],
     },
+    ...(messageText
+      ? [{ type: "section", text: { type: "mrkdwn", text: `*Message:*\n>${messageText.substring(0, 300)}${messageText.length > 300 ? "..." : ""}` } }]
+      : []),
     ...(leadLinkedin
       ? [{ type: "section", text: { type: "mrkdwn", text: `*LinkedIn:* <${leadLinkedin}|View Profile>` } }]
       : []),
@@ -60,10 +60,11 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    const eventType = body.eventType || body.event_type || body.type || "CONNECTION_ACCEPTED";
+    const eventType = body.eventType || body.event_type || body.type || "MESSAGE_REPLY_RECEIVED";
     const leadName = body.leadName || body.lead_name || null;
     const leadLinkedin = body.leadLinkedInUrl || body.profileUrl || null;
     const campaignName = body.campaignName || body.campaign_name || null;
+    const messageText = body.messageText || body.message || null;
 
     const { error } = await supabase.from("heyreach_events").insert({
       event_type: eventType,
@@ -71,13 +72,13 @@ Deno.serve(async (req) => {
       lead_linkedin: leadLinkedin,
       campaign_name: campaignName,
       campaign_id: body.campaignId || body.campaign_id || null,
-      message_text: body.messageText || body.message || null,
+      message_text: messageText,
       raw_payload: body,
     });
 
     if (error) throw error;
 
-    await sendSlack(eventType, leadName, campaignName, leadLinkedin);
+    await sendSlack(leadName, campaignName, leadLinkedin, messageText);
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
