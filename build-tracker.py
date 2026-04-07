@@ -17,14 +17,11 @@ html = """<!DOCTYPE html>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f1117;color:#e1e4e8}
 .pw-gate{position:fixed;inset:0;background:#0f1117;z-index:9999;display:flex;align-items:center;justify-content:center}
-.pw-box{background:#161b22;border:1px solid #21262d;border-radius:12px;padding:40px;text-align:center;max-width:380px;width:90%}
-.pw-box h2{font-size:18px;margin-bottom:8px}
-.pw-box p{font-size:13px;color:#8b949e;margin-bottom:24px}
-.pw-box input{width:100%;padding:10px 14px;padding-right:40px;border-radius:8px;border:1px solid #30363d;background:#0d1117;color:#e1e4e8;font-size:14px;outline:none;margin-bottom:12px}
-.pw-box input:focus{border-color:#58a6ff}
-.pw-box button{width:100%;padding:10px;border-radius:8px;border:none;background:#58a6ff;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
-.pw-box button:hover{background:#4c94e0}
-.pw-err{font-size:12px;color:#ef4444;display:none;margin-bottom:8px}
+.pw-inner{text-align:center;max-width:380px;padding:24px}
+.pw-inner input{width:100%;padding:12px 14px;background:#161b22;border:1px solid #21262d;border-radius:8px;color:#e1e4e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.pw-inner input:focus{border-color:#58a6ff}
+.pw-inner .pw-submit{width:100%;padding:12px;border-radius:8px;border:none;background:#58a6ff;color:#fff;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:center}
+.pw-inner .pw-submit:hover{background:#4c94e0}
 .hdr{padding:24px 32px;border-bottom:1px solid #21262d;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .hdr h1{font-size:20px;font-weight:600}
 .stats{display:flex;gap:12px;font-size:13px;color:#8b949e}
@@ -76,16 +73,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </style>
 </head>
 <body>
-<div class="pw-gate" id="pw-gate">
-  <div class="pw-box">
-    <h2>NextStep Dashboard</h2>
-    <p>Enter the password to access outreach tracking.</p>
-    <form onsubmit="return checkDashPw(event)">
-      <div style="position:relative"><input type="password" id="dash-pw" placeholder="Password" autofocus style="text-align:center;font-size:16px;padding-right:40px"><button type="button" onclick="var i=document.getElementById('dash-pw');var s=this.querySelector('svg');if(i.type==='password'){i.type='text';s.innerHTML='<path d=\\'M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94\\'/><path d=\\'M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19\\'/><path d=\\'M14.12 14.12a3 3 0 11-4.24-4.24\\'/><line x1=\\'1\\' y1=\\'1\\' x2=\\'23\\' y2=\\'23\\'/>'}else{i.type='password';s.innerHTML='<path d=\\'M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\\'/><circle cx=\\'12\\' cy=\\'12\\' r=\\'3\\'/>'}}" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
-      <p class="pw-err" id="dash-pw-err">Incorrect password. Try again.</p>
-      <button type="submit">Enter</button>
-    </form>
-  </div>
+<div id="pw-gate" class="pw-gate">
+<div class="pw-inner">
+<div style="font-size:20px;font-weight:700;margin-bottom:8px">NextStep Dashboard</div>
+<p style="font-size:14px;color:#8b949e;margin-bottom:32px">Enter the password to access outreach tracking.</p>
+<form onsubmit="return checkDashPw(event)" style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative"><input type="password" id="dash-pw" placeholder="Password" autofocus style="text-align:center;font-size:16px;padding-right:40px"><button type="button" onclick="const i=document.getElementById('dash-pw');const s=this.querySelector('svg');if(i.type==='password'){i.type='text';s.innerHTML='<path d=\'M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94\'/><path d=\'M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19\'/><path d=\'M14.12 14.12a3 3 0 11-4.24-4.24\'/><line x1=\'1\' y1=\'1\' x2=\'23\' y2=\'23\'/>'}else{i.type='password';s.innerHTML='<path d=\'M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\'/><circle cx=\'12\' cy=\'12\' r=\'3\'/>'}" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+<button type="submit" class="pw-submit">Enter</button>
+<p id="dash-pw-err" style="font-size:12px;color:#ef4444;display:none">Incorrect password. Try again.</p>
+</form>
+</div>
 </div>
 <div id="app" style="display:none">
 <div class="hdr">
