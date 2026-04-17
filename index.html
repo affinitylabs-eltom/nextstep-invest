@@ -817,7 +817,7 @@ function initAnim(){
 }
 
 /* Password */
-function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='ConsultingComedy2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnim();_tk('password_entered',{password_entered:true})}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
+function checkPw(e){e.preventDefault();const v=document.getElementById('pw-input').value;if(v==='NextStep2026'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');document.body.style.overflow='';initAnim();_tk('password_entered',{password_entered:true})}else{document.getElementById('pw-err').style.display='block';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus()}return false}
 const _hasRef=new URLSearchParams(window.location.search).has('ref');
 if(_hasRef||sessionStorage.getItem('ns-auth')==='1'){document.getElementById('pw-gate').style.display='none';sessionStorage.setItem('ns-auth','1');initAnim()}else{document.body.style.overflow='hidden'}
 
@@ -868,10 +868,7 @@ async function sf(e){
   const fd=new FormData(e.target);
   const payload={
     full_name:fd.get('full_name'),
-    email:fd.get('email'),
-    linkedin:null,
-    commitment_amount:null,
-    notes:null
+    email:fd.get('email')
   };
   try{
     const res=await fetch('https://rqimturydpfiwdzdtpyo.supabase.co/functions/v1/investor-interest',{

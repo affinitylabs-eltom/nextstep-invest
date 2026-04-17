@@ -18,16 +18,18 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    const { error } = await supabase.from("investor_interest").insert({
+    const insertData: Record<string, unknown> = {
       full_name: body.full_name,
       email: body.email,
-      linkedin: body.linkedin,
-      investing_experience: body.investing_experience,
-      domain_expertise: body.domain_expertise,
-      value_add: body.value_add,
-      commitment_amount: body.commitment_amount,
-      notes: body.notes,
-    });
+    };
+    if (body.linkedin) insertData.linkedin = body.linkedin;
+    if (body.investing_experience) insertData.investing_experience = body.investing_experience;
+    if (body.domain_expertise) insertData.domain_expertise = body.domain_expertise;
+    if (body.value_add) insertData.value_add = body.value_add;
+    if (body.commitment_amount) insertData.commitment_amount = body.commitment_amount;
+    if (body.notes) insertData.notes = body.notes;
+
+    const { error } = await supabase.from("investor_interest").insert(insertData);
 
     if (error) throw error;
 
