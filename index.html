@@ -871,9 +871,10 @@ async function sf(e){
     email:fd.get('email')
   };
   try{
+    const SUPA_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxaW10dXJ5ZHBmaXdkemR0cHlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM3MzkyMzMsImV4cCI6MjA3OTMxNTIzM30.3KZfpSOyi_3o9BfsRyTN05HIldpy809_rDTOzxhI_IM';
     const res=await fetch('https://rqimturydpfiwdzdtpyo.supabase.co/functions/v1/investor-interest',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+SUPA_ANON,'apikey':SUPA_ANON},
       body:JSON.stringify(payload)
     });
     if(!res.ok)throw new Error('Submission failed');
